@@ -23,6 +23,7 @@ import java.awt.Component;
 import java.awt.ComponentOrientation;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.SwingConstants;
 
 public class ventanaPrincipal extends JFrame 
 {
@@ -55,12 +56,15 @@ public class ventanaPrincipal extends JFrame
 		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
 		
 		escritorio = new JDesktopPane();
+		escritorio.setBackground(new Color(135, 206, 250));
 		getContentPane().add(escritorio);
 		
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(new Color(100, 149, 237));
 		setJMenuBar(menuBar);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("New menu item");
+		JMenuItem mntmNewMenuItem = new JMenuItem("");
+		mntmNewMenuItem.setBackground(new Color(100, 149, 237));
 		mntmNewMenuItem.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) 
@@ -70,9 +74,24 @@ public class ventanaPrincipal extends JFrame
 				a.show();
 			}
 		});
-		mntmNewMenuItem.setIcon(new ImageIcon(getClass().getResource("/Recursos/logo_-_tec.jpg")));
+		mntmNewMenuItem.setIcon(new ImageIcon(getClass().getResource("/Recursos/configuracion.png")));
 		
 		menuBar.add(mntmNewMenuItem);
+		
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("");
+		mntmNewMenuItem_1.setBackground(new Color(100, 149, 237));
+		mntmNewMenuItem_1.setIcon(new ImageIcon(getClass().getResource("/Recursos/cargar.png")));
+		menuBar.add(mntmNewMenuItem_1);
+		
+		JMenuItem mntmConsultas = new JMenuItem("");
+		mntmConsultas.setBackground(new Color(100, 149, 237));
+		mntmConsultas.setIcon(new ImageIcon(getClass().getResource("/Recursos/consulta.png")));
+		menuBar.add(mntmConsultas);
+		
+		JMenuItem mntmSalir = new JMenuItem("");
+		mntmSalir.setBackground(new Color(100, 149, 237));
+		mntmSalir.setIcon(new ImageIcon(getClass().getResource("/Recursos/salir.png")));
+		menuBar.add(mntmSalir);
 		try {
 			setDefaultLookAndFeelDecorated(true);
 			JDialog.setDefaultLookAndFeelDecorated(true);
