@@ -1,0 +1,54 @@
+package GUI;
+
+import java.awt.EventQueue;
+
+public class ventanaRegistroUsuario {
+
+	private JFrame frmRegistroDeUsuario;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ventanaRegistroUsuario window = new ventanaRegistroUsuario();
+					window.frmRegistroDeUsuario.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public ventanaRegistroUsuario() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmRegistroDeUsuario = new JFrame();
+		frmRegistroDeUsuario.getContentPane().setBackground(SystemColor.inactiveCaption);
+		frmRegistroDeUsuario.setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaRegistroUsuario.class.getResource("/Recursos/logo.png")));
+		frmRegistroDeUsuario.setTitle("Registro de Usuario");
+		frmRegistroDeUsuario.setBounds(100, 100, 450, 300);
+		frmRegistroDeUsuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmRegistroDeUsuario.getContentPane().setLayout(null);
+		
+		JTextPane txtrNombre = new JTextPane();
+		txtrNombre.setEnabled(false);
+		txtrNombre.setBackground(SystemColor.inactiveCaption);
+		txtrNombre.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		txtrNombre.setEditable(false);
+		txtrNombre.setText("Nombre");
+		txtrNombre.setBounds(10, 11, 57, 22);
+		frmRegistroDeUsuario.getContentPane().add(txtrNombre);
+	}
+
+}
