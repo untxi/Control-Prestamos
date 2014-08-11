@@ -8,8 +8,6 @@ public class Main {
 	{
 		System.out.println("Hola Mundo");
 		new ventanaPrincipal();
-		// TODO Auto-generated method stub
-
 	}
 
 }
