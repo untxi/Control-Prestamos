@@ -19,6 +19,7 @@ public class administradorAplicacion implements IConstantes
 	private listaCategorias miListaCategorias = new listaCategorias();
 	private ArrayList<String> tiposCategorias = new ArrayList<String>();
 	private listaPersonas Usuarios = new listaPersonas();
+	private Usuario usuario;
 
 	
 	private administradorAplicacion()
@@ -107,15 +108,19 @@ public class administradorAplicacion implements IConstantes
 	public boolean validarUsuario(String pNickName ,String pContraseña)
 	{
 		int indice;
+		boolean existe = false;
 		for(indice = 0; indice < Usuarios.getPersonas().size(); indice++)
 		{
-			if(((Usuario)Usuarios.getPersonas().get(indice)).getNikname() == pNickName &&
-					((Usuario)Usuarios.getPersonas().get(indice)).getContraseña() == pContraseña)
+			System.out.println(((Usuario)Usuarios.getPersonas().get(indice)).getNikname());
+			if(((Usuario)Usuarios.getPersonas().get(indice)).getNikname().compareTo(pNickName) == 0 &&
+					((Usuario)Usuarios.getPersonas().get(indice)).getContraseña().compareTo(pContraseña) == 0)
 			{
-				return true;
+				System.out.println(((Usuario)Usuarios.getPersonas().get(indice)).getNikname());
+				usuario = ((Usuario)Usuarios.getPersonas().get(indice));
+				existe = true;
 			}
 		}
-		return false;
+		return existe;
 	}
 	public listaPersonas getPersonas() {
 		return Personas;
@@ -147,6 +152,14 @@ public class administradorAplicacion implements IConstantes
 
 	public void setUsuarios(listaPersonas usuarios) {
 		Usuarios = usuarios;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 }

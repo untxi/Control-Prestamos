@@ -28,6 +28,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.SwingConstants;
 import javax.swing.JToolBar;
 
+import Administradores.administradorAplicacion;
 import Interfaces.IConstantes;
 
 import java.awt.event.ActionListener;
@@ -53,28 +54,27 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 	private JMenu menuConsultar;
 	private JMenu menuSalir;
 	private JPanel panel = new JPanel();
+	private static ventanaPrincipal miVentanaPrincipal;
 	
 
+	
+	public static ventanaPrincipal getInstance()
+	{
+		if(miVentanaPrincipal == null)
+		{
+			miVentanaPrincipal = new ventanaPrincipal();
+		}
+		return miVentanaPrincipal;
+	}
+	
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ventanaPrincipal frame = new ventanaPrincipal();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public ventanaPrincipal() 
+	private ventanaPrincipal() 
 	{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1152, 593);
@@ -114,6 +114,12 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		menuBar.add(menuRegistro);
 		
 		JMenuItem mntmCrearCuenta = new JMenuItem("Crear cuenta");
+		mntmCrearCuenta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				ventanaRegistroUsuario.getInstance().setVisible(true);
+			}
+		});
 		mntmCrearCuenta.setIcon(new ImageIcon(imagenUser));
 		mntmCrearCuenta.setBackground(new Color(100, 149, 237));
 		menuRegistro.add(mntmCrearCuenta);
@@ -122,9 +128,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		mntmIniciarSecion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				menuConfiguracion.setEnabled(true);
-				menuAgregar.setEnabled(true);
-				menuConsultar.setEnabled(true);
+				ventanaLogin.getInstance().setVisible(true);
 			}
 		});
 		mntmIniciarSecion.setIcon(new ImageIcon(imagenUser));
@@ -135,9 +139,8 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		mntmCerrarSecion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				menuConfiguracion.setEnabled(false);
-				menuAgregar.setEnabled(false);
-				menuConsultar.setEnabled(false);
+				administradorAplicacion.getInstance().setUsuario(null);
+				desactivarAplicacion();
 			}
 		});
 		mntmCerrarSecion.setIcon(new ImageIcon(imagenUser));
@@ -256,12 +259,25 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 			e.printStackTrace();
 		}
 		
-		
+		desactivarAplicacion();
+		escritorio.add(ventanaRegistroUsuario.getInstance());
+		escritorio.add(ventanaLogin.getInstance());
+		//mostrarConsultaArticulos(10);
+		setVisible(true);
+	}
+	
+	public void activarAplicacion()
+	{
+		menuConfiguracion.setEnabled(true);
+		menuAgregar.setEnabled(true);
+		menuConsultar.setEnabled(true);
+	}
+	
+	public void desactivarAplicacion()
+	{
 		menuConfiguracion.setEnabled(false);
 		menuAgregar.setEnabled(false);
 		menuConsultar.setEnabled(false);
-		mostrarConsultaArticulos(10);
-		setVisible(true);
 	}
 	
 	private void mostrarConsultaArticulos(int x)
