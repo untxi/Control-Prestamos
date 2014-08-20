@@ -78,12 +78,11 @@ public class ventanaRegistroUsuario extends JInternalFrame
 					passwordField.setText("");
 					setVisible(false);
 					JOptionPane.showMessageDialog(null, "Usuario agreado con exito");
-					System.out.println("Usuario agregado");
+					//System.out.println("Usuario agregado");
 				}
 				else
 				{
 					JOptionPane.showMessageDialog(null, "Debe llenar todos los campos del formulario");
-					System.out.println("Llene todos los espacios del formulario");
 				}
 			}
 			

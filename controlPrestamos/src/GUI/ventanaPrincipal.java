@@ -189,16 +189,34 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		menuBar.add(menuAgregar);
 		
 		JMenuItem mntmAgregarArticulo = new JMenuItem("Agregar articulo");
+		mntmAgregarArticulo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				/// agregar articulo
+			}
+		});
 		mntmAgregarArticulo.setIcon(new ImageIcon(imagenArticulos));
 		mntmAgregarArticulo.setBackground(new Color(100, 149, 237));
 		menuAgregar.add(mntmAgregarArticulo);
 		
 		JMenuItem mntmAgregarPersona = new JMenuItem("Agregar persona");
+		mntmAgregarPersona.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				ventanaAgregarPersona.getInstance().setVisible(true);
+			}
+		});
 		mntmAgregarPersona.setBackground(new Color(100, 149, 237));
 		mntmAgregarPersona.setIcon(new ImageIcon(imagenPersona));
 		menuAgregar.add(mntmAgregarPersona);
 		
 		JMenuItem mntmAgregarCategoriaArticulo = new JMenuItem("Agregar categoria articulo");
+		mntmAgregarCategoriaArticulo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				ventanaAgregarCategoria.getInstance().setVisible(true);
+			}
+		});
 		mntmAgregarCategoriaArticulo.setIcon(new ImageIcon(imagenArticulos));
 		mntmAgregarCategoriaArticulo.setBackground(new Color(100, 149, 237));
 		menuAgregar.add(mntmAgregarCategoriaArticulo);
@@ -325,6 +343,8 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		desactivarAplicacion();
 		escritorio.add(ventanaRegistroUsuario.getInstance());
 		escritorio.add(ventanaLogin.getInstance());
+		escritorio.add(ventanaAgregarPersona.getInstance());
+		escritorio.add(ventanaAgregarCategoria.getInstance());
 		//mostrarConsultaArticulos(10);
 		setVisible(true);
 	}

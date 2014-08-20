@@ -12,6 +12,7 @@ public interface IConstantes
 	final String imagenConsulta = "src\\Recursos\\ImagenesAplicacion\\consulta.png";
 	final String imagenSalir = "src\\Recursos\\ImagenesAplicacion\\salir.png";
 	final String imagenPortada = "src\\Recursos\\ImagenesAplicacion\\portada.png";
+	final String pathImagenes = "src\\Recursos\\ImagenesAplicacion\\";
 
 	
 	final int categoriaLibro = 0;

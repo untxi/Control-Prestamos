@@ -5,6 +5,7 @@ import Estructuras.Categoria;
 import Estructuras.Libro;
 import Estructuras.Otro;
 import Estructuras.Pelicula;
+import Estructuras.Persona;
 import Estructuras.Usuario;
 import Estructuras.listaCategorias;
 import Estructuras.listaPersonas;
@@ -48,24 +49,31 @@ public class administradorAplicacion implements IConstantes
 		Personas.imprimir();
 	}
 	
+	public void agregarPersona(String pNombre, String pApellido1, String pApellido2,
+			String pCedula, String pTelefono, String pCorreoE, int pCategoria)
+	{
+		Personas.agregar(new Persona(pNombre, pApellido1, pApellido2, pCedula, pTelefono, pCorreoE, pCategoria));
+		
+	}
+	
 	public void cargarLibros(String pPath)
 	{
 		miAdministradorArchivos.leerArchivoLibro(pPath,miListaCategorias.getCategorias().get(categoriaLibro).getArticulos());
-		System.out.println(miListaCategorias.getCategorias().get(categoriaLibro).getnombreCategoria());
+		//System.out.println(miListaCategorias.getCategorias().get(categoriaLibro).getnombreCategoria());
 		miListaCategorias.getCategorias().get(categoriaLibro).getArticulos().imprimir();
 	}
 
 	public void cargarRevistas(String pPath)
 	{
 		miAdministradorArchivos.leerArchivoLibro(pPath,miListaCategorias.getCategorias().get(categoriaRevista).getArticulos());
-		System.out.println(miListaCategorias.getCategorias().get(categoriaRevista).getnombreCategoria());
+		//System.out.println(miListaCategorias.getCategorias().get(categoriaRevista).getnombreCategoria());
 		miListaCategorias.getCategorias().get(categoriaRevista).getArticulos().imprimir();
 	}
 	
 	public void cargarPeliculas(String pPath)
 	{
 		miAdministradorArchivos.leerArchivoPelicula(pPath,miListaCategorias.getCategorias().get(categoriaPelicula).getArticulos());
-		System.out.println(miListaCategorias.getCategorias().get(categoriaPelicula).getnombreCategoria());
+		//System.out.println(miListaCategorias.getCategorias().get(categoriaPelicula).getnombreCategoria());
 		miListaCategorias.getCategorias().get(categoriaPelicula).getArticulos().imprimir();
 	}
 	
@@ -111,11 +119,11 @@ public class administradorAplicacion implements IConstantes
 		boolean existe = false;
 		for(indice = 0; indice < Usuarios.getPersonas().size(); indice++)
 		{
-			System.out.println(((Usuario)Usuarios.getPersonas().get(indice)).getNikname());
+			//System.out.println(((Usuario)Usuarios.getPersonas().get(indice)).getNikname());
 			if(((Usuario)Usuarios.getPersonas().get(indice)).getNikname().compareTo(pNickName) == 0 &&
 					((Usuario)Usuarios.getPersonas().get(indice)).getContraseña().compareTo(pContraseña) == 0)
 			{
-				System.out.println(((Usuario)Usuarios.getPersonas().get(indice)).getNikname());
+				//System.out.println(((Usuario)Usuarios.getPersonas().get(indice)).getNikname());
 				usuario = ((Usuario)Usuarios.getPersonas().get(indice));
 				existe = true;
 			}
