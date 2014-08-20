@@ -70,6 +70,7 @@ public class ventanaLogin extends JInternalFrame {
 						passwordField.setText("");
 						ventanaPrincipal.getInstance().activarAplicacion();
 						setVisible(false);
+						JOptionPane.showMessageDialog(null, "Bienvenido "+ administradorAplicacion.getInstance().getUsuario().getNombre() );
 					}
 					else
 					{

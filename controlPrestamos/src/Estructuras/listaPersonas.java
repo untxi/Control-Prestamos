@@ -13,7 +13,8 @@ public class listaPersonas {
 	// alfabetico
 	// una vez que agregue con orden alfabetico solo buscamos en la letra
 	// especifica!
-	public void agregar(Persona nuevaPersona) {
+	public void agregar(Persona nuevaPersona) 
+	{
 		Personas.add(nuevaPersona);
 	}
 

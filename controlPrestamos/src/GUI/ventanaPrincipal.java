@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -44,6 +45,10 @@ import java.awt.Point;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.ScrollPaneConstants;
+import javax.swing.JLabel;
+import javax.swing.LayoutStyle.ComponentPlacement;
+
+import java.awt.Font;
 
 public class ventanaPrincipal extends JFrame implements IConstantes 
 {
@@ -54,6 +59,8 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 	private JMenu menuConsultar;
 	private JMenu menuSalir;
 	private JPanel panel = new JPanel();
+	private JLabel lblNewLabel;
+	private JFileChooser ventaBuscador;
 	private static ventanaPrincipal miVentanaPrincipal;
 	
 
@@ -89,16 +96,25 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setAutoscrolls(true);
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 36));
 		GroupLayout gl_escritorio = new GroupLayout(escritorio);
 		gl_escritorio.setHorizontalGroup(
 			gl_escritorio.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_escritorio.createSequentialGroup()
-					.addContainerGap(981, Short.MAX_VALUE)
+				.addGroup(Alignment.TRAILING, gl_escritorio.createSequentialGroup()
+					.addGap(217)
+					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 384, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
 					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 342, GroupLayout.PREFERRED_SIZE))
 		);
 		gl_escritorio.setVerticalGroup(
 			gl_escritorio.createParallelGroup(Alignment.LEADING)
 				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE)
+				.addGroup(gl_escritorio.createSequentialGroup()
+					.addGap(11)
+					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
+					.addGap(455))
 		);
 		escritorio.setLayout(gl_escritorio);
 		
@@ -187,19 +203,65 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		mntmAgregarCategoriaArticulo.setBackground(new Color(100, 149, 237));
 		menuAgregar.add(mntmAgregarCategoriaArticulo);
 		
-		JMenuItem mntmAgregarCategoria = new JMenuItem("Agregar categoria persona");
-		mntmAgregarCategoria.setBackground(new Color(100, 149, 237));
-		mntmAgregarCategoria.setIcon(new ImageIcon(imagenPersona));
-		menuAgregar.add(mntmAgregarCategoria);
-		
-		JMenuItem mntmAgregarArticulosDesde = new JMenuItem("Agregar articulos desde archivo txt");
+		JMenuItem mntmAgregarArticulosDesde = new JMenuItem("Agregar Libros desde archivo txt");
+		mntmAgregarArticulosDesde.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0)
+			{
+				int respuesta = ventaBuscador.showOpenDialog(miVentanaPrincipal);
+		        if (respuesta == JFileChooser.APPROVE_OPTION)
+		        	{
+		        		administradorAplicacion.getInstance().cargarLibros(ventaBuscador.getSelectedFile().getAbsolutePath());
+			        }		
+	        }
+			});
 		mntmAgregarArticulosDesde.setIcon(new ImageIcon(imagenArticulos));
 		mntmAgregarArticulosDesde.setBackground(new Color(100, 149, 237));
 		menuAgregar.add(mntmAgregarArticulosDesde);
 		
+		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Agregar revistas desde archivo txt");
+		mntmNewMenuItem_5.setBackground(new Color(100, 149, 237));
+		mntmNewMenuItem_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				int respuesta = ventaBuscador.showOpenDialog(miVentanaPrincipal);
+		        if (respuesta == JFileChooser.APPROVE_OPTION)
+		        	{
+		        		administradorAplicacion.getInstance().cargarRevistas(ventaBuscador.getSelectedFile().getAbsolutePath());
+			        }		
+				// agregar revistas desde archivo txt
+			}
+		});
+		mntmNewMenuItem_5.setIcon(new ImageIcon(imagenArticulos));
+		menuAgregar.add(mntmNewMenuItem_5);
+		
+		JMenuItem mntmNewMenuItem_6 = new JMenuItem("Agregar peliculas desde archivo txt");
+		mntmNewMenuItem_6.setBackground(new Color(100, 149, 237));
+		mntmNewMenuItem_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				int respuesta = ventaBuscador.showOpenDialog(miVentanaPrincipal);
+		        if (respuesta == JFileChooser.APPROVE_OPTION)
+		        	{
+		        		administradorAplicacion.getInstance().cargarPeliculas(ventaBuscador.getSelectedFile().getAbsolutePath());
+			        }		
+			}
+		});
+		mntmNewMenuItem_6.setIcon(new ImageIcon(imagenArticulos));
+		menuAgregar.add(mntmNewMenuItem_6);
+		
 		JMenuItem mntmAgregarPersonasDesde = new JMenuItem("Agregar personas desde archivo txt");
+		mntmAgregarPersonasDesde.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				int respuesta = ventaBuscador.showOpenDialog(miVentanaPrincipal);
+		        if (respuesta == JFileChooser.APPROVE_OPTION)
+		        	{
+		        		administradorAplicacion.getInstance().cargarPersonas(ventaBuscador.getSelectedFile().getAbsolutePath());
+			        }		
+			}
+		});
 		mntmAgregarPersonasDesde.setBackground(new Color(100, 149, 237));
-		mntmAgregarPersonasDesde.setIcon(new ImageIcon(imagenPersona));
+		mntmAgregarPersonasDesde.setIcon(new ImageIcon(imagenArticulos));
 		menuAgregar.add(mntmAgregarPersonasDesde);
 		
 		menuConsultar = new JMenu("");
@@ -258,6 +320,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		ventaBuscador = new JFileChooser();
 		
 		desactivarAplicacion();
 		escritorio.add(ventanaRegistroUsuario.getInstance());
@@ -271,6 +334,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		menuConfiguracion.setEnabled(true);
 		menuAgregar.setEnabled(true);
 		menuConsultar.setEnabled(true);
+		lblNewLabel.setText("Bienvenido " + administradorAplicacion.getInstance().getUsuario().getNombre());
 	}
 	
 	public void desactivarAplicacion()
@@ -278,7 +342,9 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		menuConfiguracion.setEnabled(false);
 		menuAgregar.setEnabled(false);
 		menuConsultar.setEnabled(false);
+		lblNewLabel.setText("");
 	}
+	
 	
 	private void mostrarConsultaArticulos(int x)
 	{
