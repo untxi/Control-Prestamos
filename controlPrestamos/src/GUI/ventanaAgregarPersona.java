@@ -14,7 +14,6 @@ import Administradores.administradorAplicacion;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Font;
 
 public class ventanaAgregarPersona extends JInternalFrame 
 {
@@ -53,32 +52,26 @@ public class ventanaAgregarPersona extends JInternalFrame
 		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Nombre");
-		lblNewLabel.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblNewLabel.setBounds(10, 14, 46, 14);
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Primer Apellido");
-		lblNewLabel_1.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblNewLabel_1.setBounds(176, 14, 80, 14);
 		getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Segundo Apellido");
-		lblNewLabel_2.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblNewLabel_2.setBounds(381, 14, 96, 14);
 		getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("C\u00E9dula");
-		lblNewLabel_3.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblNewLabel_3.setBounds(10, 69, 46, 14);
 		getContentPane().add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Telefono");
-		lblNewLabel_4.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblNewLabel_4.setBounds(176, 69, 46, 14);
 		getContentPane().add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Correo");
-		lblNewLabel_5.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblNewLabel_5.setBounds(381, 69, 46, 14);
 		getContentPane().add(lblNewLabel_5);
 		
@@ -119,7 +112,6 @@ public class ventanaAgregarPersona extends JInternalFrame
 		getContentPane().add(comboBox);
 		
 		JLabel lblNewLabel_6 = new JLabel("Categoria");
-		lblNewLabel_6.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblNewLabel_6.setBounds(10, 126, 71, 14);
 		getContentPane().add(lblNewLabel_6);
 		
