@@ -1,0 +1,2 @@
+evento handler en combobox
+hacer un metodo bloquear para cada panel

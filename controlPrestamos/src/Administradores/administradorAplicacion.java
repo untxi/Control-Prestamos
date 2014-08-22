@@ -170,4 +170,12 @@ public class administradorAplicacion implements IConstantes
 		this.usuario = usuario;
 	}
 
+	public ArrayList<String> getTiposCategorias() {
+		return tiposCategorias;
+	}
+
+	public void setTiposCategorias(ArrayList<String> tiposCategorias) {
+		this.tiposCategorias = tiposCategorias;
+	}
+
 }

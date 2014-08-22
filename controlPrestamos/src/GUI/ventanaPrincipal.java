@@ -192,7 +192,8 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		mntmAgregarArticulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				/// agregar articulo
+				ventanaAgregarArticulo.getInstance().cambiarComboBox();
+				ventanaAgregarArticulo.getInstance().setVisible(true);
 			}
 		});
 		mntmAgregarArticulo.setIcon(new ImageIcon(imagenArticulos));
@@ -345,6 +346,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		escritorio.add(ventanaLogin.getInstance());
 		escritorio.add(ventanaAgregarPersona.getInstance());
 		escritorio.add(ventanaAgregarCategoria.getInstance());
+		escritorio.add(ventanaAgregarArticulo.getInstance());
 		//mostrarConsultaArticulos(10);
 		setVisible(true);
 	}

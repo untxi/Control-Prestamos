@@ -35,6 +35,7 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 	 */
 	public ventanaAgregarCategoria() 
 	{
+		setIconifiable(true);
 		setBounds(100, 100, 315, 149);
 		getContentPane().setLayout(null);
 		
