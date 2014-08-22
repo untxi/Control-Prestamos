@@ -101,20 +101,20 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 36));
 		GroupLayout gl_escritorio = new GroupLayout(escritorio);
 		gl_escritorio.setHorizontalGroup(
-			gl_escritorio.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_escritorio.createSequentialGroup()
+			gl_escritorio.createParallelGroup(Alignment.TRAILING)
+				.addGroup(Alignment.LEADING, gl_escritorio.createSequentialGroup()
 					.addGap(217)
 					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 384, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
-					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 342, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 498, GroupLayout.PREFERRED_SIZE))
 		);
 		gl_escritorio.setVerticalGroup(
 			gl_escritorio.createParallelGroup(Alignment.LEADING)
-				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE)
 				.addGroup(gl_escritorio.createSequentialGroup()
 					.addGap(11)
 					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
 					.addGap(455))
+				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE)
 		);
 		escritorio.setLayout(gl_escritorio);
 		
