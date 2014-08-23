@@ -1,12 +1,12 @@
 package Administradores;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.ArrayList;
 
-import Estructuras.Articulo;
 import Estructuras.Libro;
 import Estructuras.Pelicula;
 import Estructuras.Persona;
+import Estructuras.listaArticulos;
+import Estructuras.listaPersonas;
 
 public class administradorArchivos 
 {
@@ -14,7 +14,7 @@ public class administradorArchivos
 
 	FileReader fr = null;
 	BufferedReader br = null;
-	public void leerArchivoLibro(String ruta, ArrayList<Articulo> pListaArticulos) {
+	public void leerArchivoLibro(String ruta, listaArticulos pListaArticulos) {
 		try {
 			fr = new FileReader(ruta);
 			br = new BufferedReader(fr);
@@ -24,7 +24,7 @@ public class administradorArchivos
 			while ((linea = br.readLine()) != null)
 			{
 				String[] tokens = linea.split("-");
-				pListaArticulos.add(crearLibro(tokens));
+				pListaArticulos.agregar(crearLibro(tokens));
 			}
 
 		} catch (Exception e) {
@@ -39,7 +39,7 @@ public class administradorArchivos
 		}
 	}
 
-	public void leerArchivoPelicula(String ruta, ArrayList<Articulo> pListaArticulos) {
+	public void leerArchivoPelicula(String ruta, listaArticulos pListaArticulos) {
 		try {
 			fr = new FileReader(ruta);
 			br = new BufferedReader(fr);
@@ -49,7 +49,7 @@ public class administradorArchivos
 			while ((linea = br.readLine()) != null)
 			{
 				String[] tokens = linea.split("-");
-				pListaArticulos.add(crearPelicula(tokens));
+				pListaArticulos.agregar(crearPelicula(tokens));
 			}
 
 		} catch (Exception e) {
@@ -64,7 +64,7 @@ public class administradorArchivos
 		}
 	}
 
-	public void leerArchivoPersona(String ruta, ArrayList<Persona> pListaPersonas) {
+	public void leerArchivoPersona(String ruta, listaPersonas pListaPersonas) {
 		try {
 			fr = new FileReader(ruta);
 			br = new BufferedReader(fr);
@@ -75,7 +75,7 @@ public class administradorArchivos
 			while ((linea = br.readLine()) != null)
 			{
 				String[] tokens = linea.split("-");
-				pListaPersonas.add(crearPersona(tokens));
+				pListaPersonas.agregar(crearPersona(tokens));
 			}
 
 		} catch (Exception e) {
@@ -116,6 +116,7 @@ public class administradorArchivos
 
 	private Pelicula crearPelicula(String[] pPelicula) 
 	{
+		
 		Pelicula nPelicula = new Pelicula(pPelicula[0] ,Integer.parseInt(pPelicula[1]), pPelicula[2],pPelicula[3],pPelicula[4]);
 		return nPelicula;
 	}

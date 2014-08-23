@@ -1,22 +1,25 @@
 package Administradores;
 import java.util.ArrayList;
 
-import Estructuras.Articulo;
+import Estructuras.Categoria;
 import Estructuras.Libro;
 import Estructuras.Otro;
 import Estructuras.Pelicula;
 import Estructuras.Persona;
 import Estructuras.Usuario;
+import Estructuras.listaCategorias;
+import Estructuras.listaPersonas;
 import Interfaces.IConstantes;
 
 
 public class administradorAplicacion implements IConstantes
 {
 	private static administradorAplicacion miAdministrador;
-	private ArrayList<Persona> Personas = new ArrayList<Persona>();
+	private listaPersonas Personas = new listaPersonas();
 	private administradorArchivos miAdministradorArchivos = new administradorArchivos();
+	private listaCategorias miListaCategorias = new listaCategorias();
 	private ArrayList<String> tiposCategorias = new ArrayList<String>();
-	private ArrayList<ArrayList<Articulo>> miListaCategorias = new ArrayList<ArrayList<Articulo>>();
+	private listaPersonas Usuarios = new listaPersonas();
 	private Usuario usuario;
 
 	
@@ -27,7 +30,7 @@ public class administradorAplicacion implements IConstantes
 		tiposCategorias.add("Pelicula");
 		for(int i = 0;i < tiposCategorias.size(); i++)
 		{
-			miListaCategorias.add(new ArrayList<Articulo>());
+			miListaCategorias.agregarCategoria(new Categoria(tiposCategorias.get(i)));
 		}
 	}
 	
@@ -40,115 +43,98 @@ public class administradorAplicacion implements IConstantes
 		return miAdministrador;
 	}
 	
-	public void imprimirListaCategorias()
-	{
-		int i,j;
-		for(i=0;i<miListaCategorias.size();i++)
-		{
-			System.out.println("Categoria: "+tiposCategorias.get(i));
-			for(j=0;j<miListaCategorias.get(i).size();j++)
-			{
-				System.out.println(miListaCategorias.get(i).get(j).getNombre());
-			}
-		}
-	}
-	
-	public void imprimirListaPersonas()
-	{
-		int i;
-		System.out.println("Lista Personas");
-		for(i=0;i<Personas.size();i++)
-		{
-			System.out.println("Nombre: "+ Personas.get(i).getNombre());
-		}
-	}
-	
 	public void cargarPersonas(String pPath)
 	{
 		miAdministradorArchivos.leerArchivoPersona(pPath, Personas);
-		imprimirListaPersonas();
+		Personas.imprimir();
 	}
 	
 	public void agregarPersona(String pNombre, String pApellido1, String pApellido2,
 			String pCedula, String pTelefono, String pCorreoE, int pCategoria)
 	{
-		Personas.add(new Persona(pNombre, pApellido1, pApellido2, pCedula, pTelefono, pCorreoE, pCategoria));
+		Personas.agregar(new Persona(pNombre, pApellido1, pApellido2, pCedula, pTelefono, pCorreoE, pCategoria));
 		
 	}
 	
 	public void cargarLibros(String pPath)
 	{
-		miAdministradorArchivos.leerArchivoLibro(pPath,miListaCategorias.get(categoriaLibro));
-		imprimirListaCategorias();
+		miAdministradorArchivos.leerArchivoLibro(pPath,miListaCategorias.getCategorias().get(categoriaLibro).getArticulos());
 		//System.out.println(miListaCategorias.getCategorias().get(categoriaLibro).getnombreCategoria());
-		//miListaCategorias.getCategorias().get(categoriaLibro).getArticulos().imprimir();
+		miListaCategorias.getCategorias().get(categoriaLibro).getArticulos().imprimir();
 	}
 
 	public void cargarRevistas(String pPath)
 	{
-		miAdministradorArchivos.leerArchivoLibro(pPath,miListaCategorias.get(categoriaRevista));
-		imprimirListaCategorias();
+		miAdministradorArchivos.leerArchivoLibro(pPath,miListaCategorias.getCategorias().get(categoriaRevista).getArticulos());
 		//System.out.println(miListaCategorias.getCategorias().get(categoriaRevista).getnombreCategoria());
-		//miListaCategorias.getCategorias().get(categoriaRevista).getArticulos().imprimir();
+		miListaCategorias.getCategorias().get(categoriaRevista).getArticulos().imprimir();
 	}
 	
 	public void cargarPeliculas(String pPath)
 	{
-		miAdministradorArchivos.leerArchivoPelicula(pPath,miListaCategorias.get(categoriaPelicula));
-		imprimirListaCategorias();
+		miAdministradorArchivos.leerArchivoPelicula(pPath,miListaCategorias.getCategorias().get(categoriaPelicula).getArticulos());
 		//System.out.println(miListaCategorias.getCategorias().get(categoriaPelicula).getnombreCategoria());
-		//miListaCategorias.getCategorias().get(categoriaPelicula).getArticulos().imprimir();
+		miListaCategorias.getCategorias().get(categoriaPelicula).getArticulos().imprimir();
 	}
 	
 	public void agregarCategoria(String pCategoria)
 	{
 		tiposCategorias.add(pCategoria);
-		miListaCategorias.add(new ArrayList<Articulo>());
-		//miListaCategorias.agregarCategoria(new Categoria(pCategoria));
+		miListaCategorias.agregarCategoria(new Categoria(pCategoria));
 	} 
 	
 	public void agregarLibro(String pTitulo ,String pAutor, String pEditorial, 
 							 String pEdicion,int pCalificacion, String pImagen)
 	{
 		Libro nuevoLibro = new Libro(pTitulo ,pAutor, pEditorial, pEdicion, pCalificacion, pImagen);
-		miListaCategorias.get(categoriaLibro).add(nuevoLibro);
+		miListaCategorias.getCategorias().get(categoriaLibro).getArticulos().agregar(nuevoLibro);
 	}
 	public void agregarRevista(String pTitulo ,String pAutor, String pEditorial, 
 			 				   String pEdicion,int pCalificacion, String pImagen)
 	{
 		Libro nuevaRevista = new Libro(pTitulo ,pAutor, pEditorial, pEdicion, pCalificacion, pImagen);
-		miListaCategorias.get(categoriaRevista).add(nuevaRevista);
+		miListaCategorias.getCategorias().get(categoriaRevista).getArticulos().agregar(nuevaRevista);
 	}
 	public void agregarPelicula(String pNombre, int pCalificacion, String pImagen,
 			String pDirector, String pCategoria)
 	{
 		Pelicula nuevaPelicula = new Pelicula(pNombre, pCalificacion, pImagen, pDirector, pCategoria);
-		miListaCategorias.get(categoriaPelicula).add(nuevaPelicula);
+		miListaCategorias.getCategorias().get(categoriaPelicula).getArticulos().agregar(nuevaPelicula);
 	}
 	public void agregarOtro(String pNombre, int pCalificacion, String pIimagen,
 							String pDescripcion, int pIndiceCategoria)
 	{
 		Otro nuevoArticulo = new Otro(pNombre, pCalificacion, pIimagen, pDescripcion);
-		miListaCategorias.get(pIndiceCategoria).add(nuevoArticulo);
+		miListaCategorias.getCategorias().get(pIndiceCategoria).getArticulos().agregar(nuevoArticulo);
 	}
 	
+	public void agregarUsuario(String pNombre, String pNickName ,String pContraseña)
+	{
+		Usuarios.agregar(new Usuario(pNombre, pNickName ,pContraseña));
+	}
 	
 	public boolean validarUsuario(String pNickName ,String pContraseña)
 	{
-		boolean esUsuario = false;
-		if(usuario.getNikname().compareTo(pNickName) == 0 && usuario.getContraseña().compareTo(pContraseña) == 0)
+		int indice;
+		boolean existe = false;
+		for(indice = 0; indice < Usuarios.getPersonas().size(); indice++)
 		{
-			esUsuario = true;
+			//System.out.println(((Usuario)Usuarios.getPersonas().get(indice)).getNikname());
+			if(((Usuario)Usuarios.getPersonas().get(indice)).getNikname().compareTo(pNickName) == 0 &&
+					((Usuario)Usuarios.getPersonas().get(indice)).getContraseña().compareTo(pContraseña) == 0)
+			{
+				//System.out.println(((Usuario)Usuarios.getPersonas().get(indice)).getNikname());
+				usuario = ((Usuario)Usuarios.getPersonas().get(indice));
+				existe = true;
+			}
 		}
-		return esUsuario;
+		return existe;
 	}
-	public ArrayList<Persona> getPersonas()
-	{
+	public listaPersonas getPersonas() {
 		return Personas;
 	}
 
-	public void setPersonas(ArrayList<Persona> personas) 
-	{
+	public void setPersonas(listaPersonas personas) {
 		Personas = personas;
 	}
 
@@ -160,14 +146,21 @@ public class administradorAplicacion implements IConstantes
 		this.miAdministradorArchivos = miAdministradorArchivos;
 	}
 
-	public ArrayList<ArrayList<Articulo>> getMiListaCategorias() {
+	public listaCategorias getMiListaCategorias() {
 		return miListaCategorias;
 	}
 
-	public void setMiListaCategorias(ArrayList<ArrayList<Articulo>> miListaCategorias) {
+	public void setMiListaCategorias(listaCategorias miListaCategorias) {
 		this.miListaCategorias = miListaCategorias;
 	}
 
+	public listaPersonas getUsuarios() {
+		return Usuarios;
+	}
+
+	public void setUsuarios(listaPersonas usuarios) {
+		Usuarios = usuarios;
+	}
 
 	public Usuario getUsuario() {
 		return usuario;
