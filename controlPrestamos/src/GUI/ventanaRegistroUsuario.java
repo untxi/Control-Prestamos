@@ -10,6 +10,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JButton;
 
 import Administradores.administradorAplicacion;
+import Estructuras.Usuario;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -72,7 +73,7 @@ public class ventanaRegistroUsuario extends JInternalFrame
 			{
 				if(!textField.getText().isEmpty() && !textField_1.getText().isEmpty() && !passwordField.getText().isEmpty())
 				{
-					administradorAplicacion.getInstance().agregarUsuario(textField.getText(), textField_1.getText(), passwordField.getText());
+					administradorAplicacion.getInstance().setUsuario(new Usuario(textField.getText(), textField_1.getText(), passwordField.getText()));
 					textField.setText("");
 					textField_1.setText("");
 					passwordField.setText("");
