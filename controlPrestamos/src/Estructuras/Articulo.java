@@ -4,6 +4,7 @@ public class Articulo {
 	private String nombre;
 	private int calificacion;
 	private String imagen;
+	private int vecesPrestado;
 	
 	public Articulo(String nombre, int calificacion, String imagen) {
 		this.nombre = nombre;
@@ -33,5 +34,13 @@ public class Articulo {
 
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
+	}
+	
+	public int vecesPresentado() {
+		return vecesPrestado;
+	}
+
+	public void vecesPrestado(int vecesPrestado) {
+		this.vecesPrestado = vecesPrestado;
 	}
 }

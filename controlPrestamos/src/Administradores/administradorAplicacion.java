@@ -18,6 +18,7 @@ public class administradorAplicacion implements IConstantes
 	private ArrayList<String> tiposCategorias = new ArrayList<String>();
 	private ArrayList<ArrayList<Articulo>> miListaCategorias = new ArrayList<ArrayList<Articulo>>();
 	private Usuario usuario;
+	public int miTop; // Variable para que el usuario asigne el rango del top.
 
 	
 	private administradorAplicacion()
