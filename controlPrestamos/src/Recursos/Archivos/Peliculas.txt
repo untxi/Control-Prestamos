@@ -1,15 +1,15 @@
-nombre1-10-imagenPelicula.png-director1-categoria1
-nombre2-9-imagenPelicula.png-director2-categoria2
-nombre3-8-imagenPelicula.png-director3-categoria3
-nombre4-7-imagenPelicula.png-director4-categoria4
-nombre5-6-imagenPelicula.png-director5-categoria5
-nombre6-5-imagenPelicula.png-director6-categoria6
-nombre7-4-imagenPelicula.png-director7-categoria7
-nombre8-10-imagenPelicula.png-director8-categoria8
-nombre9-9-imagenPelicula.png-director9-categoria9
-nombre10-8-imagenPelicula.png-director10-categoria10
-nombre11-7-imagenPelicula.png-director11-categoria11
-nombre12-6-imagenPelicula.png-director12-categoria12
-nombre13-5-imagenPelicula.png-director13-categoria13
-nombre14-4-imagenPelicula.png-director14-categoria14
-nombre15-3-imagenPelicula.png-director15-categoria15
+Una familia peligrosa-10-familiaPeligrosa.jpg-Luc Besson-Acción
+Capitán Phillips-9-capitanPhilips.jpg-Paul Greengrass-Drama
+Los Miller-8-miller.jpg-Rawson Marshall Thurber-Comedia
+Avatar-7-Avatar.jpg-Jame Cameron-Acción
+Piratas del Caribe 3-6-piratasCaribe3.jpg-Gore Verbinski-Aventura
+Las cronicas de Narnia-5-Narnia1.jpg-Andrew Adamson-Aventura
+Una noche en el museo-4-NightMuseum1.jpg-Shawn Levy-Aventura
+Vida Salvaje-10-vidaSalvaje.jpg-Steve "Spaz" Williams-Animación
+Cars-9-imagenPelicula.png-John Lasseter-Animación
+Lo que el agua se llevó-8-FlushedAway.jpg-David Bowers-Animación
+Thor2-7-thor2.jpg-Alan Taylor-Acción
+Zathura-4-zathura.jpg-Jon Favreau-Aventura
+Labor Day-1-laborDay.jpg-Jason Reitman-Drama
+Los ilusionistas-6-nowYouSeeMe.jpg-Louis Leterrier-Misterio
+Shrek Tercero-1-shrek3.jpg-Chris Miller-Comedia
