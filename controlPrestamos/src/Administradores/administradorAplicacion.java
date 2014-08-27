@@ -12,15 +12,51 @@ import Interfaces.IConstantes;
 
 public class administradorAplicacion implements IConstantes
 {
+	// Parametros Privados 
 	private static administradorAplicacion miAdministrador;
 	private ArrayList<Persona> Personas = new ArrayList<Persona>();
 	private administradorArchivos miAdministradorArchivos = new administradorArchivos();
 	private ArrayList<String> tiposCategorias = new ArrayList<String>();
 	private ArrayList<ArrayList<Articulo>> miListaCategorias = new ArrayList<ArrayList<Articulo>>();
 	private Usuario usuario;
-	public int miTop; // Variable para que el usuario asigne el rango del top.
-
 	
+	
+	//CREACION DE LISTAS PARA LA MANIPULACIÓN DE CONSULTAS
+	public static ArrayList listaPrestados;
+	public static ArrayList listaArticulos;
+	
+	// Parámetros Generales: Dinámicos en razón al usuario, Estáticos en razón al  
+	public int miTop          = 10;
+	public int alarmaVerde    = 15;
+	public int alarmaAmarilla = 20;
+	public int alarmaRoja     = 25;
+	public int vecesConsulta  = 3;
+	public int mesesConsulta  = 6;
+	
+	public int getMiTop() {	return miTop;}
+	public void setMiTop(int miTop) {this.miTop = miTop;}
+	
+	public static ArrayList getListaPrestados() {return listaPrestados;	}
+	public static void setListaPrestados(ArrayList listaPrestados) {administradorAplicacion.listaPrestados = listaPrestados;}
+	
+	public static ArrayList getListaArticulos() {return listaArticulos;	}
+	public static void setListaArticulos(ArrayList listaArticulos) {administradorAplicacion.listaArticulos = listaArticulos;}
+
+	public int getAlarmaVerde() {return alarmaVerde;}
+	public void setAlarmaVerde(int alarmaVerde) {this.alarmaVerde = alarmaVerde;}
+
+	public int getAlarmaAmarilla() {return alarmaAmarilla;}
+	public void setAlarmaAmarilla(int alarmaAmarilla) {	this.alarmaAmarilla = alarmaAmarilla;}
+
+	public int getAlarmaRoja() {return alarmaRoja;}
+	public void setAlarmaRoja(int alarmaRoja) {	this.alarmaRoja = alarmaRoja;}
+
+	public int getVecesConsulta() {	return vecesConsulta;}
+	public void setVecesConsulta(int vecesConsulta) {this.vecesConsulta = vecesConsulta;}
+
+	public int getMesesConsulta() {	return mesesConsulta;}
+	public void setMesesConsulta(int mesesConsulta) {this.mesesConsulta = mesesConsulta;}
+
 	private administradorAplicacion()
 	{
 		tiposCategorias.add("Libro");

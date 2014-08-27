@@ -1,10 +1,14 @@
 package Estructuras;
 
+import java.util.ArrayList;
+
 public class Articulo {
 	private String nombre;
 	private int calificacion;
 	private String imagen;
 	private int vecesPrestado;
+	//crear arreglo de 12 para controlar la fecha de prestamo
+	public ArrayList fechaPrestamo;
 	
 	public Articulo(String nombre, int calificacion, String imagen) {
 		this.nombre = nombre;
