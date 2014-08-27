@@ -1,15 +1,4 @@
 Revista1-autor1-editorial1-edicion1-10-imagenRevista.png
-Revista2-autor2-editorial2-edicion2-9-imagenRevista.png
-Revista3-autor3-editorial3-edicion3-8-imagenRevista.png
-Revista4-autor4-editorial4-edicion4-7-imagenRevista.png
-Revista5-autor5-editorial5-edicion5-6-imagenRevista.png
-Revista6-autor6-editorial6-edicion6-5-imagenRevista.png
-Revista7-autor7-editorial7-edicion7-10-imagenRevista.png
-Revista8-autor8-editorial8-edicion8-9-imagenRevista.png
-Revista9-autor9-editorial9-edicion9-8-imagenRevista.png
-Revista10-autor10-editorial10-edicion10-7-imagenRevista.png
-Revista11-autor11-editorial11-edicion11-6-imagenRevista.png
-Revista12-autor12-editorial12-edicion12-5-imagenRevista.png
-Revista13-autor13-editorial13-edicion13-4-imagenRevista.png
-Revista14-autor14-editorial14-edicion14-3-imagenRevista.png
-Revista15-autor15-editorial15-edicion15-2-imagenRevista.png
+Hola-Eduardo Sánchez Pérez-Hola S.L.-339-7-hola.jpg
+NatGeo-Jessica Vázquez-NAtionalGeographic Society-2345-8-natgeo.jpg
+Ingeniería Química-Asociación de Ingenieros Químicos de Uruguay-44-8-ingQuimica.jpg
