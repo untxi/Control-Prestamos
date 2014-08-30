@@ -6,7 +6,7 @@ public class Articulo {
 	private String nombre;
 	private int calificacion;
 	private String imagen;
-	private int vecesPrestado;
+	public int vecesPrestado;
 	//crear arreglo de 12 para controlar la fecha de prestamo
 	public ArrayList fechaPrestamo;
 	
