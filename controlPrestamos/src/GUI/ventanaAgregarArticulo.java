@@ -40,24 +40,78 @@ import javax.swing.JTextPane;
 import javax.swing.JEditorPane;
 import javax.swing.JProgressBar;
 import javax.swing.JFrame;
-
+/**
+ * Clase ventanaAgregarArticulo
+ * 
+ * Contiene información de la ventana agregar articulo 
+ * 
+ * @author Marco
+ *
+ */
 public class ventanaAgregarArticulo extends JInternalFrame implements IConstantes {
-
+	//Atributos
+	/**
+	 * Ventana agregar persona
+	 */
 	private static ventanaAgregarArticulo miVentanaAgregarArticulo;
+	/**
+	 * 
+	 */
 	private JComboBox comboBox;
+	/**
+	 * nombre del articulo
+	 */
 	private JTextField nombre;
+	/**
+	 * autor del articulo
+	 */
 	private JTextField autor;
+	/**
+	 * edicion del articulo
+	 */
 	private JTextField edicion;
+	/**
+	 * descripcion del articulo
+	 */
 	JEditorPane descripcion;
+	/**
+	 * nombre de la imagen
+	 */
 	private String nombreImagen;
+	/**
+	 *ventana buscador 
+	 */
 	private JFileChooser ventaBuscador;
+	/**
+	 * nueva etiqueta
+	 */
 	private JLabel lblNewLabel_1;
+	/**
+	 * etiqueta
+	 */
 	private JLabel label;
+	/**
+	 * editorial del articulo
+	 */
 	private JTextField editorial;
+	/**
+	 * categoria del articulo
+	 */
 	private JComboBox categoria;
+	/**
+	 * calificación del articulo
+	 */
 	private JComboBox calificacion;
+	/**
+	 * barra
+	 */
 	private JProgressBar progressBar;
 	
+	//metodo publico
+	/**
+	 * Abre la ventana agregar articulo
+	 * @return miVentanaAgregarArticulo
+	 */
 	public static ventanaAgregarArticulo getInstance()
 	{
 		if(miVentanaAgregarArticulo == null)

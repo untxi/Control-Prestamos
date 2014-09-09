@@ -15,20 +15,56 @@ import Administradores.administradorAplicacion;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
-
+/**
+ * Clase ventanaagregarpersona
+ * 
+ * Contiene la informacion de la ventana agregar persona
+ * 
+ * @author Marco
+ *
+ */
 public class ventanaAgregarPersona extends JInternalFrame 
 {
+	//Atributos
+	/**
+	 * ventana agregar persona
+	 */
 	private static ventanaAgregarPersona miVentanaAgregarPersona;
+	/**
+	 * 
+	 */
 	private JTextField textField;
+	/**
+	 * 
+	 */
 	private JTextField textField_1;
+	/**
+	 * 
+	 */
 	private JTextField textField_2;
+	/**
+	 * 
+	 */
 	private JTextField textField_3;
+	/**
+	 * 
+	 */
 	private JTextField textField_4;
+	/**
+	 * 
+	 */
 	private JTextField textField_5;
+	/**
+	 * 
+	 */
 	private JComboBox comboBox;
 	
 	
-	
+	//Método Público
+	/**
+	 * Abre la ventana de agregar persona
+	 * @return miVentanaAgregarPersona
+	 */
 	public static ventanaAgregarPersona getInstance()
 	{
 		if(miVentanaAgregarPersona == null)

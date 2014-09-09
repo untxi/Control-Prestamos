@@ -30,18 +30,54 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 
 import com.toedter.calendar.JDateChooser;
-
+/**
+ * Clase ventana prestamo
+ * 
+ * Contiene la información de la ventana prestamo
+ * 
+ * @author Marco
+ *
+ */
 public class ventanaPrestamo extends JInternalFrame implements IConstantes {
-
+	//Atributos
+	/**
+	 * ventana de prestamo
+	 */
 	private static ventanaPrestamo miVentanaPrestamo;
+	/**
+	 * 
+	 */
 	private JTextField txtSdfasdfasd;
+	/**
+	 * categoria
+	 */
 	private JComboBox categoria;
+	/**
+	 * persona prestada
+	 */
 	private JComboBox persona;
+	/**
+	 * 
+	 */
 	private JComboBox comboBox;
+	/**
+	 * 
+	 */
 	private JComboBox comboBox_1;
+	/**
+	 * Etiqueta
+	 */
 	private JLabel label_1;
+	/**
+	 * fecha
+	 */
 	private JDateChooser dateChooser;
 	
+	//Método Público
+	/**
+	 * abre la ventana prestamo
+	 * @return miVentanaPrestamo
+	 */
 	public static ventanaPrestamo getInstance()
 	{
 		if(miVentanaPrestamo == null)
@@ -78,6 +114,9 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		
 		categoria = new JComboBox();
 		categoria.addActionListener(new ActionListener() {
+			/**
+			 * 
+			 */
 			public void actionPerformed(ActionEvent e)
 			{
 				int cantPersonas = administradorAplicacion.getInstance().getPersonas().get(categoria.getSelectedIndex()).size();
@@ -95,6 +134,9 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		
 		persona = new JComboBox();
 		persona.addActionListener(new ActionListener() {
+			/**
+			 * 
+			 */
 			public void actionPerformed(ActionEvent e) 
 			{
 				txtSdfasdfasd.setText(administradorAplicacion.getInstance().getPersonas().get(categoria.getSelectedIndex()).get(persona.getSelectedIndex()).getCedula());
@@ -124,7 +166,10 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		
 		comboBox = new JComboBox();
 		comboBox.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) 
+			 /**
+			  *  
+			  */
+			  public void actionPerformed(ActionEvent arg0) 
 			{
 				int cantCategorias = administradorAplicacion.getInstance().getMiListaCategorias().get(comboBox.getSelectedIndex()).size();
 				String [] categorias = new String[cantCategorias];
@@ -144,6 +189,9 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		
 		comboBox_1 = new JComboBox();
 		comboBox_1.addActionListener(new ActionListener() {
+			/**
+			 * 
+			 */
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				String nombreImagen;
@@ -161,6 +209,9 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		
 		JButton btnNewButton = new JButton("Aceptar");
 		btnNewButton.addActionListener(new ActionListener() {
+			/**
+			 * 
+			 */
 			public void actionPerformed(ActionEvent e)
 			{
 				if(persona.getSelectedIndex() != -1 && comboBox_1.getSelectedIndex() != -1)
@@ -185,6 +236,9 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		
 		JButton btnNewButton_1 = new JButton("Cancelar");
 		btnNewButton_1.addActionListener(new ActionListener() {
+			/**
+			 * 
+			 */
 			public void actionPerformed(ActionEvent e) 
 			{
 				//persona.setSelectedIndex(-1);
@@ -205,7 +259,9 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		cambiarComboBox();
 
 	}
-	
+	/**
+	 * 
+	 */
 	public void cambiarComboBox()
 	{
 		int cantCategorias = administradorAplicacion.getInstance().getTiposCategorias().size();

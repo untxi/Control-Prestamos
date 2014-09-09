@@ -1,3 +1,4 @@
+
 package GUI;
 
 import java.awt.BorderLayout;
@@ -52,20 +53,64 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
 import java.util.ArrayList;
 
+/**
+ * Clase ventanaPrincipal
+ * 
+ * Contiene información de lo que hay en la ventana principal
+ * 
+ * @author Adrián
+ *
+ */
 public class ventanaPrincipal extends JFrame implements IConstantes 
 {
+	//Atributos
+	/**
+	 * ventana de escritorio
+	 */
 	private JDesktopPane escritorio;
+	/**
+	 * Menu del Registro
+	 */
 	private JMenu menuRegistro;
+	/**
+	 * Menu de Configuracion
+	 */
 	private JMenu menuConfiguracion;
+	/**
+	 * Menu de Agregar
+	 */
 	private JMenu menuAgregar;
+	/**
+	 * Menu de Consulta
+	 */
 	private JMenu menuConsultar;
+	/**
+	 * Menu Salir
+	 */
 	private JMenu menuSalir;
+	/**
+	 * Nuevo panel
+	 */
 	private JPanel panel = new JPanel();
+	/**
+	 * Nueva etiqueta
+	 */
 	private JLabel lblNewLabel;
+	/**
+	 * ventana buscador
+	 */
 	private JFileChooser ventaBuscador;
+	/**
+	 * ventana principal
+	 */
 	private static ventanaPrincipal miVentanaPrincipal;
 	
 
+	//Método Público
+	/**
+	 * Crea la ventana principal
+	 * @return miVentanaPrincipal
+	 */
 	
 	public static ventanaPrincipal getInstance()
 	{
@@ -82,6 +127,10 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 
 	/**
 	 * Create the frame.
+	 */
+	//Método Privado
+	/**
+	 * Todo lo contenido en la ventana principal
 	 */
 	private ventanaPrincipal() 
 	{
@@ -359,7 +408,10 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setVisible(true);
 	}
-	
+	//Médtodos Públicos
+	/**
+	 * Se activa la aplicación cuando el usuario ingresa
+	 */
 	public void activarAplicacion()
 	{
 		menuConfiguracion.setEnabled(true);
@@ -367,7 +419,9 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		menuConsultar.setEnabled(true);
 		lblNewLabel.setText("Bienvenido " + administradorAplicacion.getInstance().getUsuario().getNombre());
 	}
-	
+	/**
+	 * Se desactiva la aplicación cuando el usuario se retira
+	 */
 	public void desactivarAplicacion()
 	{
 		//menuConfiguracion.setEnabled(false);
@@ -376,7 +430,12 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		lblNewLabel.setText("");
 	}
 	
-	
+	//Método Privado
+	/**
+	 * Muestra la consulta de los articulos
+	 * @param pConsulta
+	 * @param pCategoria
+	 */
 	private void mostrarConsultaArticulos(ArrayList<Articulo> pConsulta,int pCategoria)
 	{
 		int y = 0;

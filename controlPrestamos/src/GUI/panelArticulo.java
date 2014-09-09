@@ -12,13 +12,28 @@ import Interfaces.IConstantes;
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.util.ArrayList;
-
+/**
+ * Clase panel articulo
+ * 
+ * contiene información del articulo
+ * 
+ * @author Adrián
+ *
+ */
 public class panelArticulo extends JPanel implements IConstantes
 {
+	//Atributo
+	/**
+	 * Imagen de la portada
+	 */
 	private ImageIcon portada; 
 
+	//Médoto
 	/**
-	 * Create the panel.
+	 * constructor con tres parametros
+	 * @param y
+	 * @param pArticulo
+	 * @param pCategoria
 	 */
 	public panelArticulo(int y, Articulo pArticulo, int pCategoria) 
 	{
