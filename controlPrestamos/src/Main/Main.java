@@ -1,5 +1,6 @@
 package Main;
 
+import Administradores.administradorAplicacion;
 import GUI.ventanaPrincipal;
 
 public class Main {
@@ -8,6 +9,14 @@ public class Main {
 	{
 		//System.out.println("Hola Mundo");
 		ventanaPrincipal miVentana = ventanaPrincipal.getInstance();
+		//int[] prueba = {0,1,2,3,4,5,6,7,8,9,10,11,12};
+		//System.out.println(prueba[4]);
+		administradorAplicacion.getInstance().cargarPersonas("src\\Recursos\\Archivos\\Personas.txt");
+		administradorAplicacion.getInstance().cargarLibros("src\\Recursos\\Archivos\\Libros.txt");
+		administradorAplicacion.getInstance().cargarRevistas("src\\Recursos\\Archivos\\Revistas.txt");
+		administradorAplicacion.getInstance().cargarPeliculas("src\\Recursos\\Archivos\\Peliculas.txt");
+		
+		
 	}
 
 }

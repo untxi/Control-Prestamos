@@ -64,7 +64,7 @@ public class administradorArchivos
 		}
 	}
 
-	public void leerArchivoPersona(String ruta, ArrayList<Persona> pListaPersonas) {
+	public void leerArchivoPersona(String ruta) {
 		try {
 			fr = new FileReader(ruta);
 			br = new BufferedReader(fr);
@@ -75,7 +75,8 @@ public class administradorArchivos
 			while ((linea = br.readLine()) != null)
 			{
 				String[] tokens = linea.split("-");
-				pListaPersonas.add(crearPersona(tokens));
+				administradorAplicacion.getInstance().agregarPersona(tokens[0], tokens[1], tokens[2], tokens[3], tokens[4],
+																	 tokens[5], Integer.parseInt(tokens[6]));
 			}
 
 		} catch (Exception e) {
@@ -90,21 +91,6 @@ public class administradorArchivos
 		}
 	}
 
-	//crea y agrega una persona a la lista "Personas" con la informacion del arreglo "persona"
-	private Persona crearPersona(String[] persona) 
-	{
-		String pNombre = persona[0];
-		String pApellido1 = persona[1];
-		String pApellido2 = persona[2];
-		String pCedula = persona[3];	
-		String pTelefono = persona[4];
-		String pCorreoE = persona[5];
-		int pCategoria= Integer.parseInt(persona[6]);
-		
-		Persona nPersona = new Persona(pNombre, pApellido1, pApellido2,
-				pCedula, pTelefono, pCorreoE,pCategoria);
-		return nPersona;
-	}
 	
 	//crea y agrega una persona a la lista "Libros" con la informacion del arreglo "libro"
 	private Libro crearLibro(String[] pLibro) 

@@ -1,6 +1,7 @@
 package GUI;
 
 import java.awt.EventQueue;
+import java.awt.Image;
 
 import javax.swing.JInternalFrame;
 import javax.swing.JComboBox;
@@ -14,29 +15,48 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JLayeredPane;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JPanel;
 
 import Administradores.administradorAplicacion;
+import Interfaces.IConstantes;
 
 import java.awt.Component;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JEditorPane;
+import javax.swing.JProgressBar;
+import javax.swing.JFrame;
 
-public class ventanaAgregarArticulo extends JInternalFrame {
+public class ventanaAgregarArticulo extends JInternalFrame implements IConstantes {
 
 	private static ventanaAgregarArticulo miVentanaAgregarArticulo;
 	private JComboBox comboBox;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField nombre;
+	private JTextField autor;
+	private JTextField edicion;
+	JEditorPane descripcion;
+	private String nombreImagen;
+	private JFileChooser ventaBuscador;
+	private JLabel lblNewLabel_1;
+	private JLabel label;
+	private JTextField editorial;
+	private JComboBox categoria;
+	private JComboBox calificacion;
+	private JProgressBar progressBar;
 	
 	public static ventanaAgregarArticulo getInstance()
 	{
@@ -52,134 +72,293 @@ public class ventanaAgregarArticulo extends JInternalFrame {
 	 */
 	public ventanaAgregarArticulo()
 	{
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setIconifiable(true);
-		setBounds(100, 100, 450, 459);
+		setBounds(100, 100, 450, 482);
 		
 		JLabel lblSeleccioneLaCategoria = new JLabel("Seleccione la categoria");
+		lblSeleccioneLaCategoria.setBounds(10, 11, 119, 14);
 		
 		comboBox = new JComboBox();
+		comboBox.setBounds(218, 11, 205, 20);
+		comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				cambiarVentana(comboBox.getSelectedIndex());	
+			}
+		});
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBounds(349, 419, 75, 23);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				//setear todos los cosos antes de cerrar
+				cambiarVentana(0);
+				comboBox.setSelectedIndex(0);
+				nombre.setText("");
+				autor.setText("");
+				edicion.setText("");
+				editorial.setText("");
+				descripcion.setText("");
 				setVisible(false);
 			}
 		});
 		
-		JLabel lblNewLabel = new JLabel("Titulo");
+		JLabel lblNewLabel = new JLabel("Nombre");
+		lblNewLabel.setBounds(10, 71, 46, 14);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
+		nombre = new JTextField();
+		nombre.setBounds(60, 68, 143, 20);
+		nombre.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("Autor");
+		lblNewLabel_1 = new JLabel("Autor");
+		lblNewLabel_1.setBounds(221, 71, 46, 14);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
+		autor = new JTextField();
+		autor.setBounds(271, 68, 152, 20);
+		autor.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Edicion");
+		lblNewLabel_2.setBounds(10, 186, 46, 14);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
+		edicion = new JTextField();
+		edicion.setBounds(60, 183, 143, 20);
+		edicion.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Calificacion");
+		lblNewLabel_3.setBounds(221, 130, 70, 14);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"1 Estrella", "3 Estrelas", "4 Estrelas", "5 Estrelas", "6 Estrelas", "7 Estrelas", "8 Estrelas", "9 Estrelas", "10 Estrelas"}));
+		calificacion = new JComboBox();
+		calificacion.setBounds(301, 127, 121, 20);
+		calificacion.setModel(new DefaultComboBoxModel(new String[] {"0 Estrellas", "1 Estrella", "3 Estrellas", "4 Estrellas", "5 Estrellas", "6 Estrellas", "7 Estrellas", "8 Estrellas", "9 Estrellas", "10 Estrellas"}));
 		
-		JLabel label = new JLabel("");
+		label = new JLabel("");
+		label.setBounds(10, 223, 104, 165);
 		
-		JButton btnNewButton = new JButton("Buscar");
+		JButton btnNewButton = new JButton("Buscar Imagen");
+		btnNewButton.setBounds(10, 419, 104, 23);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+				
+				int respuesta = ventaBuscador.showOpenDialog(miVentanaAgregarArticulo);
+		        if (respuesta == JFileChooser.APPROVE_OPTION)
+		        	{
+		        	//progressBar.setVisible(true);
+		        	//progressBar.setBorderPainted(true);
+		        	//repaint();
+		        	///////////////////////////////////////////////
+        			try {
+        				
+        				//progressBar.
+		        		File nuevoArchivo = ventaBuscador.getSelectedFile();
+		        		FileInputStream fregis = new FileInputStream(nuevoArchivo.getAbsolutePath());
+		        		FileOutputStream fsalida = new FileOutputStream(pathImagenes + nuevoArchivo.getName(), true);
+		        	
+		        		int b = fregis.read();
+		        		while (b != -1) 
+		        		{
+		        			fsalida.write(b);
+							b = fregis.read();
+		        		}
+
+		        		fsalida.flush();
+		        		fsalida.close();
+		        		fregis.close();
+						nombreImagen = nuevoArchivo.getName();
+						ImageIcon portada = new ImageIcon(pathImagenes + nombreImagen);
+						label.setIcon(new ImageIcon(portada.getImage().getScaledInstance(104, 165, Image.SCALE_SMOOTH)));
+		        		
+		        		
+		        		
+						} catch (IOException e) 
+        			{
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		        	
+			        }		
+			}
+		});
 		
 		JLabel lblNewLabel_4 = new JLabel("Descripci\u00F3n");
+		lblNewLabel_4.setBounds(272, 265, 54, 14);
 		
-		JEditorPane editorPane = new JEditorPane();
+		descripcion = new JEditorPane();
+		descripcion.setBounds(161, 290, 262, 112);
 		
 		JButton btnNewButton_1 = new JButton("Aceptar");
-		GroupLayout groupLayout = new GroupLayout(getContentPane());
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addContainerGap()
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(lblSeleccioneLaCategoria, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-									.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 205, GroupLayout.PREFERRED_SIZE))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(textField, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
-									.addGap(18)
-									.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
-									.addGap(18)
-									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblNewLabel_4)
-										.addGroup(groupLayout.createSequentialGroup()
-											.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.UNRELATED)
-											.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, 121, GroupLayout.PREFERRED_SIZE))))))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(label, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE)
-							.addGap(18)
-							.addComponent(editorPane, GroupLayout.PREFERRED_SIZE, 262, GroupLayout.PREFERRED_SIZE))
-						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-							.addGap(24)
-							.addComponent(btnNewButton)
-							.addPreferredGap(ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
-							.addComponent(btnNewButton_1)
-							.addGap(70)
-							.addComponent(btnCancelar)))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblSeleccioneLaCategoria)
-						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(37)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_1)
-						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_2)
-						.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_3)
-						.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(57)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblNewLabel_4)
-							.addGap(26)
-							.addComponent(editorPane, GroupLayout.PREFERRED_SIZE, 112, GroupLayout.PREFERRED_SIZE))
-						.addComponent(label, GroupLayout.PREFERRED_SIZE, 165, GroupLayout.PREFERRED_SIZE))
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(27)
-							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(btnCancelar)
-								.addComponent(btnNewButton_1)))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(18)
-							.addComponent(btnNewButton)))
-					.addContainerGap())
-		);
-		getContentPane().setLayout(groupLayout);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if (comboBox.getSelectedIndex() == categoriaLibro)
+				{
+					if(!nombre.getText().isEmpty() && !autor.getText().isEmpty() && !edicion.getText().isEmpty() &&
+							!editorial.getText().isEmpty() )
+					{
+						administradorAplicacion.getInstance().agregarLibro(nombre.getText(), autor.getText(), editorial.getText(),
+																		   edicion.getText(), calificacion.getSelectedIndex(),
+																		   nombreImagen);
+					}
+					else
+					{
+						JOptionPane.showMessageDialog(null, "Debe llenar todo el formulario");
+					}
+				}
+				else if(comboBox.getSelectedIndex() == categoriaRevista)
+				{	
+					if(!nombre.getText().isEmpty() && !autor.getText().isEmpty() && !edicion.getText().isEmpty() &&
+						!editorial.getText().isEmpty() )
+					{
+						administradorAplicacion.getInstance().agregarRevista(nombre.getText(), autor.getText(), editorial.getText(),
+								   edicion.getText(), calificacion.getSelectedIndex(),
+								   nombreImagen);
+					}
+					else
+					{
+						JOptionPane.showMessageDialog(null, "Debe llenar todo el formulario");
+					}
+				}
+				else if (comboBox.getSelectedIndex() == categoriaPelicula)
+				{			
+					if(!nombre.getText().isEmpty() && !autor.getText().isEmpty() )
+					{
+						administradorAplicacion.getInstance().agregarPelicula(nombre.getText(), calificacion.getSelectedIndex(),
+																			  nombreImagen, autor.getText(), 
+																			  categoria.getSelectedItem().toString());
+					}
+					else
+					{
+						JOptionPane.showMessageDialog(null, "Debe llenar todo el formulario");
+					}
+				}
+				else
+				{
+					if(!nombre.getText().isEmpty() && !descripcion.getText().isEmpty() )
+					{
+						administradorAplicacion.getInstance().agregarOtro(nombre.getText(), calificacion.getSelectedIndex(), nombreImagen,
+																		  descripcion.getText(), comboBox.getSelectedIndex());
+					}
+					else
+					{
+						JOptionPane.showMessageDialog(null, "Debe llenar todo el formulario");
+					}
+				}
+				cambiarVentana(0);
+				comboBox.setSelectedIndex(0);
+				nombre.setText("");
+				autor.setText("");
+				edicion.setText("");
+				editorial.setText("");
+				descripcion.setText("");
+				administradorAplicacion.getInstance().imprimirListaCategorias();
+			}
+		});
+		btnNewButton_1.setBounds(196, 419, 71, 23);
+		getContentPane().setLayout(null);
+		getContentPane().add(lblSeleccioneLaCategoria);
+		getContentPane().add(comboBox);
+		getContentPane().add(lblNewLabel);
+		getContentPane().add(nombre);
+		getContentPane().add(lblNewLabel_1);
+		getContentPane().add(autor);
+		getContentPane().add(lblNewLabel_2);
+		getContentPane().add(edicion);
+		getContentPane().add(lblNewLabel_4);
+		getContentPane().add(lblNewLabel_3);
+		getContentPane().add(calificacion);
+		getContentPane().add(label);
+		getContentPane().add(descripcion);
+		getContentPane().add(btnNewButton);
+		getContentPane().add(btnNewButton_1);
+		getContentPane().add(btnCancelar);
+		
+		JLabel lblCategoria = new JLabel("Categoria");
+		lblCategoria.setBounds(218, 186, 54, 14);
+		getContentPane().add(lblCategoria);
+		
+		JLabel lblEditorial = new JLabel("Editorial");
+		lblEditorial.setBounds(10, 130, 46, 14);
+		getContentPane().add(lblEditorial);
+		
+		editorial = new JTextField();
+		editorial.setBounds(66, 127, 134, 20);
+		getContentPane().add(editorial);
+		editorial.setColumns(10);
+		
+		categoria = new JComboBox();
+		categoria.setModel(new DefaultComboBoxModel(new String[] {"Accion ", "Suspenso", "Terror", "Comedia", "Infantil"}));
+		categoria.setBounds(301, 183, 121, 20);
+		getContentPane().add(categoria);
+		
+		progressBar = new JProgressBar();
+		progressBar.setBounds(10, 394, 104, 14);
+		//progressBar.setVisible(false);
+		getContentPane().add(progressBar);
+		
+		ventaBuscador = new JFileChooser();
+		
+		
+		
+	}
+	
+	
+	private void cambiarVentana(int pCategoria)
+	{
+		if(pCategoria == categoriaLibro)
+		{
+			lblNewLabel_1.setText("Autor");
+			nombre.setEnabled(true);
+			autor.setEnabled(true);
+			edicion.setEnabled(true);
+			editorial.setEnabled(true);
+			descripcion.setEnabled(false);
+			categoria.setEnabled(false);
+			nombreImagen = imagenLibro;
+			ImageIcon portada = new ImageIcon(pathImagenes + nombreImagen);
+			label.setIcon(new ImageIcon(portada.getImage().getScaledInstance(104, 165, Image.SCALE_SMOOTH)));
+			
+		}
+		else if(pCategoria == categoriaRevista)
+		{
+			lblNewLabel_1.setText("Creador");
+			nombre.setEnabled(true);
+			autor.setEnabled(true);
+			edicion.setEnabled(true);
+			editorial.setEnabled(true);
+			descripcion.setEnabled(false);
+			categoria.setEnabled(false);
+			nombreImagen = imagenRevista;
+			ImageIcon portada = new ImageIcon(pathImagenes + nombreImagen);
+			label.setIcon(new ImageIcon(portada.getImage().getScaledInstance(104, 165, Image.SCALE_SMOOTH)));
+		}
+		else if(pCategoria == categoriaPelicula)
+		{
+			lblNewLabel_1.setText("Director");
+			nombre.setEnabled(true);
+			autor.setEnabled(true);
+			edicion.setEnabled(false);
+			editorial.setEnabled(false);
+			descripcion.setEnabled(false);
+			categoria.setEnabled(true);
+			nombreImagen = imagenPelicula;
+			ImageIcon portada = new ImageIcon(pathImagenes + nombreImagen);
+			label.setIcon(new ImageIcon(portada.getImage().getScaledInstance(104, 165, Image.SCALE_SMOOTH)));
+		}
+		else
+		{
+			nombre.setEnabled(true);
+			autor.setEnabled(false);
+			edicion.setEnabled(false);
+			editorial.setEnabled(false);
+			descripcion.setEnabled(true);
+			categoria.setEnabled(false);
+			nombreImagen = imagenArticulo;
+			ImageIcon portada = new ImageIcon(pathImagenes + nombreImagen);
+			label.setIcon(new ImageIcon(portada.getImage().getScaledInstance(104, 165, Image.SCALE_SMOOTH)));
+		}
+		
 	}
 	
 	public void cambiarComboBox()

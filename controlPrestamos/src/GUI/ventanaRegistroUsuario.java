@@ -14,6 +14,7 @@ import Estructuras.Usuario;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
 
 public class ventanaRegistroUsuario extends JInternalFrame 
 {
@@ -37,6 +38,7 @@ public class ventanaRegistroUsuario extends JInternalFrame
 	 */
 	private ventanaRegistroUsuario() 
 	{
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setIconifiable(true);
 		setBounds(100, 100, 351, 232);
 		getContentPane().setLayout(null);

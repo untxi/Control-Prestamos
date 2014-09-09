@@ -1,16 +1,16 @@
 package Estructuras;
 
-import java.util.ArrayList;
-
 public class Articulo {
 	private String nombre;
 	private int calificacion;
 	private String imagen;
-	public int vecesPrestado;
-	//crear arreglo de 12 para controlar la fecha de prestamo
-	public ArrayList fechaPrestamo;
+	private int cantPrestamos = 0;
+	private boolean prestado = false;
+	private int[] cantPrestamosXMes = {0,0,0,0,0,0,0,0,0,0,0,0};
 	
-	public Articulo(String nombre, int calificacion, String imagen) {
+	
+	public Articulo(String nombre, int calificacion, String imagen) 
+	{
 		this.nombre = nombre;
 		this.calificacion = calificacion;
 		this.imagen = imagen;
@@ -39,12 +39,32 @@ public class Articulo {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
-	
-	public int vecesPresentado() {
-		return vecesPrestado;
+
+	public int getCantPrestamos() {
+		return cantPrestamos;
 	}
 
-	public void vecesPrestado(int vecesPrestado) {
-		this.vecesPrestado = vecesPrestado;
+	public void setCantPrestamos(int cantPrestamos) 
+	{
+		this.cantPrestamos = cantPrestamos;
+		
 	}
+
+	public boolean isPrestado() {
+		return prestado;
+	}
+
+	public void setPrestado(boolean prestado) {
+		this.prestado = prestado;
+	}
+
+	public int getCantPrestamosXMes(int pMes) 
+	{
+		return cantPrestamosXMes[pMes];
+	}
+
+	public void setCantPrestamosXMes(int pMes) {
+		this.cantPrestamosXMes[pMes] = this.cantPrestamosXMes[pMes]+1;
+	}
+	
 }

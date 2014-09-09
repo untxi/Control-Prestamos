@@ -12,6 +12,7 @@ import Administradores.administradorAplicacion;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
 
 public class ventanaAgregarCategoria extends JInternalFrame {
 
@@ -35,6 +36,7 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 	 */
 	public ventanaAgregarCategoria() 
 	{
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setIconifiable(true);
 		setBounds(100, 100, 315, 149);
 		getContentPane().setLayout(null);

@@ -13,6 +13,7 @@ import Administradores.administradorAplicacion;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
 
 public class ventanaLogin extends JInternalFrame {
 	private JTextField textField;
@@ -37,6 +38,7 @@ public class ventanaLogin extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public ventanaLogin() {
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setIconifiable(true);
 		setBounds(100, 100, 315, 186);
 		getContentPane().setLayout(null);

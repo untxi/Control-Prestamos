@@ -14,6 +14,7 @@ import Administradores.administradorAplicacion;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
 
 public class ventanaAgregarPersona extends JInternalFrame 
 {
@@ -47,6 +48,7 @@ public class ventanaAgregarPersona extends JInternalFrame
 	 */
 	private ventanaAgregarPersona() 
 	{
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setIconifiable(true);
 		setBounds(100, 100, 624, 196);
 		getContentPane().setLayout(null);
@@ -106,7 +108,8 @@ public class ventanaAgregarPersona extends JInternalFrame
 		textField_5.setColumns(10);
 		
 		comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Colega", "Familiar", "Estudiante"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Familia", "Colega", "Estudiante"}));
+		comboBox.setSelectedIndex(0);
 		comboBox.setMaximumRowCount(3);
 		comboBox.setBounds(66, 123, 156, 20);
 		getContentPane().add(comboBox);

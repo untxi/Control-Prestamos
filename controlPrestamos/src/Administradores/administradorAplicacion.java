@@ -6,57 +6,33 @@ import Estructuras.Libro;
 import Estructuras.Otro;
 import Estructuras.Pelicula;
 import Estructuras.Persona;
+import Estructuras.Prestamo;
 import Estructuras.Usuario;
 import Interfaces.IConstantes;
 
 
 public class administradorAplicacion implements IConstantes
 {
-	// Parametros Privados 
 	private static administradorAplicacion miAdministrador;
-	private ArrayList<Persona> Personas = new ArrayList<Persona>();
+	private ArrayList<ArrayList<Persona>> miListaPersonas = new ArrayList<ArrayList<Persona>>();
 	private administradorArchivos miAdministradorArchivos = new administradorArchivos();
 	private ArrayList<String> tiposCategorias = new ArrayList<String>();
 	private ArrayList<ArrayList<Articulo>> miListaCategorias = new ArrayList<ArrayList<Articulo>>();
-	private Usuario usuario;
+	private ArrayList<ArrayList<Prestamo>> miListaPrestamos = new ArrayList<ArrayList<Prestamo>>();
+	private Usuario usuario;	
 	
 	
-	//CREACION DE LISTAS PARA LA MANIPULACIÓN DE CONSULTAS
-	public static ArrayList listaPrestados;
-	public static ArrayList listaArticulos;
 	
-	// Parámetros Generales: Dinámicos en razón al usuario, Estáticos en razón al  
-	public int miTop          = 10;
-	public int alarmaVerde    = 15;
-	public int alarmaAmarilla = 20;
-	public int alarmaRoja     = 25;
-	public int vecesConsulta  = 3;
-	public int mesesConsulta  = 6;
+	public ArrayList<ArrayList<Prestamo>> getMiListaPrestamos() {
+		return miListaPrestamos;
+	}
+
+	public void setMiListaPrestamos(ArrayList<ArrayList<Prestamo>> miListaPrestamos) {
+		this.miListaPrestamos = miListaPrestamos;
+	}
+
+
 	
-	public int getMiTop() {	return miTop;}
-	public void setMiTop(int miTop) {this.miTop = miTop;}
-	
-	public static ArrayList getListaPrestados() {return listaPrestados;	}
-	public static void setListaPrestados(ArrayList listaPrestados) {administradorAplicacion.listaPrestados = listaPrestados;}
-	
-	public static ArrayList getListaArticulos() {return listaArticulos;	}
-	public static void setListaArticulos(ArrayList listaArticulos) {administradorAplicacion.listaArticulos = listaArticulos;}
-
-	public int getAlarmaVerde() {return alarmaVerde;}
-	public void setAlarmaVerde(int alarmaVerde) {this.alarmaVerde = alarmaVerde;}
-
-	public int getAlarmaAmarilla() {return alarmaAmarilla;}
-	public void setAlarmaAmarilla(int alarmaAmarilla) {	this.alarmaAmarilla = alarmaAmarilla;}
-
-	public int getAlarmaRoja() {return alarmaRoja;}
-	public void setAlarmaRoja(int alarmaRoja) {	this.alarmaRoja = alarmaRoja;}
-
-	public int getVecesConsulta() {	return vecesConsulta;}
-	public void setVecesConsulta(int vecesConsulta) {this.vecesConsulta = vecesConsulta;}
-
-	public int getMesesConsulta() {	return mesesConsulta;}
-	public void setMesesConsulta(int mesesConsulta) {this.mesesConsulta = mesesConsulta;}
-
 	private administradorAplicacion()
 	{
 		tiposCategorias.add("Libro");
@@ -65,6 +41,11 @@ public class administradorAplicacion implements IConstantes
 		for(int i = 0;i < tiposCategorias.size(); i++)
 		{
 			miListaCategorias.add(new ArrayList<Articulo>());
+			miListaPrestamos.add(new ArrayList<Prestamo>());
+		}
+		for(int j = 0;j < cantCategoriasPersona; j++)
+		{
+			miListaPersonas.add(new ArrayList<Persona>());
 		}
 	}
 	
@@ -90,27 +71,55 @@ public class administradorAplicacion implements IConstantes
 		}
 	}
 	
-	public void imprimirListaPersonas()
+	public void imprimirListaPersona()
 	{
-		int i;
-		System.out.println("Lista Personas");
-		for(i=0;i<Personas.size();i++)
+		int i,j;
+		for(i=0;i<miListaPersonas.size();i++)
 		{
-			System.out.println("Nombre: "+ Personas.get(i).getNombre());
+			System.out.println("Indice: "+ i);
+			for(j=0;j<miListaPersonas.get(i).size();j++)
+			{
+				System.out.println(miListaPersonas.get(i).get(j).getNombre());
+			}
 		}
+		System.out.println("///////////////////////////////////////////////////");
 	}
+	
+	public void imprimirListaPrestamos()
+	{
+		int i,j;
+		for(i=0;i<miListaPrestamos.size();i++)
+		{
+			System.out.println("Categoria: "+tiposCategorias.get(i));
+			for(j=0;j<miListaPrestamos.get(i).size();j++)
+			{
+				System.out.println("Fecha: "   +miListaPrestamos.get(i).get(j).getMiFecha().toString());
+				System.out.println("Persona: " +miListaPrestamos.get(i).get(j).getMiPersona().getNombre());
+				System.out.println("Articulo: "+miListaPrestamos.get(i).get(j).getMiArticulo().getNombre());
+			}
+		}
+		//System.out.println("///////////////////////////////////////////////////");
+	}
+	
+	
 	
 	public void cargarPersonas(String pPath)
 	{
-		miAdministradorArchivos.leerArchivoPersona(pPath, Personas);
-		imprimirListaPersonas();
+		miAdministradorArchivos.leerArchivoPersona(pPath);
 	}
 	
 	public void agregarPersona(String pNombre, String pApellido1, String pApellido2,
 			String pCedula, String pTelefono, String pCorreoE, int pCategoria)
 	{
-		Personas.add(new Persona(pNombre, pApellido1, pApellido2, pCedula, pTelefono, pCorreoE, pCategoria));
+		miListaPersonas.get(pCategoria).add(new Persona(pNombre, pApellido1, pApellido2, pCedula, pTelefono, pCorreoE, pCategoria));
+		imprimirListaPersona();
 		
+	}
+	
+	public void agregarPrestamo(int pCategoria,Prestamo pPrestamo)
+	{
+		miListaPrestamos.get(pCategoria).add(pPrestamo);
+		imprimirListaPrestamos();
 	}
 	
 	public void cargarLibros(String pPath)
@@ -141,6 +150,7 @@ public class administradorAplicacion implements IConstantes
 	{
 		tiposCategorias.add(pCategoria);
 		miListaCategorias.add(new ArrayList<Articulo>());
+		miListaPrestamos.add(new ArrayList<Prestamo>());
 		//miListaCategorias.agregarCategoria(new Categoria(pCategoria));
 	} 
 	
@@ -179,14 +189,14 @@ public class administradorAplicacion implements IConstantes
 		}
 		return esUsuario;
 	}
-	public ArrayList<Persona> getPersonas()
+	public ArrayList<ArrayList<Persona>> getPersonas()
 	{
-		return Personas;
+		return miListaPersonas;
 	}
 
-	public void setPersonas(ArrayList<Persona> personas) 
+	public void setPersonas(ArrayList<ArrayList<Persona>> pMiListaPersonas) 
 	{
-		Personas = personas;
+		miListaPersonas = pMiListaPersonas;
 	}
 
 	public administradorArchivos getMiAdministradorArchivos() {

@@ -126,7 +126,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		setJMenuBar(menuBar);
 		
 		menuRegistro = new JMenu("");
-		menuRegistro.setIcon(new ImageIcon(imagenLogin));
+		menuRegistro.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/lock.png")));
 		menuBar.add(menuRegistro);
 		
 		JMenuItem mntmCrearCuenta = new JMenuItem("Crear cuenta");
@@ -136,7 +136,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 				ventanaRegistroUsuario.getInstance().setVisible(true);
 			}
 		});
-		mntmCrearCuenta.setIcon(new ImageIcon(imagenUser));
+		mntmCrearCuenta.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/user_add.png")));
 		mntmCrearCuenta.setBackground(new Color(100, 149, 237));
 		menuRegistro.add(mntmCrearCuenta);
 		
@@ -147,7 +147,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 				ventanaLogin.getInstance().setVisible(true);
 			}
 		});
-		mntmIniciarSecion.setIcon(new ImageIcon(imagenUser));
+		mntmIniciarSecion.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/lock_open.png")));
 		mntmIniciarSecion.setBackground(new Color(100, 149, 237));
 		menuRegistro.add(mntmIniciarSecion);
 		
@@ -155,16 +155,16 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		mntmCerrarSecion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				administradorAplicacion.getInstance().setUsuario(null);
+				//administradorAplicacion.getInstance().setUsuario(null);
 				desactivarAplicacion();
 			}
 		});
-		mntmCerrarSecion.setIcon(new ImageIcon(imagenUser));
+		mntmCerrarSecion.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/lock_break.png")));
 		mntmCerrarSecion.setBackground(new Color(100, 149, 237));
 		menuRegistro.add(mntmCerrarSecion);
 		
 		menuConfiguracion = new JMenu("");
-		menuConfiguracion.setIcon(new ImageIcon(imagenConfiguracion));
+		menuConfiguracion.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/gear_in.png")));
 		menuBar.add(menuConfiguracion);
 		
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Configurar preferencias del sistema");
@@ -184,11 +184,21 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		});
 		menuConfiguracion.add(mntmNewMenuItem_4);
 		
+		JMenuItem mntmNewMenuItem_7 = new JMenuItem("Prestar Articulo");
+		mntmNewMenuItem_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				ventanaPrestamo.getInstance().setVisible(true);
+			}
+		});
+		menuConfiguracion.add(mntmNewMenuItem_7);
+		
 		menuAgregar = new JMenu("");
-		menuAgregar.setIcon(new ImageIcon(imagenCargar));
+		menuAgregar.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/world_add.png")));
 		menuBar.add(menuAgregar);
 		
 		JMenuItem mntmAgregarArticulo = new JMenuItem("Agregar articulo");
+		mntmAgregarArticulo.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/installer_box.png")));
 		mntmAgregarArticulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
@@ -196,7 +206,6 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 				ventanaAgregarArticulo.getInstance().setVisible(true);
 			}
 		});
-		mntmAgregarArticulo.setIcon(new ImageIcon(imagenArticulos));
 		mntmAgregarArticulo.setBackground(new Color(100, 149, 237));
 		menuAgregar.add(mntmAgregarArticulo);
 		
@@ -208,7 +217,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 			}
 		});
 		mntmAgregarPersona.setBackground(new Color(100, 149, 237));
-		mntmAgregarPersona.setIcon(new ImageIcon(imagenPersona));
+		mntmAgregarPersona.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/user_add.png")));
 		menuAgregar.add(mntmAgregarPersona);
 		
 		JMenuItem mntmAgregarCategoriaArticulo = new JMenuItem("Agregar categoria articulo");
@@ -218,7 +227,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 				ventanaAgregarCategoria.getInstance().setVisible(true);
 			}
 		});
-		mntmAgregarCategoriaArticulo.setIcon(new ImageIcon(imagenArticulos));
+		mntmAgregarCategoriaArticulo.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/package_add.png")));
 		mntmAgregarCategoriaArticulo.setBackground(new Color(100, 149, 237));
 		menuAgregar.add(mntmAgregarCategoriaArticulo);
 		
@@ -233,7 +242,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 			        }		
 	        }
 			});
-		mntmAgregarArticulosDesde.setIcon(new ImageIcon(imagenArticulos));
+		mntmAgregarArticulosDesde.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/book_add.png")));
 		mntmAgregarArticulosDesde.setBackground(new Color(100, 149, 237));
 		menuAgregar.add(mntmAgregarArticulosDesde);
 		
@@ -250,7 +259,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 				// agregar revistas desde archivo txt
 			}
 		});
-		mntmNewMenuItem_5.setIcon(new ImageIcon(imagenArticulos));
+		mntmNewMenuItem_5.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/book_add.png")));
 		menuAgregar.add(mntmNewMenuItem_5);
 		
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("Agregar peliculas desde archivo txt");
@@ -265,7 +274,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 			        }		
 			}
 		});
-		mntmNewMenuItem_6.setIcon(new ImageIcon(imagenArticulos));
+		mntmNewMenuItem_6.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/dvd_add.png")));
 		menuAgregar.add(mntmNewMenuItem_6);
 		
 		JMenuItem mntmAgregarPersonasDesde = new JMenuItem("Agregar personas desde archivo txt");
@@ -280,35 +289,30 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 			}
 		});
 		mntmAgregarPersonasDesde.setBackground(new Color(100, 149, 237));
-		mntmAgregarPersonasDesde.setIcon(new ImageIcon(imagenArticulos));
+		mntmAgregarPersonasDesde.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/group_add.png")));
 		menuAgregar.add(mntmAgregarPersonasDesde);
 		
 		menuConsultar = new JMenu("");
-		menuConsultar.setIcon(new ImageIcon(imagenConsulta));
+		menuConsultar.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/table_tab_search.png")));
 		menuBar.add(menuConsultar);
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Top 10 de articulos");
-		mntmNewMenuItem_2.setIcon(new ImageIcon(imagenArticulos));
 		mntmNewMenuItem_2.setBackground(new Color(100, 149, 237));
 		menuConsultar.add(mntmNewMenuItem_2);
 		
 		JMenuItem mntmConsultaDeLibros = new JMenuItem("Listado de articulos");
-		mntmConsultaDeLibros.setIcon(new ImageIcon(imagenArticulos));
 		mntmConsultaDeLibros.setBackground(new Color(100, 149, 237));
 		menuConsultar.add(mntmConsultaDeLibros);
 		
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Listado personalizado");
-		mntmNewMenuItem_3.setIcon(new ImageIcon(imagenArticulos));
 		mntmNewMenuItem_3.setBackground(new Color(100, 149, 237));
 		menuConsultar.add(mntmNewMenuItem_3);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Listado de articulos prestados");
-		mntmNewMenuItem.setIcon(new ImageIcon(imagenArticulos));
 		mntmNewMenuItem.setBackground(new Color(100, 149, 237));
 		menuConsultar.add(mntmNewMenuItem);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Listado de articulos no prestados");
-		mntmNewMenuItem_1.setIcon(new ImageIcon(imagenArticulos));
 		mntmNewMenuItem_1.setBackground(new Color(100, 149, 237));
 		menuConsultar.add(mntmNewMenuItem_1);
 		
@@ -320,7 +324,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 				System.exit(0);
 			}
 		});
-		menuSalir.setIcon(new ImageIcon(imagenSalir));
+		menuSalir.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/cross.png")));
 		menuBar.add(menuSalir);
 		try {
 			setDefaultLookAndFeelDecorated(true);
@@ -347,7 +351,10 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		escritorio.add(ventanaAgregarPersona.getInstance());
 		escritorio.add(ventanaAgregarCategoria.getInstance());
 		escritorio.add(ventanaAgregarArticulo.getInstance());
+		escritorio.add(ventanaPrestamo.getInstance());
+		
 		//mostrarConsultaArticulos(10);
+		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setVisible(true);
 	}
 	
@@ -361,7 +368,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 	
 	public void desactivarAplicacion()
 	{
-		menuConfiguracion.setEnabled(false);
+		//menuConfiguracion.setEnabled(false);
 		menuAgregar.setEnabled(false);
 		menuConsultar.setEnabled(false);
 		lblNewLabel.setText("");
