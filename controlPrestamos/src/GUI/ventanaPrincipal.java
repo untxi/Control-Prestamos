@@ -30,6 +30,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JToolBar;
 
 import Administradores.administradorAplicacion;
+import Estructuras.Articulo;
 import Interfaces.IConstantes;
 
 import java.awt.event.ActionListener;
@@ -49,6 +50,7 @@ import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import java.awt.Font;
+import java.util.ArrayList;
 
 public class ventanaPrincipal extends JFrame implements IConstantes 
 {
@@ -91,7 +93,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		escritorio.setBackground(new Color(135, 206, 250));
 		getContentPane().add(escritorio);
 		
-		panel.setSize(342, 5000);
+		panel.setSize(534, 5000);
 		JScrollPane scrollPane = new JScrollPane(panel);
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -176,7 +178,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 				ventanaConfiguracion n = new ventanaConfiguracion();
 				escritorio.add(n);
 				n.show();
-				mostrarConsultaArticulos(5);
+				mostrarConsultaArticulos(administradorAplicacion.getInstance().getMiListaCategorias().get(0),0);
 				
 			}
 		});
@@ -375,15 +377,15 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 	}
 	
 	
-	private void mostrarConsultaArticulos(int x)
+	private void mostrarConsultaArticulos(ArrayList<Articulo> pConsulta,int pCategoria)
 	{
 		int y = 0;
-		for(int i = 0;i<x;i++)
+		for(int i = 0;i<pConsulta.size();i++)
 		{
-			panel.add(new panelArticulo(y));
-			y+=165;
+			panel.add(new panelArticulo(y,pConsulta.get(i),pCategoria));
+			y+=270;
 		}//recordar poner el panel en absolute layout
-		panel.setPreferredSize(new Dimension(342,y));
+		panel.setPreferredSize(new Dimension(534,y));
 		panel.setLayout(null);
 	}
 }
