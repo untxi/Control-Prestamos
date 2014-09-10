@@ -45,7 +45,7 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 	 */
 	private static ventanaPrestamo miVentanaPrestamo;
 	/**
-	 * 
+	 * campo para ingresar numero de cedula
 	 */
 	private JTextField txtSdfasdfasd;
 	/**
@@ -57,11 +57,11 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 	 */
 	private JComboBox persona;
 	/**
-	 * 
+	 * campo para ingresar categoria
 	 */
 	private JComboBox comboBox;
 	/**
-	 * 
+	 * campo para ingresar el articulo
 	 */
 	private JComboBox comboBox_1;
 	/**

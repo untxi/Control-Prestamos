@@ -31,33 +31,33 @@ public class ventanaAgregarPersona extends JInternalFrame
 	 */
 	private static ventanaAgregarPersona miVentanaAgregarPersona;
 	/**
-	 * 
+	 * campo para digitar el nombre
 	 */
-	private JTextField textField;
+	private JTextField textFieldNombre;
 	/**
-	 * 
+	 * campo para digitar el primer apellido 
 	 */
-	private JTextField textField_1;
+	private JTextField textFieldApellido1;
 	/**
-	 * 
+	 * campo para digitar el segundo apellido
 	 */
-	private JTextField textField_2;
+	private JTextField textFieldApellido2;
 	/**
-	 * 
+	 * campo para digitar la cedular
 	 */
-	private JTextField textField_3;
+	private JTextField textFieldCedula;
 	/**
-	 * 
+	 * campo para digitar el telefono
 	 */
-	private JTextField textField_4;
+	private JTextField textFieldTelefono;
 	/**
-	 * 
+	 * campo para digitar el correo
 	 */
-	private JTextField textField_5;
+	private JTextField textFieldCorreo;
 	/**
-	 * 
+	 * seleccionar categoria
 	 */
-	private JComboBox comboBox;
+	private JComboBox comboBoxCategoria;
 	
 	
 	//Método Público
@@ -113,42 +113,42 @@ public class ventanaAgregarPersona extends JInternalFrame
 		lblNewLabel_5.setBounds(381, 69, 46, 14);
 		getContentPane().add(lblNewLabel_5);
 		
-		textField = new JTextField();
-		textField.setBounds(66, 11, 100, 20);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		textFieldNombre = new JTextField();
+		textFieldNombre.setBounds(66, 11, 100, 20);
+		getContentPane().add(textFieldNombre);
+		textFieldNombre.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(266, 11, 105, 20);
-		getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		textFieldApellido1 = new JTextField();
+		textFieldApellido1.setBounds(266, 11, 105, 20);
+		getContentPane().add(textFieldApellido1);
+		textFieldApellido1.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(487, 11, 111, 20);
-		getContentPane().add(textField_2);
-		textField_2.setColumns(10);
+		textFieldApellido2 = new JTextField();
+		textFieldApellido2.setBounds(487, 11, 111, 20);
+		getContentPane().add(textFieldApellido2);
+		textFieldApellido2.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(66, 66, 100, 20);
-		getContentPane().add(textField_3);
-		textField_3.setColumns(10);
+		textFieldCedula = new JTextField();
+		textFieldCedula.setBounds(66, 66, 100, 20);
+		getContentPane().add(textFieldCedula);
+		textFieldCedula.setColumns(10);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(266, 66, 105, 20);
-		getContentPane().add(textField_4);
-		textField_4.setColumns(10);
+		textFieldTelefono = new JTextField();
+		textFieldTelefono.setBounds(266, 66, 105, 20);
+		getContentPane().add(textFieldTelefono);
+		textFieldTelefono.setColumns(10);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(487, 66, 111, 20);
-		getContentPane().add(textField_5);
-		textField_5.setColumns(10);
+		textFieldCorreo = new JTextField();
+		textFieldCorreo.setBounds(487, 66, 111, 20);
+		getContentPane().add(textFieldCorreo);
+		textFieldCorreo.setColumns(10);
 		
-		comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Familia", "Colega", "Estudiante"}));
-		comboBox.setSelectedIndex(0);
-		comboBox.setMaximumRowCount(3);
-		comboBox.setBounds(66, 123, 156, 20);
-		getContentPane().add(comboBox);
+		comboBoxCategoria = new JComboBox();
+		comboBoxCategoria.setModel(new DefaultComboBoxModel(new String[] {"Familia", "Colega", "Estudiante"}));
+		comboBoxCategoria.setSelectedIndex(0);
+		comboBoxCategoria.setMaximumRowCount(3);
+		comboBoxCategoria.setBounds(66, 123, 156, 20);
+		getContentPane().add(comboBoxCategoria);
 		
 		JLabel lblNewLabel_6 = new JLabel("Categoria");
 		lblNewLabel_6.setBounds(10, 126, 71, 14);
@@ -158,19 +158,19 @@ public class ventanaAgregarPersona extends JInternalFrame
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				if(!textField.getText().isEmpty() && !textField_1.getText().isEmpty() &&
-				   !textField_2.getText().isEmpty() && !textField_3.getText().isEmpty() &&
-				   !textField_4.getText().isEmpty() && !textField_5.getText().isEmpty())
+				if(!textFieldNombre.getText().isEmpty() && !textFieldApellido1.getText().isEmpty() &&
+				   !textFieldApellido2.getText().isEmpty() && !textFieldCedula.getText().isEmpty() &&
+				   !textFieldTelefono.getText().isEmpty() && !textFieldCorreo.getText().isEmpty())
 				{
-					administradorAplicacion.getInstance().agregarPersona(textField.getText(), 
-							textField_1.getText(),textField_2.getText(), textField_3.getText(),
-							textField_4.getText(), textField_5.getText(), comboBox.getSelectedIndex());
-					textField.setText("");
-					textField_1.setText("");
-					textField_2.setText("");
-					textField_3.setText("");
-					textField_4.setText("");
-					textField_5.setText("");
+					administradorAplicacion.getInstance().agregarPersona(textFieldNombre.getText(), 
+							textFieldApellido1.getText(),textFieldApellido2.getText(), textFieldCedula.getText(),
+							textFieldTelefono.getText(), textFieldCorreo.getText(), comboBoxCategoria.getSelectedIndex());
+					textFieldNombre.setText("");
+					textFieldApellido1.setText("");
+					textFieldApellido2.setText("");
+					textFieldCedula.setText("");
+					textFieldTelefono.setText("");
+					textFieldCorreo.setText("");
 					setVisible(false);
 					JOptionPane.showMessageDialog(null, "Se agrego la persona con exito");
 				}
@@ -187,12 +187,12 @@ public class ventanaAgregarPersona extends JInternalFrame
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				textField.setText("");
-				textField_1.setText("");
-				textField_2.setText("");
-				textField_3.setText("");
-				textField_4.setText("");
-				textField_5.setText("");
+				textFieldNombre.setText("");
+				textFieldApellido1.setText("");
+				textFieldApellido2.setText("");
+				textFieldCedula.setText("");
+				textFieldTelefono.setText("");
+				textFieldCorreo.setText("");
 				setVisible(false);
 			}
 		});
