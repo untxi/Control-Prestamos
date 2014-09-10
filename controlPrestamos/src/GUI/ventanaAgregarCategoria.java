@@ -26,7 +26,7 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 	/**
 	 * Ingresar Categoría
 	 */
-	private JTextField textFieldCategoria;
+	private JTextField fieldNewCategoria;
 	// Métodos
 	/**
 	 * Método Público: ventanaAgregarCategoria
@@ -62,10 +62,10 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 		/**
 		 * Campo para ingresar la nueva categoría
 		 */
-		textFieldCategoria = new JTextField();
-		textFieldCategoria.setBounds(136, 20, 147, 20);
-		getContentPane().add(textFieldCategoria);
-		textFieldCategoria.setColumns(10);
+		fieldNewCategoria = new JTextField();
+		fieldNewCategoria.setBounds(136, 20, 147, 20);
+		getContentPane().add(fieldNewCategoria);
+		fieldNewCategoria.setColumns(10);
 		/**
 		 * Botón para aceptar lo digitado y enviar la información
 		 */
@@ -73,10 +73,10 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				if(!textFieldCategoria.getText().isEmpty())
+				if(!fieldNewCategoria.getText().isEmpty())
 				{
-					administradorAplicacion.getInstance().agregarCategoria(textFieldCategoria.getText());
-					textFieldCategoria.setText("");
+					administradorAplicacion.getInstance().agregarCategoria(fieldNewCategoria.getText());
+					fieldNewCategoria.setText("");
 					setVisible(false);
 					JOptionPane.showMessageDialog(null, "La categoria se ha agregado correctamente");
 				}
@@ -95,7 +95,7 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				textFieldCategoria.setText("");
+				fieldNewCategoria.setText("");
 				setVisible(false);
 			}
 		});

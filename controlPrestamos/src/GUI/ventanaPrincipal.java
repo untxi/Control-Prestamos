@@ -143,21 +143,21 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		getContentPane().add(escritorio);
 		
 		panel.setSize(534, 5000);
-		JScrollPane scrollPane = new JScrollPane(panel);
-		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setAutoscrolls(true);
+		JScrollPane scrollBar = new JScrollPane(panel);
+		scrollBar.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollBar.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollBar.setAutoscrolls(true);
 		
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 36));
 		GroupLayout gl_escritorio = new GroupLayout(escritorio);
 		gl_escritorio.setHorizontalGroup(
-			gl_escritorio.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, gl_escritorio.createSequentialGroup()
+			gl_escritorio.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_escritorio.createSequentialGroup()
 					.addGap(217)
 					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 384, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 498, GroupLayout.PREFERRED_SIZE))
+					.addComponent(scrollBar, GroupLayout.PREFERRED_SIZE, 498, GroupLayout.PREFERRED_SIZE))
 		);
 		gl_escritorio.setVerticalGroup(
 			gl_escritorio.createParallelGroup(Alignment.LEADING)
@@ -165,7 +165,9 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 					.addGap(11)
 					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
 					.addGap(455))
-				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE)
+				.addGroup(Alignment.TRAILING, gl_escritorio.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(scrollBar, GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE))
 		);
 		escritorio.setLayout(gl_escritorio);
 		
@@ -218,10 +220,10 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		menuConfiguracion.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/gear_in.png")));
 		menuBar.add(menuConfiguracion);
 		
-		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Configurar preferencias del sistema");
-		mntmNewMenuItem_4.setIcon(new ImageIcon(imagenConfig));
-		mntmNewMenuItem_4.setBackground(new Color(100, 149, 237));
-		mntmNewMenuItem_4.addActionListener(new ActionListener() {
+		JMenuItem mntmconfigSistema = new JMenuItem("Configurar preferencias del sistema");
+		mntmconfigSistema.setIcon(new ImageIcon(imagenConfig));
+		mntmconfigSistema.setBackground(new Color(100, 149, 237));
+		mntmconfigSistema.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0)
 			{
 				ventanaConfiguracion n = new ventanaConfiguracion();
@@ -231,18 +233,18 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 				
 			}
 		});
-		mntmNewMenuItem_4.addMouseListener(new MouseAdapter() {
+		mntmconfigSistema.addMouseListener(new MouseAdapter() {
 		});
-		menuConfiguracion.add(mntmNewMenuItem_4);
+		menuConfiguracion.add(mntmconfigSistema);
 		
-		JMenuItem mntmNewMenuItem_7 = new JMenuItem("Prestar Articulo");
-		mntmNewMenuItem_7.addActionListener(new ActionListener() {
+		JMenuItem mntmConfigPrestaArticulo = new JMenuItem("Prestar Articulo");
+		mntmConfigPrestaArticulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
 				ventanaPrestamo.getInstance().setVisible(true);
 			}
 		});
-		menuConfiguracion.add(mntmNewMenuItem_7);
+		menuConfiguracion.add(mntmConfigPrestaArticulo);
 		
 		menuAgregar = new JMenu("");
 		menuAgregar.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/world_add.png")));
@@ -282,8 +284,8 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		mntmAgregarCategoriaArticulo.setBackground(new Color(100, 149, 237));
 		menuAgregar.add(mntmAgregarCategoriaArticulo);
 		
-		JMenuItem mntmAgregarArticulosDesde = new JMenuItem("Agregar Libros desde archivo txt");
-		mntmAgregarArticulosDesde.addActionListener(new ActionListener() {
+		JMenuItem mntmAgregarLibroDesde = new JMenuItem("Agregar Libros desde archivo txt");
+		mntmAgregarLibroDesde.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0)
 			{
 				int respuesta = ventaBuscador.showOpenDialog(miVentanaPrincipal);
@@ -293,13 +295,13 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 			        }		
 	        }
 			});
-		mntmAgregarArticulosDesde.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/book_add.png")));
-		mntmAgregarArticulosDesde.setBackground(new Color(100, 149, 237));
-		menuAgregar.add(mntmAgregarArticulosDesde);
+		mntmAgregarLibroDesde.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/book_add.png")));
+		mntmAgregarLibroDesde.setBackground(new Color(100, 149, 237));
+		menuAgregar.add(mntmAgregarLibroDesde);
 		
-		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Agregar revistas desde archivo txt");
-		mntmNewMenuItem_5.setBackground(new Color(100, 149, 237));
-		mntmNewMenuItem_5.addActionListener(new ActionListener() {
+		JMenuItem mntmAgregarRevistas = new JMenuItem("Agregar revistas desde archivo txt");
+		mntmAgregarRevistas.setBackground(new Color(100, 149, 237));
+		mntmAgregarRevistas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
 				int respuesta = ventaBuscador.showOpenDialog(miVentanaPrincipal);
@@ -310,12 +312,12 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 				// agregar revistas desde archivo txt
 			}
 		});
-		mntmNewMenuItem_5.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/book_add.png")));
-		menuAgregar.add(mntmNewMenuItem_5);
+		mntmAgregarRevistas.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/book_add.png")));
+		menuAgregar.add(mntmAgregarRevistas);
 		
-		JMenuItem mntmNewMenuItem_6 = new JMenuItem("Agregar peliculas desde archivo txt");
-		mntmNewMenuItem_6.setBackground(new Color(100, 149, 237));
-		mntmNewMenuItem_6.addActionListener(new ActionListener() {
+		JMenuItem mntmAgregarPeliculas = new JMenuItem("Agregar peliculas desde archivo txt");
+		mntmAgregarPeliculas.setBackground(new Color(100, 149, 237));
+		mntmAgregarPeliculas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
 				int respuesta = ventaBuscador.showOpenDialog(miVentanaPrincipal);
@@ -325,8 +327,8 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 			        }		
 			}
 		});
-		mntmNewMenuItem_6.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/dvd_add.png")));
-		menuAgregar.add(mntmNewMenuItem_6);
+		mntmAgregarPeliculas.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/dvd_add.png")));
+		menuAgregar.add(mntmAgregarPeliculas);
 		
 		JMenuItem mntmAgregarPersonasDesde = new JMenuItem("Agregar personas desde archivo txt");
 		mntmAgregarPersonasDesde.addActionListener(new ActionListener() {
@@ -347,25 +349,25 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		menuConsultar.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/table_tab_search.png")));
 		menuBar.add(menuConsultar);
 		
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Top 10 de articulos");
-		mntmNewMenuItem_2.setBackground(new Color(100, 149, 237));
-		menuConsultar.add(mntmNewMenuItem_2);
+		JMenuItem mntmTopArticulo = new JMenuItem("Top 10 de articulos");
+		mntmTopArticulo.setBackground(new Color(100, 149, 237));
+		menuConsultar.add(mntmTopArticulo);
 		
-		JMenuItem mntmConsultaDeLibros = new JMenuItem("Listado de articulos");
-		mntmConsultaDeLibros.setBackground(new Color(100, 149, 237));
-		menuConsultar.add(mntmConsultaDeLibros);
+		JMenuItem mntmListadoArticulos = new JMenuItem("Listado de articulos");
+		mntmListadoArticulos.setBackground(new Color(100, 149, 237));
+		menuConsultar.add(mntmListadoArticulos);
 		
-		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Listado personalizado");
-		mntmNewMenuItem_3.setBackground(new Color(100, 149, 237));
-		menuConsultar.add(mntmNewMenuItem_3);
+		JMenuItem mntmListadoPersonalizado = new JMenuItem("Listado personalizado");
+		mntmListadoPersonalizado.setBackground(new Color(100, 149, 237));
+		menuConsultar.add(mntmListadoPersonalizado);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Listado de articulos prestados");
-		mntmNewMenuItem.setBackground(new Color(100, 149, 237));
-		menuConsultar.add(mntmNewMenuItem);
+		JMenuItem mntmListadoArticulosPrestados = new JMenuItem("Listado de articulos prestados");
+		mntmListadoArticulosPrestados.setBackground(new Color(100, 149, 237));
+		menuConsultar.add(mntmListadoArticulosPrestados);
 		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Listado de articulos no prestados");
-		mntmNewMenuItem_1.setBackground(new Color(100, 149, 237));
-		menuConsultar.add(mntmNewMenuItem_1);
+		JMenuItem mntmListadoArticuosNoPrestados = new JMenuItem("Listado de articulos no prestados");
+		mntmListadoArticuosNoPrestados.setBackground(new Color(100, 149, 237));
+		menuConsultar.add(mntmListadoArticuosNoPrestados);
 		
 		menuSalir = new JMenu("");
 		menuSalir.addMouseListener(new MouseAdapter() {

@@ -47,23 +47,23 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 	/**
 	 * campo para ingresar numero de cedula
 	 */
-	private JTextField txtSdfasdfasd;
+	private JTextField fieldCedula;
 	/**
 	 * categoria
 	 */
-	private JComboBox categoria;
+	private JComboBox comboBoxCategoriaPerson;
 	/**
 	 * persona prestada
 	 */
-	private JComboBox persona;
+	private JComboBox comboBoxPersona;
 	/**
 	 * campo para ingresar categoria
 	 */
-	private JComboBox comboBox;
+	private JComboBox comboBoxCategoriaArt;
 	/**
 	 * campo para ingresar el articulo
 	 */
-	private JComboBox comboBox_1;
+	private JComboBox comboBoxNombreArticulo;
 	/**
 	 * Etiqueta
 	 */
@@ -71,7 +71,7 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 	/**
 	 * fecha
 	 */
-	private JDateChooser dateChooser;
+	private JDateChooser calendarioPrestamo;
 	
 	//Método Público
 	/**
@@ -95,119 +95,119 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		setBounds(100, 100, 321, 567);
 		getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Persona");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel.setBounds(102, 11, 79, 25);
-		getContentPane().add(lblNewLabel);
+		JLabel lblTitlePersona = new JLabel("Persona");
+		lblTitlePersona.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblTitlePersona.setBounds(102, 11, 79, 25);
+		getContentPane().add(lblTitlePersona);
 		
 		JSeparator separator = new JSeparator();
 		separator.setBounds(0, 203, 414, 14);
 		getContentPane().add(separator);
 		
-		JLabel lblNewLabel_1 = new JLabel("Categoria");
-		lblNewLabel_1.setBounds(10, 66, 68, 14);
-		getContentPane().add(lblNewLabel_1);
+		JLabel lblCategoriaPerson = new JLabel("Categoria");
+		lblCategoriaPerson.setBounds(10, 66, 68, 14);
+		getContentPane().add(lblCategoriaPerson);
 		
-		JLabel lblNewLabel_2 = new JLabel("Persona");
-		lblNewLabel_2.setBounds(10, 115, 46, 14);
-		getContentPane().add(lblNewLabel_2);
+		JLabel lblPersona = new JLabel("Persona");
+		lblPersona.setBounds(10, 115, 46, 14);
+		getContentPane().add(lblPersona);
 		
-		categoria = new JComboBox();
-		categoria.addActionListener(new ActionListener() {
+		comboBoxCategoriaPerson = new JComboBox();
+		comboBoxCategoriaPerson.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				int cantPersonas = administradorAplicacion.getInstance().getPersonas().get(categoria.getSelectedIndex()).size();
+				int cantPersonas = administradorAplicacion.getInstance().getPersonas().get(comboBoxCategoriaPerson.getSelectedIndex()).size();
 				String [] categorias = new String[cantPersonas];
 				for(int i = 0; i < cantPersonas; i++)
 				{
-					categorias[i] = administradorAplicacion.getInstance().getPersonas().get(categoria.getSelectedIndex()).get(i).getNombre();
+					categorias[i] = administradorAplicacion.getInstance().getPersonas().get(comboBoxCategoriaPerson.getSelectedIndex()).get(i).getNombre();
 				}
-				persona.setModel(new DefaultComboBoxModel(categorias));
+				comboBoxPersona.setModel(new DefaultComboBoxModel(categorias));
 			}
 		});
-		categoria.setModel(new DefaultComboBoxModel(new String[] {"Familia", "Colega", "Estudiante"}));
-		categoria.setBounds(145, 63, 150, 20);
-		getContentPane().add(categoria);
+		comboBoxCategoriaPerson.setModel(new DefaultComboBoxModel(new String[] {"Familia", "Colega", "Estudiante"}));
+		comboBoxCategoriaPerson.setBounds(145, 63, 150, 20);
+		getContentPane().add(comboBoxCategoriaPerson);
 		
-		persona = new JComboBox();
-		persona.addActionListener(new ActionListener() {
+		comboBoxPersona = new JComboBox();
+		comboBoxPersona.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				txtSdfasdfasd.setText(administradorAplicacion.getInstance().getPersonas().get(categoria.getSelectedIndex()).get(persona.getSelectedIndex()).getCedula());
+				fieldCedula.setText(administradorAplicacion.getInstance().getPersonas().get(comboBoxCategoriaPerson.getSelectedIndex()).get(comboBoxPersona.getSelectedIndex()).getCedula());
 			}
 		});
-		persona.setBounds(145, 112, 150, 20);
-		getContentPane().add(persona);
+		comboBoxPersona.setBounds(145, 112, 150, 20);
+		getContentPane().add(comboBoxPersona);
 		
-		JLabel lblNewLabel_3 = new JLabel("Cedula");
-		lblNewLabel_3.setBounds(10, 161, 46, 14);
-		getContentPane().add(lblNewLabel_3);
+		JLabel lblCedula = new JLabel("Cedula");
+		lblCedula.setBounds(10, 161, 46, 14);
+		getContentPane().add(lblCedula);
 		
-		txtSdfasdfasd = new JTextField();
-		txtSdfasdfasd.setEnabled(false);
-		txtSdfasdfasd.setBounds(145, 158, 150, 20);
-		getContentPane().add(txtSdfasdfasd);
-		txtSdfasdfasd.setColumns(10);
+		fieldCedula = new JTextField();
+		fieldCedula.setEnabled(false);
+		fieldCedula.setBounds(145, 158, 150, 20);
+		getContentPane().add(fieldCedula);
+		fieldCedula.setColumns(10);
 		
-		JLabel lblArticulo = new JLabel("Articulo");
-		lblArticulo.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblArticulo.setBounds(108, 215, 73, 25);
-		getContentPane().add(lblArticulo);
+		JLabel lblTitleArticulo = new JLabel("Articulo");
+		lblTitleArticulo.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblTitleArticulo.setBounds(108, 215, 73, 25);
+		getContentPane().add(lblTitleArticulo);
 		
-		JLabel label = new JLabel("Categoria");
-		label.setBounds(10, 260, 68, 14);
-		getContentPane().add(label);
+		JLabel lblCategoriaArt = new JLabel("Categoria");
+		lblCategoriaArt.setBounds(10, 260, 68, 14);
+		getContentPane().add(lblCategoriaArt);
 		
-		comboBox = new JComboBox();
-		comboBox.addActionListener(new ActionListener() {
+		comboBoxCategoriaArt = new JComboBox();
+		comboBoxCategoriaArt.addActionListener(new ActionListener() {
 			  public void actionPerformed(ActionEvent arg0) 
 			{
-				int cantCategorias = administradorAplicacion.getInstance().getMiListaCategorias().get(comboBox.getSelectedIndex()).size();
+				int cantCategorias = administradorAplicacion.getInstance().getMiListaCategorias().get(comboBoxCategoriaArt.getSelectedIndex()).size();
 				String [] categorias = new String[cantCategorias];
 				for(int i = 0; i < cantCategorias; i++)
 				{
-					categorias[i] = administradorAplicacion.getInstance().getMiListaCategorias().get(comboBox.getSelectedIndex()).get(i).getNombre();
+					categorias[i] = administradorAplicacion.getInstance().getMiListaCategorias().get(comboBoxCategoriaArt.getSelectedIndex()).get(i).getNombre();
 				}
-				comboBox_1.setModel(new DefaultComboBoxModel(categorias));
+				comboBoxNombreArticulo.setModel(new DefaultComboBoxModel(categorias));
 			}
 		});
-		comboBox.setBounds(145, 257, 150, 20);
-		getContentPane().add(comboBox);
+		comboBoxCategoriaArt.setBounds(145, 257, 150, 20);
+		getContentPane().add(comboBoxCategoriaArt);
 		
 		JLabel lblNombreArticulo = new JLabel("Nombre articulo");
 		lblNombreArticulo.setBounds(10, 314, 87, 14);
 		getContentPane().add(lblNombreArticulo);
 		
-		comboBox_1 = new JComboBox();
-		comboBox_1.addActionListener(new ActionListener() {
+		comboBoxNombreArticulo = new JComboBox();
+		comboBoxNombreArticulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				String nombreImagen;
-				nombreImagen = administradorAplicacion.getInstance().getMiListaCategorias().get(comboBox.getSelectedIndex()).get(comboBox_1.getSelectedIndex()).getImagen();
+				nombreImagen = administradorAplicacion.getInstance().getMiListaCategorias().get(comboBoxCategoriaArt.getSelectedIndex()).get(comboBoxNombreArticulo.getSelectedIndex()).getImagen();
 				ImageIcon portada = new ImageIcon(pathImagenes + nombreImagen);
 				label_1.setIcon(new ImageIcon(portada.getImage().getScaledInstance(104, 165, Image.SCALE_SMOOTH)));
 			}
 		});
-		comboBox_1.setBounds(145, 311, 150, 20);
-		getContentPane().add(comboBox_1);
+		comboBoxNombreArticulo.setBounds(145, 311, 150, 20);
+		getContentPane().add(comboBoxNombreArticulo);
 		
 		label_1 = new JLabel("");
 		label_1.setBounds(10, 362, 104, 165);
 		getContentPane().add(label_1);
 		
-		JButton btnNewButton = new JButton("Aceptar");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				if(persona.getSelectedIndex() != -1 && comboBox_1.getSelectedIndex() != -1)
+				if(comboBoxPersona.getSelectedIndex() != -1 && comboBoxNombreArticulo.getSelectedIndex() != -1)
 				{
-					Persona miPersona = administradorAplicacion.getInstance().getPersonas().get(categoria.getSelectedIndex()).get(persona.getSelectedIndex());
-					Articulo miArticulo = administradorAplicacion.getInstance().getMiListaCategorias().get(comboBox.getSelectedIndex()).get(comboBox_1.getSelectedIndex());
+					Persona miPersona = administradorAplicacion.getInstance().getPersonas().get(comboBoxCategoriaPerson.getSelectedIndex()).get(comboBoxPersona.getSelectedIndex());
+					Articulo miArticulo = administradorAplicacion.getInstance().getMiListaCategorias().get(comboBoxCategoriaArt.getSelectedIndex()).get(comboBoxNombreArticulo.getSelectedIndex());
 					miArticulo.setPrestado(true);
 					miArticulo.setCantPrestamos(miArticulo.getCantPrestamos() + 1);
-					Date miFecha = dateChooser.getJCalendar().getDate();
+					Date miFecha = calendarioPrestamo.getJCalendar().getDate();
 					System.out.println("Mes: "+ miFecha.getMonth());
-					administradorAplicacion.getInstance().agregarPrestamo(comboBox.getSelectedIndex(),new Prestamo(miArticulo,miPersona,miFecha));
+					administradorAplicacion.getInstance().agregarPrestamo(comboBoxCategoriaArt.getSelectedIndex(),new Prestamo(miArticulo,miPersona,miFecha));
 					setVisible(false);
 				}
 				else
@@ -216,11 +216,11 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 				}
 			}
 		});
-		btnNewButton.setBounds(121, 504, 79, 23);
-		getContentPane().add(btnNewButton);
+		btnAceptar.setBounds(121, 504, 79, 23);
+		getContentPane().add(btnAceptar);
 		
-		JButton btnNewButton_1 = new JButton("Cancelar");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
 				//persona.setSelectedIndex(-1);
@@ -228,16 +228,16 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 				setVisible(false);
 			}
 		});
-		btnNewButton_1.setBounds(210, 504, 89, 23);
-		getContentPane().add(btnNewButton_1);
+		btnCancelar.setBounds(210, 504, 89, 23);
+		getContentPane().add(btnCancelar);
 		
 		JLabel lblFechaDePrestamo = new JLabel("Fecha de prestamo");
 		lblFechaDePrestamo.setBounds(158, 362, 104, 14);
 		getContentPane().add(lblFechaDePrestamo);
 		
-		dateChooser = new JDateChooser();
-		dateChooser.setBounds(145, 387, 133, 20);
-		getContentPane().add(dateChooser);
+		calendarioPrestamo = new JDateChooser();
+		calendarioPrestamo.setBounds(145, 387, 133, 20);
+		getContentPane().add(calendarioPrestamo);
 		cambiarComboBox();
 	}
 	public void cambiarComboBox()
@@ -248,6 +248,6 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		{
 			categorias[i] = administradorAplicacion.getInstance().getTiposCategorias().get(i);
 		}
-		comboBox.setModel(new DefaultComboBoxModel(categorias));
+		comboBoxCategoriaArt.setModel(new DefaultComboBoxModel(categorias));
 	}
 }

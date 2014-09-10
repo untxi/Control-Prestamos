@@ -33,15 +33,15 @@ public class ventanaRegistroUsuario extends JInternalFrame
 	/**
 	 * Nombre del Usuario
 	 */
-	private JTextField textFieldNombre;
+	private JTextField fieldNombre;
 	/**
 	 * Nickname para usuario
 	 */
-	private JTextField textFieldUsuario;
+	private JTextField fieldNombreUsuario;
 	/**
 	 * Contraseña 
 	 */
-	private JPasswordField passwordFieldContrasena;
+	private JPasswordField fieldContrasena;
 	/**
 	 * Ventana para ingresar datos
 	 */
@@ -77,54 +77,54 @@ public class ventanaRegistroUsuario extends JInternalFrame
 		/**
 		 * Campo para ingresar el nombre
 		 */
-		textFieldNombre = new JTextField();
-		textFieldNombre.setBounds(171, 11, 150, 20);
-		getContentPane().add(textFieldNombre);
-		textFieldNombre.setColumns(10);
+		fieldNombre = new JTextField();
+		fieldNombre.setBounds(171, 11, 150, 20);
+		getContentPane().add(fieldNombre);
+		fieldNombre.setColumns(10);
 		/**
 		 * Label para ingresar el nombre
 		 */
-		JLabel lblNewLabel = new JLabel("Nombre");
-		lblNewLabel.setBounds(10, 14, 122, 14);
-		getContentPane().add(lblNewLabel);
+		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setBounds(10, 14, 122, 14);
+		getContentPane().add(lblNombre);
 		/**
 		 * Label para ingresar el nickname
 		 */
-		JLabel lblNewLabel_1 = new JLabel("Nombre Usuario");
-		lblNewLabel_1.setBounds(10, 68, 94, 14);
-		getContentPane().add(lblNewLabel_1);
+		JLabel lblNombreUsuario = new JLabel("Nombre Usuario");
+		lblNombreUsuario.setBounds(10, 68, 94, 14);
+		getContentPane().add(lblNombreUsuario);
 		/**
 		 * Label para ingresar la contraseña
 		 */
-		JLabel lblNewLabel_2 = new JLabel("Contrase\u00F1a");
-		lblNewLabel_2.setBounds(10, 116, 86, 14);
-		getContentPane().add(lblNewLabel_2);
+		JLabel lblContrasena = new JLabel("Contrase\u00F1a");
+		lblContrasena.setBounds(10, 116, 86, 14);
+		getContentPane().add(lblContrasena);
 		/**
 		 * Campo para ingresar el usuario
 		 */
-		textFieldUsuario = new JTextField();
-		textFieldUsuario.setBounds(171, 65, 150, 20);
-		getContentPane().add(textFieldUsuario);
-		textFieldUsuario.setColumns(10);
+		fieldNombreUsuario = new JTextField();
+		fieldNombreUsuario.setBounds(171, 65, 150, 20);
+		getContentPane().add(fieldNombreUsuario);
+		fieldNombreUsuario.setColumns(10);
 		/**
 		 * Campo para ingresar la contraseña
 		 */
-		passwordFieldContrasena = new JPasswordField();
-		passwordFieldContrasena.setBounds(171, 113, 150, 20);
-		getContentPane().add(passwordFieldContrasena);
+		fieldContrasena = new JPasswordField();
+		fieldContrasena.setBounds(171, 113, 150, 20);
+		getContentPane().add(fieldContrasena);
 		/**
 		 * Botón para aceptar lo digitado y enviar la información
 		 */
-		JButton btnNewButton = new JButton("Aceptar");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0)
 			{
-				if(!textFieldNombre.getText().isEmpty() && !textFieldUsuario.getText().isEmpty() && !passwordFieldContrasena.getText().isEmpty())
+				if(!fieldNombre.getText().isEmpty() && !fieldNombreUsuario.getText().isEmpty() && !fieldContrasena.getText().isEmpty())
 				{
-					administradorAplicacion.getInstance().setUsuario(new Usuario(textFieldNombre.getText(), textFieldUsuario.getText(), passwordFieldContrasena.getText()));
-					textFieldNombre.setText("");
-					textFieldUsuario.setText("");
-					passwordFieldContrasena.setText("");
+					administradorAplicacion.getInstance().setUsuario(new Usuario(fieldNombre.getText(), fieldNombreUsuario.getText(), fieldContrasena.getText()));
+					fieldNombre.setText("");
+					fieldNombreUsuario.setText("");
+					fieldContrasena.setText("");
 					setVisible(false);
 					JOptionPane.showMessageDialog(null, "Usuario agreado con exito");
 					//System.out.println("Usuario agregado");
@@ -136,23 +136,23 @@ public class ventanaRegistroUsuario extends JInternalFrame
 			}
 			
 		});
-		btnNewButton.setBounds(43, 169, 89, 23);
-		getContentPane().add(btnNewButton);
+		btnAceptar.setBounds(43, 169, 89, 23);
+		getContentPane().add(btnAceptar);
 		/**
 		 * Botón para cancelar la información ingresada
 		 */
-		JButton btnNewButton_1 = new JButton("Cancelar");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0)
 			{
-				textFieldNombre.setText("");
-				textFieldUsuario.setText("");
-				passwordFieldContrasena.setText("");
+				fieldNombre.setText("");
+				fieldNombreUsuario.setText("");
+				fieldContrasena.setText("");
 				setVisible(false);
 			}
 		});
-		btnNewButton_1.setBounds(183, 169, 89, 23);
-		getContentPane().add(btnNewButton_1);
+		btnCancelar.setBounds(183, 169, 89, 23);
+		getContentPane().add(btnCancelar);
 
 	}
 }

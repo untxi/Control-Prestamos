@@ -42,10 +42,10 @@ public class panelArticulo extends JPanel implements IConstantes
 		setBackground(new Color(95, 158, 160));
 		setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(0, 0, 165, 265);
-		lblNewLabel.setIcon(new ImageIcon(portada.getImage().getScaledInstance(164, 265, Image.SCALE_SMOOTH)));
-		add(lblNewLabel);
+		JLabel lblImagen = new JLabel("");
+		lblImagen.setBounds(0, 0, 165, 265);
+		lblImagen.setIcon(new ImageIcon(portada.getImage().getScaledInstance(164, 265, Image.SCALE_SMOOTH)));
+		add(lblImagen);
 
 	}
 }

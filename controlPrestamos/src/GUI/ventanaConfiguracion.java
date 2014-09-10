@@ -57,9 +57,9 @@ public class ventanaConfiguracion extends JInternalFrame {
 		/**
 		 * Label de explicación
 		 */
-		JLabel lblLasAlertasSe = new JLabel("Las alertas se dan en 3 rangos para  recordar las fechas vencidas de los prestamos");
-		lblLasAlertasSe.setBounds(10, 48, 414, 14);
-		getContentPane().add(lblLasAlertasSe);
+		JLabel lblExplicAlerta = new JLabel("Las alertas se dan en 3 rangos para  recordar las fechas vencidas de los prestamos");
+		lblExplicAlerta.setBounds(10, 48, 414, 14);
+		getContentPane().add(lblExplicAlerta);
 		/**
 		 * Label Primera Alerta
 		 */
@@ -106,10 +106,10 @@ public class ventanaConfiguracion extends JInternalFrame {
 		fieldRojo.setBounds(343, 68, 28, 22);
 		getContentPane().add(fieldRojo);
 		
-		TextField textFieldTop = new TextField();
-		textFieldTop.setText("10");
-		textFieldTop.setBounds(92, 110, 28, 22);
-		getContentPane().add(textFieldTop);
+		TextField fieldTop = new TextField();
+		fieldTop.setText("10");
+		fieldTop.setBounds(92, 110, 28, 22);
+		getContentPane().add(fieldTop);
 		
 		JButton btnAceptar = new JButton("Guardar Cambios");
 		btnAceptar.setBounds(54, 212, 115, 23);

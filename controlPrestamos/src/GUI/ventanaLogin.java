@@ -25,11 +25,11 @@ public class ventanaLogin extends JInternalFrame {
 	/**
 	 * Campo para nickname
 	 */
-	private JTextField textField;
+	private JTextField fieldNombreUsuario;
 	/**
 	 * Campo para contraseña
 	 */
-	private JPasswordField passwordField;
+	private JPasswordField fieldConstraseña;
 	/**
 	 * Ventana para logear
 	 */
@@ -64,41 +64,41 @@ public class ventanaLogin extends JInternalFrame {
 		/**
 		 * Label para ingresar el nombre
 		 */
-		JLabel lblNewLabel = new JLabel("Nombre Usuario");
-		lblNewLabel.setBounds(10, 36, 99, 14);
-		getContentPane().add(lblNewLabel);
+		JLabel lblNombreUsuario = new JLabel("Nombre Usuario");
+		lblNombreUsuario.setBounds(10, 36, 99, 14);
+		getContentPane().add(lblNombreUsuario);
 		/**
 		 * Label para ingresar la contraseña
 		 */
-		JLabel lblNewLabel_1 = new JLabel("Contrase\u00F1a");
-		lblNewLabel_1.setBounds(10, 80, 86, 14);
-		getContentPane().add(lblNewLabel_1);
+		JLabel lblContaseña = new JLabel("Contrase\u00F1a");
+		lblContaseña.setBounds(10, 80, 86, 14);
+		getContentPane().add(lblContaseña);
 		/**
 		 * Campo para ingresar el usuario
 		 */
-		textField = new JTextField();
-		textField.setBounds(137, 33, 145, 20);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		fieldNombreUsuario = new JTextField();
+		fieldNombreUsuario.setBounds(137, 33, 145, 20);
+		getContentPane().add(fieldNombreUsuario);
+		fieldNombreUsuario.setColumns(10);
 		/**
 		 * Campo para ingresar la contraseña
 		 */
-		passwordField = new JPasswordField();
-		passwordField.setBounds(137, 77, 145, 20);
-		getContentPane().add(passwordField);
+		fieldConstraseña = new JPasswordField();
+		fieldConstraseña.setBounds(137, 77, 145, 20);
+		getContentPane().add(fieldConstraseña);
 		/**
 		 * Botón para aceptar lo digitado y enviar la información
 		 */
-		JButton btnNewButton = new JButton("Aceptar");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				if(!textField.getText().isEmpty() && !passwordField.getText().isEmpty())
+				if(!fieldNombreUsuario.getText().isEmpty() && !fieldConstraseña.getText().isEmpty())
 				{
-					if(administradorAplicacion.getInstance().validarUsuario(textField.getText(), passwordField.getText()))
+					if(administradorAplicacion.getInstance().validarUsuario(fieldNombreUsuario.getText(), fieldConstraseña.getText()))
 					{
-						textField.setText("");
-						passwordField.setText("");
+						fieldNombreUsuario.setText("");
+						fieldConstraseña.setText("");
 						ventanaPrincipal.getInstance().activarAplicacion();
 						setVisible(false);
 						JOptionPane.showMessageDialog(null, "Bienvenido "+ administradorAplicacion.getInstance().getUsuario().getNombre() );
@@ -111,22 +111,22 @@ public class ventanaLogin extends JInternalFrame {
 				/// iniciar 
 			}
 		});
-		btnNewButton.setBounds(22, 123, 89, 23);
-		getContentPane().add(btnNewButton);
+		btnAceptar.setBounds(22, 123, 89, 23);
+		getContentPane().add(btnAceptar);
 		/**
 		 * Botón para cancelar la información ingresada
 		 */
-		JButton btnNewButton_1 = new JButton("Cancelar");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				textField.setText("");
-				passwordField.setText("");
+				fieldNombreUsuario.setText("");
+				fieldConstraseña.setText("");
 				setVisible(false);
 			}
 		});
-		btnNewButton_1.setBounds(159, 123, 89, 23);
-		getContentPane().add(btnNewButton_1);
+		btnCancelar.setBounds(159, 123, 89, 23);
+		getContentPane().add(btnCancelar);
 		
 	}
 }
