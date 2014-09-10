@@ -114,9 +114,6 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		
 		categoria = new JComboBox();
 		categoria.addActionListener(new ActionListener() {
-			/**
-			 * 
-			 */
 			public void actionPerformed(ActionEvent e)
 			{
 				int cantPersonas = administradorAplicacion.getInstance().getPersonas().get(categoria.getSelectedIndex()).size();
@@ -134,9 +131,6 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		
 		persona = new JComboBox();
 		persona.addActionListener(new ActionListener() {
-			/**
-			 * 
-			 */
 			public void actionPerformed(ActionEvent e) 
 			{
 				txtSdfasdfasd.setText(administradorAplicacion.getInstance().getPersonas().get(categoria.getSelectedIndex()).get(persona.getSelectedIndex()).getCedula());
@@ -166,9 +160,6 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		
 		comboBox = new JComboBox();
 		comboBox.addActionListener(new ActionListener() {
-			 /**
-			  *  
-			  */
 			  public void actionPerformed(ActionEvent arg0) 
 			{
 				int cantCategorias = administradorAplicacion.getInstance().getMiListaCategorias().get(comboBox.getSelectedIndex()).size();
@@ -189,9 +180,6 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		
 		comboBox_1 = new JComboBox();
 		comboBox_1.addActionListener(new ActionListener() {
-			/**
-			 * 
-			 */
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				String nombreImagen;
@@ -209,9 +197,6 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		
 		JButton btnNewButton = new JButton("Aceptar");
 		btnNewButton.addActionListener(new ActionListener() {
-			/**
-			 * 
-			 */
 			public void actionPerformed(ActionEvent e)
 			{
 				if(persona.getSelectedIndex() != -1 && comboBox_1.getSelectedIndex() != -1)
@@ -236,9 +221,6 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		
 		JButton btnNewButton_1 = new JButton("Cancelar");
 		btnNewButton_1.addActionListener(new ActionListener() {
-			/**
-			 * 
-			 */
 			public void actionPerformed(ActionEvent e) 
 			{
 				//persona.setSelectedIndex(-1);
@@ -257,11 +239,7 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		dateChooser.setBounds(145, 387, 133, 20);
 		getContentPane().add(dateChooser);
 		cambiarComboBox();
-
 	}
-	/**
-	 * 
-	 */
 	public void cambiarComboBox()
 	{
 		int cantCategorias = administradorAplicacion.getInstance().getTiposCategorias().size();
