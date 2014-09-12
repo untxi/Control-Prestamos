@@ -1,39 +1,27 @@
 package GUI;
-// Importar Librerías
+
 import java.awt.EventQueue;
+
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-// Importar Clases
+
 import Administradores.administradorAplicacion;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
-/**
- * Clase ventanaAgregarCategoria
- * Permite agregar categorías para artículos nuevos diferentes a los existentes
- * 
- * @author Samantha Arburola
- */
+import javax.swing.ImageIcon;
+
 public class ventanaAgregarCategoria extends JInternalFrame {
-	// Atributos
-	/**
-	 * Ventana para ingresar datos
-	 */
+
+	
 	private static ventanaAgregarCategoria miVentanaAgregarCategoria;
-	/**
-	 * Ingresar Categoría
-	 */
-	private JTextField fieldNewCategoria;
-	// Métodos
-	/**
-	 * Método Público: ventanaAgregarCategoria
-	 * Permite crear la nueva categoría
-	 * 
-	 * @return ventana para ingresar categoría
-	 */
+	private JTextField textField;
+	
+	
 	public static ventanaAgregarCategoria getInstance()
 	{
 		if(miVentanaAgregarCategoria == null)
@@ -45,38 +33,33 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 	
 
 	/**
-	 * Crea la ventana
+	 * Create the frame.
 	 */
 	public ventanaAgregarCategoria() 
 	{
+		setFrameIcon(new ImageIcon(ventanaAgregarCategoria.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setIconifiable(true);
 		setBounds(100, 100, 315, 149);
 		getContentPane().setLayout(null);
-		/**
-		 * Label para ingresar la categoría
-		 */
+		
 		JLabel lblNuevaCategoria = new JLabel("Nueva Categoria");
 		lblNuevaCategoria.setBounds(10, 23, 104, 14);
 		getContentPane().add(lblNuevaCategoria);
-		/**
-		 * Campo para ingresar la nueva categoría
-		 */
-		fieldNewCategoria = new JTextField();
-		fieldNewCategoria.setBounds(136, 20, 147, 20);
-		getContentPane().add(fieldNewCategoria);
-		fieldNewCategoria.setColumns(10);
-		/**
-		 * Botón para aceptar lo digitado y enviar la información
-		 */
+		
+		textField = new JTextField();
+		textField.setBounds(136, 20, 147, 20);
+		getContentPane().add(textField);
+		textField.setColumns(10);
+		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				if(!fieldNewCategoria.getText().isEmpty())
+				if(!textField.getText().isEmpty())
 				{
-					administradorAplicacion.getInstance().agregarCategoria(fieldNewCategoria.getText());
-					fieldNewCategoria.setText("");
+					administradorAplicacion.getInstance().agregarCategoria(textField.getText());
+					textField.setText("");
 					setVisible(false);
 					JOptionPane.showMessageDialog(null, "La categoria se ha agregado correctamente");
 				}
@@ -88,18 +71,18 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 		});
 		btnAceptar.setBounds(10, 82, 89, 23);
 		getContentPane().add(btnAceptar);
-		/**
-		 * Botón para cancelar la información ingresada
-		 */
+		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				fieldNewCategoria.setText("");
+				textField.setText("");
 				setVisible(false);
 			}
 		});
 		btnCancelar.setBounds(194, 82, 89, 23);
 		getContentPane().add(btnCancelar);
+
 	}
+
 }

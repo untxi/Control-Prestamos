@@ -15,6 +15,7 @@ import Administradores.administradorAplicacion;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
+import javax.swing.ImageIcon;
 /**
  * Clase ventanaagregarpersona
  * 
@@ -33,27 +34,27 @@ public class ventanaAgregarPersona extends JInternalFrame
 	/**
 	 * campo para digitar el nombre
 	 */
-	private JTextField fieldNombre;
+	private JTextField textFieldNombre;
 	/**
 	 * campo para digitar el primer apellido 
 	 */
-	private JTextField fieldApellido1;
+	private JTextField textFieldApellido1;
 	/**
 	 * campo para digitar el segundo apellido
 	 */
-	private JTextField fieldApellido2;
+	private JTextField textFieldApellido2;
 	/**
 	 * campo para digitar la cedular
 	 */
-	private JTextField fieldCedula;
+	private JTextField textFieldCedula;
 	/**
 	 * campo para digitar el telefono
 	 */
-	private JTextField fieldTelefono;
+	private JTextField textFieldTelefono;
 	/**
 	 * campo para digitar el correo
 	 */
-	private JTextField fieldCorreo;
+	private JTextField textFieldCorreo;
 	/**
 	 * seleccionar categoria
 	 */
@@ -84,64 +85,65 @@ public class ventanaAgregarPersona extends JInternalFrame
 	 */
 	private ventanaAgregarPersona() 
 	{
+		setFrameIcon(new ImageIcon(ventanaAgregarPersona.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setIconifiable(true);
 		setBounds(100, 100, 624, 196);
 		getContentPane().setLayout(null);
 		
-		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(10, 14, 46, 14);
-		getContentPane().add(lblNombre);
+		JLabel lblNewLabel = new JLabel("Nombre");
+		lblNewLabel.setBounds(10, 14, 46, 14);
+		getContentPane().add(lblNewLabel);
 		
-		JLabel lblApellido1 = new JLabel("Primer Apellido");
-		lblApellido1.setBounds(176, 14, 80, 14);
-		getContentPane().add(lblApellido1);
+		JLabel lblNewLabel_1 = new JLabel("Primer Apellido");
+		lblNewLabel_1.setBounds(176, 14, 80, 14);
+		getContentPane().add(lblNewLabel_1);
 		
-		JLabel lblApellido2 = new JLabel("Segundo Apellido");
-		lblApellido2.setBounds(381, 14, 96, 14);
-		getContentPane().add(lblApellido2);
+		JLabel lblNewLabel_2 = new JLabel("Segundo Apellido");
+		lblNewLabel_2.setBounds(381, 14, 96, 14);
+		getContentPane().add(lblNewLabel_2);
 		
-		JLabel lblCedula = new JLabel("C\u00E9dula");
-		lblCedula.setBounds(10, 69, 46, 14);
-		getContentPane().add(lblCedula);
+		JLabel lblNewLabel_3 = new JLabel("C\u00E9dula");
+		lblNewLabel_3.setBounds(10, 69, 46, 14);
+		getContentPane().add(lblNewLabel_3);
 		
-		JLabel lblTelefono = new JLabel("Telefono");
-		lblTelefono.setBounds(176, 69, 46, 14);
-		getContentPane().add(lblTelefono);
+		JLabel lblNewLabel_4 = new JLabel("Telefono");
+		lblNewLabel_4.setBounds(176, 69, 46, 14);
+		getContentPane().add(lblNewLabel_4);
 		
-		JLabel lblCorreo = new JLabel("Correo");
-		lblCorreo.setBounds(381, 69, 46, 14);
-		getContentPane().add(lblCorreo);
+		JLabel lblNewLabel_5 = new JLabel("Correo");
+		lblNewLabel_5.setBounds(381, 69, 46, 14);
+		getContentPane().add(lblNewLabel_5);
 		
-		fieldNombre = new JTextField();
-		fieldNombre.setBounds(66, 11, 100, 20);
-		getContentPane().add(fieldNombre);
-		fieldNombre.setColumns(10);
+		textFieldNombre = new JTextField();
+		textFieldNombre.setBounds(66, 11, 100, 20);
+		getContentPane().add(textFieldNombre);
+		textFieldNombre.setColumns(10);
 		
-		fieldApellido1 = new JTextField();
-		fieldApellido1.setBounds(266, 11, 105, 20);
-		getContentPane().add(fieldApellido1);
-		fieldApellido1.setColumns(10);
+		textFieldApellido1 = new JTextField();
+		textFieldApellido1.setBounds(266, 11, 105, 20);
+		getContentPane().add(textFieldApellido1);
+		textFieldApellido1.setColumns(10);
 		
-		fieldApellido2 = new JTextField();
-		fieldApellido2.setBounds(487, 11, 111, 20);
-		getContentPane().add(fieldApellido2);
-		fieldApellido2.setColumns(10);
+		textFieldApellido2 = new JTextField();
+		textFieldApellido2.setBounds(487, 11, 111, 20);
+		getContentPane().add(textFieldApellido2);
+		textFieldApellido2.setColumns(10);
 		
-		fieldCedula = new JTextField();
-		fieldCedula.setBounds(66, 66, 100, 20);
-		getContentPane().add(fieldCedula);
-		fieldCedula.setColumns(10);
+		textFieldCedula = new JTextField();
+		textFieldCedula.setBounds(66, 66, 100, 20);
+		getContentPane().add(textFieldCedula);
+		textFieldCedula.setColumns(10);
 		
-		fieldTelefono = new JTextField();
-		fieldTelefono.setBounds(266, 66, 105, 20);
-		getContentPane().add(fieldTelefono);
-		fieldTelefono.setColumns(10);
+		textFieldTelefono = new JTextField();
+		textFieldTelefono.setBounds(266, 66, 105, 20);
+		getContentPane().add(textFieldTelefono);
+		textFieldTelefono.setColumns(10);
 		
-		fieldCorreo = new JTextField();
-		fieldCorreo.setBounds(487, 66, 111, 20);
-		getContentPane().add(fieldCorreo);
-		fieldCorreo.setColumns(10);
+		textFieldCorreo = new JTextField();
+		textFieldCorreo.setBounds(487, 66, 111, 20);
+		getContentPane().add(textFieldCorreo);
+		textFieldCorreo.setColumns(10);
 		
 		comboBoxCategoria = new JComboBox();
 		comboBoxCategoria.setModel(new DefaultComboBoxModel(new String[] {"Familia", "Colega", "Estudiante"}));
@@ -150,27 +152,27 @@ public class ventanaAgregarPersona extends JInternalFrame
 		comboBoxCategoria.setBounds(66, 123, 156, 20);
 		getContentPane().add(comboBoxCategoria);
 		
-		JLabel lblCategoria = new JLabel("Categoria");
-		lblCategoria.setBounds(10, 126, 71, 14);
-		getContentPane().add(lblCategoria);
+		JLabel lblNewLabel_6 = new JLabel("Categoria");
+		lblNewLabel_6.setBounds(10, 126, 71, 14);
+		getContentPane().add(lblNewLabel_6);
 		
-		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.addActionListener(new ActionListener() {
+		JButton btnNewButton = new JButton("Aceptar");
+		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				if(!fieldNombre.getText().isEmpty() && !fieldApellido1.getText().isEmpty() &&
-				   !fieldApellido2.getText().isEmpty() && !fieldCedula.getText().isEmpty() &&
-				   !fieldTelefono.getText().isEmpty() && !fieldCorreo.getText().isEmpty())
+				if(!textFieldNombre.getText().isEmpty() && !textFieldApellido1.getText().isEmpty() &&
+				   !textFieldApellido2.getText().isEmpty() && !textFieldCedula.getText().isEmpty() &&
+				   !textFieldTelefono.getText().isEmpty() && !textFieldCorreo.getText().isEmpty())
 				{
-					administradorAplicacion.getInstance().agregarPersona(fieldNombre.getText(), 
-							fieldApellido1.getText(),fieldApellido2.getText(), fieldCedula.getText(),
-							fieldTelefono.getText(), fieldCorreo.getText(), comboBoxCategoria.getSelectedIndex());
-					fieldNombre.setText("");
-					fieldApellido1.setText("");
-					fieldApellido2.setText("");
-					fieldCedula.setText("");
-					fieldTelefono.setText("");
-					fieldCorreo.setText("");
+					administradorAplicacion.getInstance().agregarPersona(textFieldNombre.getText(), 
+							textFieldApellido1.getText(),textFieldApellido2.getText(), textFieldCedula.getText(),
+							textFieldTelefono.getText(), textFieldCorreo.getText(), comboBoxCategoria.getSelectedIndex());
+					textFieldNombre.setText("");
+					textFieldApellido1.setText("");
+					textFieldApellido2.setText("");
+					textFieldCedula.setText("");
+					textFieldTelefono.setText("");
+					textFieldCorreo.setText("");
 					setVisible(false);
 					JOptionPane.showMessageDialog(null, "Se agrego la persona con exito");
 				}
@@ -180,23 +182,23 @@ public class ventanaAgregarPersona extends JInternalFrame
 				}
 			}
 		});
-		btnAceptar.setBounds(283, 122, 89, 23);
-		getContentPane().add(btnAceptar);
+		btnNewButton.setBounds(282, 122, 89, 23);
+		getContentPane().add(btnNewButton);
 		
-		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.addActionListener(new ActionListener() {
+		JButton btnNewButton_1 = new JButton("Cancelar");
+		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				fieldNombre.setText("");
-				fieldApellido1.setText("");
-				fieldApellido2.setText("");
-				fieldCedula.setText("");
-				fieldTelefono.setText("");
-				fieldCorreo.setText("");
+				textFieldNombre.setText("");
+				textFieldApellido1.setText("");
+				textFieldApellido2.setText("");
+				textFieldCedula.setText("");
+				textFieldTelefono.setText("");
+				textFieldCorreo.setText("");
 				setVisible(false);
 			}
 		});
-		btnCancelar.setBounds(487, 122, 89, 23);
-		getContentPane().add(btnCancelar);
+		btnNewButton_1.setBounds(487, 122, 89, 23);
+		getContentPane().add(btnNewButton_1);
 	}
 }

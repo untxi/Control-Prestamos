@@ -37,6 +37,7 @@ public class administradorArchivos
 			{
 				String[] tokens = linea.split("-");
 				pListaArticulos.add(crearLibro(tokens));
+				System.out.println("cantidad de libro: ");
 			}
 
 		} catch (Exception e) {

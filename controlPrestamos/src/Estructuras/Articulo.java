@@ -130,8 +130,19 @@ public class Articulo {
 	 * cosntrucctor con un parametro
 	 * @param pMes
 	 */
-	public void setCantPrestamosXMes(int pMes) {
+	public void setCantPrestamosXMes(int pMes) 
+	{
 		this.cantPrestamosXMes[pMes] = this.cantPrestamosXMes[pMes]+1;
+	}
+	
+	public int getCantPresAcumuladosEnRangoMeses(int pDesde,int pHasta)
+	{
+		int Acumulado = 0;
+		for(int i = pDesde;i <= pHasta;i++)
+		{
+			Acumulado += cantPrestamosXMes[i];
+		}
+		return Acumulado;
 	}
 	
 }

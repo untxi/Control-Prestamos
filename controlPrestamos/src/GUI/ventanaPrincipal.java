@@ -24,6 +24,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.ComponentOrientation;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -32,6 +33,7 @@ import javax.swing.JToolBar;
 
 import Administradores.administradorAplicacion;
 import Estructuras.Articulo;
+import Estructuras.Prestamo;
 import Interfaces.IConstantes;
 
 import java.awt.event.ActionListener;
@@ -52,6 +54,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 import java.awt.Font;
 import java.util.ArrayList;
+import java.awt.Toolkit;
 
 /**
  * Clase ventanaPrincipal
@@ -105,6 +108,10 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 	 */
 	private static ventanaPrincipal miVentanaPrincipal;
 	
+	private JScrollPane scrollPane;
+	
+	private JLabel lblNewLabel_1;
+	
 
 	//Método Público
 	/**
@@ -134,6 +141,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 	 */
 	private ventanaPrincipal() 
 	{
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1152, 593);
 		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
@@ -143,32 +151,41 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		getContentPane().add(escritorio);
 		
 		panel.setSize(534, 5000);
-		JScrollPane scrollBar = new JScrollPane(panel);
-		scrollBar.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollBar.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollBar.setAutoscrolls(true);
+		scrollPane = new JScrollPane(panel);
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.setAutoscrolls(true);
 		
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 36));
+		
+		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setSize(new Dimension(500, 400));
 		GroupLayout gl_escritorio = new GroupLayout(escritorio);
 		gl_escritorio.setHorizontalGroup(
 			gl_escritorio.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_escritorio.createSequentialGroup()
-					.addGap(217)
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 384, GroupLayout.PREFERRED_SIZE)
+					.addGap(101)
+					.addGroup(gl_escritorio.createParallelGroup(Alignment.TRAILING)
+						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 384, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_1))
 					.addPreferredGap(ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-					.addComponent(scrollBar, GroupLayout.PREFERRED_SIZE, 498, GroupLayout.PREFERRED_SIZE))
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 498, GroupLayout.PREFERRED_SIZE))
 		);
 		gl_escritorio.setVerticalGroup(
 			gl_escritorio.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_escritorio.createSequentialGroup()
 					.addGap(11)
 					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
-					.addGap(455))
-				.addGroup(Alignment.TRAILING, gl_escritorio.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(scrollBar, GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 470, GroupLayout.PREFERRED_SIZE)
+					.addGap(794))
+				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 1290, Short.MAX_VALUE)
 		);
+		
+		ImageIcon portada = new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png"));
+		lblNewLabel_1.setIcon(new ImageIcon(portada.getImage().getScaledInstance(lblNewLabel_1.getWidth(), lblNewLabel_1.getHeight(), Image.SCALE_SMOOTH)));
+		
 		escritorio.setLayout(gl_escritorio);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -220,31 +237,39 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		menuConfiguracion.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/gear_in.png")));
 		menuBar.add(menuConfiguracion);
 		
-		JMenuItem mntmconfigSistema = new JMenuItem("Configurar preferencias del sistema");
-		mntmconfigSistema.setIcon(new ImageIcon(imagenConfig));
-		mntmconfigSistema.setBackground(new Color(100, 149, 237));
-		mntmconfigSistema.addActionListener(new ActionListener() {
+		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Preferencias del sistema");
+		mntmNewMenuItem_4.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/gear_in_peque.png")));
+		mntmNewMenuItem_4.setBackground(new Color(100, 149, 237));
+		mntmNewMenuItem_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0)
 			{
-				ventanaConfiguracion n = new ventanaConfiguracion();
-				escritorio.add(n);
-				n.show();
-				mostrarConsultaArticulos(administradorAplicacion.getInstance().getMiListaCategorias().get(0),0);
-				
+				ventanaConfiguracion.getInstance().setVisible(true);
 			}
 		});
-		mntmconfigSistema.addMouseListener(new MouseAdapter() {
+		mntmNewMenuItem_4.addMouseListener(new MouseAdapter() {
 		});
-		menuConfiguracion.add(mntmconfigSistema);
 		
-		JMenuItem mntmConfigPrestaArticulo = new JMenuItem("Prestar Articulo");
-		mntmConfigPrestaArticulo.addActionListener(new ActionListener() {
+		JMenuItem mntmNewMenuItem_7 = new JMenuItem("Prestar Articulo");
+		mntmNewMenuItem_7.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/package_delete.png")));
+		mntmNewMenuItem_7.setBackground(new Color(100, 149, 237));
+		mntmNewMenuItem_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
 				ventanaPrestamo.getInstance().setVisible(true);
 			}
 		});
-		menuConfiguracion.add(mntmConfigPrestaArticulo);
+		
+		JMenuItem mntmMandarEmail = new JMenuItem("Mandar Email");
+		mntmMandarEmail.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/email_go.png")));
+		mntmMandarEmail.setBackground(new Color(100, 149, 237));
+		menuConfiguracion.add(mntmMandarEmail);
+		menuConfiguracion.add(mntmNewMenuItem_7);
+		
+		JMenuItem mntmDevolverArticulo = new JMenuItem("Devolver Articulo");
+		mntmDevolverArticulo.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/package_add.png")));
+		mntmDevolverArticulo.setBackground(new Color(100, 149, 237));
+		menuConfiguracion.add(mntmDevolverArticulo);
+		menuConfiguracion.add(mntmNewMenuItem_4);
 		
 		menuAgregar = new JMenu("");
 		menuAgregar.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/world_add.png")));
@@ -280,12 +305,23 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 				ventanaAgregarCategoria.getInstance().setVisible(true);
 			}
 		});
+		
+		JMenuItem mntmEditarPersona = new JMenuItem("Editar Persona");
+		mntmEditarPersona.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				ventanaEditarPersona.getInstance().setVisible(true);
+			}
+		});
+		mntmEditarPersona.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/user.png")));
+		mntmEditarPersona.setBackground(new Color(100, 149, 237));
+		menuAgregar.add(mntmEditarPersona);
 		mntmAgregarCategoriaArticulo.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/package_add.png")));
 		mntmAgregarCategoriaArticulo.setBackground(new Color(100, 149, 237));
 		menuAgregar.add(mntmAgregarCategoriaArticulo);
 		
-		JMenuItem mntmAgregarLibroDesde = new JMenuItem("Agregar Libros desde archivo txt");
-		mntmAgregarLibroDesde.addActionListener(new ActionListener() {
+		JMenuItem mntmAgregarArticulosDesde = new JMenuItem("Agregar Libros desde archivo txt");
+		mntmAgregarArticulosDesde.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0)
 			{
 				int respuesta = ventaBuscador.showOpenDialog(miVentanaPrincipal);
@@ -295,13 +331,25 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 			        }		
 	        }
 			});
-		mntmAgregarLibroDesde.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/book_add.png")));
-		mntmAgregarLibroDesde.setBackground(new Color(100, 149, 237));
-		menuAgregar.add(mntmAgregarLibroDesde);
 		
-		JMenuItem mntmAgregarRevistas = new JMenuItem("Agregar revistas desde archivo txt");
-		mntmAgregarRevistas.setBackground(new Color(100, 149, 237));
-		mntmAgregarRevistas.addActionListener(new ActionListener() {
+		JMenuItem mntmEditarArticulo = new JMenuItem("Editar Articulo");
+		mntmEditarArticulo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				ventanaEditarArticulo.getInstance().cambiarComboBox();
+				ventanaEditarArticulo.getInstance().setVisible(true);
+			}
+		});
+		mntmEditarArticulo.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/installer_box.png")));
+		mntmEditarArticulo.setBackground(new Color(100, 149, 237));
+		menuAgregar.add(mntmEditarArticulo);
+		mntmAgregarArticulosDesde.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/book_add.png")));
+		mntmAgregarArticulosDesde.setBackground(new Color(100, 149, 237));
+		menuAgregar.add(mntmAgregarArticulosDesde);
+		
+		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Agregar revistas desde archivo txt");
+		mntmNewMenuItem_5.setBackground(new Color(100, 149, 237));
+		mntmNewMenuItem_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
 				int respuesta = ventaBuscador.showOpenDialog(miVentanaPrincipal);
@@ -312,12 +360,12 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 				// agregar revistas desde archivo txt
 			}
 		});
-		mntmAgregarRevistas.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/book_add.png")));
-		menuAgregar.add(mntmAgregarRevistas);
+		mntmNewMenuItem_5.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/book_add.png")));
+		menuAgregar.add(mntmNewMenuItem_5);
 		
-		JMenuItem mntmAgregarPeliculas = new JMenuItem("Agregar peliculas desde archivo txt");
-		mntmAgregarPeliculas.setBackground(new Color(100, 149, 237));
-		mntmAgregarPeliculas.addActionListener(new ActionListener() {
+		JMenuItem mntmNewMenuItem_6 = new JMenuItem("Agregar peliculas desde archivo txt");
+		mntmNewMenuItem_6.setBackground(new Color(100, 149, 237));
+		mntmNewMenuItem_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
 				int respuesta = ventaBuscador.showOpenDialog(miVentanaPrincipal);
@@ -327,8 +375,8 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 			        }		
 			}
 		});
-		mntmAgregarPeliculas.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/dvd_add.png")));
-		menuAgregar.add(mntmAgregarPeliculas);
+		mntmNewMenuItem_6.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/dvd_add.png")));
+		menuAgregar.add(mntmNewMenuItem_6);
 		
 		JMenuItem mntmAgregarPersonasDesde = new JMenuItem("Agregar personas desde archivo txt");
 		mntmAgregarPersonasDesde.addActionListener(new ActionListener() {
@@ -346,28 +394,16 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		menuAgregar.add(mntmAgregarPersonasDesde);
 		
 		menuConsultar = new JMenu("");
+		menuConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0)
+			{
+				ventanaConsultas.getInstance().cambiarComboBox();
+				ventanaConsultas.getInstance().setVisible(true);
+			}
+		});
 		menuConsultar.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/table_tab_search.png")));
 		menuBar.add(menuConsultar);
-		
-		JMenuItem mntmTopArticulo = new JMenuItem("Top 10 de articulos");
-		mntmTopArticulo.setBackground(new Color(100, 149, 237));
-		menuConsultar.add(mntmTopArticulo);
-		
-		JMenuItem mntmListadoArticulos = new JMenuItem("Listado de articulos");
-		mntmListadoArticulos.setBackground(new Color(100, 149, 237));
-		menuConsultar.add(mntmListadoArticulos);
-		
-		JMenuItem mntmListadoPersonalizado = new JMenuItem("Listado personalizado");
-		mntmListadoPersonalizado.setBackground(new Color(100, 149, 237));
-		menuConsultar.add(mntmListadoPersonalizado);
-		
-		JMenuItem mntmListadoArticulosPrestados = new JMenuItem("Listado de articulos prestados");
-		mntmListadoArticulosPrestados.setBackground(new Color(100, 149, 237));
-		menuConsultar.add(mntmListadoArticulosPrestados);
-		
-		JMenuItem mntmListadoArticuosNoPrestados = new JMenuItem("Listado de articulos no prestados");
-		mntmListadoArticuosNoPrestados.setBackground(new Color(100, 149, 237));
-		menuConsultar.add(mntmListadoArticuosNoPrestados);
 		
 		menuSalir = new JMenu("");
 		menuSalir.addMouseListener(new MouseAdapter() {
@@ -398,13 +434,17 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		}
 		ventaBuscador = new JFileChooser();
 		
-		desactivarAplicacion();
+		//desactivarAplicacion();
 		escritorio.add(ventanaRegistroUsuario.getInstance());
 		escritorio.add(ventanaLogin.getInstance());
 		escritorio.add(ventanaAgregarPersona.getInstance());
 		escritorio.add(ventanaAgregarCategoria.getInstance());
 		escritorio.add(ventanaAgregarArticulo.getInstance());
 		escritorio.add(ventanaPrestamo.getInstance());
+		escritorio.add(ventanaConsultas.getInstance());
+		escritorio.add(ventanaConfiguracion.getInstance());
+		escritorio.add(ventanaEditarArticulo.getInstance());
+		escritorio.add(ventanaEditarPersona.getInstance());
 		
 		//mostrarConsultaArticulos(10);
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -438,9 +478,9 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 	 * @param pConsulta
 	 * @param pCategoria
 	 */
-	private void mostrarConsultaArticulos(ArrayList<Articulo> pConsulta,int pCategoria)
+	public void mostrarConsultaArticulos(ArrayList<Articulo> pConsulta,int pCategoria, int y)
 	{
-		int y = 0;
+		//limpiarPanelConsulta();
 		for(int i = 0;i<pConsulta.size();i++)
 		{
 			panel.add(new panelArticulo(y,pConsulta.get(i),pCategoria));
@@ -449,4 +489,31 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		panel.setPreferredSize(new Dimension(534,y));
 		panel.setLayout(null);
 	}
+	
+	public void mostrarConsultaPrestamos(ArrayList<Prestamo> pConsulta,int pCategoria, int y)
+	{
+		//limpiarPanelConsulta();
+		for(int i = 0;i<pConsulta.size();i++)
+		{
+			panel.add(new panelArticulo(y,pConsulta.get(i),pCategoria));
+			y+=270;
+		}//recordar poner el panel en absolute layout
+		panel.setPreferredSize(new Dimension(534,y));
+		panel.setLayout(null);
+	}
+	
+	public void mostrarCantArticulos(int y,int pCantidad, int pConsulta)
+	{
+		//limpiarPanelConsulta();
+		panel.add(new panelCantidadConsultados(y,pCantidad,pConsulta));
+		panel.setPreferredSize(new Dimension(534,y));
+		panel.setLayout(null);
+	}
+	
+	
+	public void limpiarPanelConsulta()
+	{
+		panel.removeAll();
+		panel.repaint();
+	} 
 }

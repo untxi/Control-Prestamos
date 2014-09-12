@@ -102,4 +102,11 @@ public interface IConstantes
 	 * Constante para categoriasPelicula
 	 */
 	final int categoriaPelicula = 2;
+	
+	final int consultaTop = 0;
+	final int consultaTodos = 1;
+	final int consultaPersonalizada = 2;
+	final int consultaPrestados = 3;
+	final int consultaNoPrestados = 4;
+	
 }

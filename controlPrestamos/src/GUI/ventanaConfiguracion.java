@@ -1,6 +1,5 @@
 package GUI;
 
-//Librerias
 import java.awt.EventQueue;
 
 import javax.swing.JInternalFrame;
@@ -9,21 +8,32 @@ import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
-import java.awt.TextField;
+import javax.swing.JSpinner;
 import javax.swing.JButton;
+
+import Administradores.administradorAplicacion;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
-/**
- * Clase ventanaConfiguración
- * Crea la ventana para manipular los parametros generales
- * 
- * @author Samantha
- */
-public class ventanaConfiguracion extends JInternalFrame {
-	// Métodos
+public class ventanaConfiguracion extends JInternalFrame
+{
+	
+	private JSpinner spinner;
+	private JSpinner spinner_1;
+	private static ventanaConfiguracion miVentanaConfiguracion;
+	
+	
+	public static ventanaConfiguracion getInstance()
+	{
+		if(miVentanaConfiguracion == null)
+		{
+			miVentanaConfiguracion = new ventanaConfiguracion();
+		}
+		return miVentanaConfiguracion;
+	}
+
 	/**
 	 * Launch the application.
 	 */
@@ -43,107 +53,53 @@ public class ventanaConfiguracion extends JInternalFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ventanaConfiguracion() {
+	private ventanaConfiguracion() {
+		setFrameIcon(new ImageIcon(ventanaConfiguracion.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setIconifiable(true);
-		setClosable(true);
-		setBounds(100, 100, 450, 292);
+		setBounds(100, 100, 339, 142);
 		getContentPane().setLayout(null);
-		/**
-		 * Label de explicación: Alertas
-		 */
-		JLabel lblAlertas = new JLabel("Alertas");
-		lblAlertas.setBounds(10, 23, 46, 14);
-		getContentPane().add(lblAlertas);
-		/**
-		 * Label de explicación
-		 */
-		JLabel lblExplicAlerta = new JLabel("Las alertas se dan en 3 rangos para  recordar las fechas vencidas de los prestamos");
-		lblExplicAlerta.setBounds(10, 48, 414, 14);
-		getContentPane().add(lblExplicAlerta);
-		/**
-		 * Label Primera Alerta
-		 */
-		JLabel lblPrimeraAlerta = new JLabel("Primera Alerta");
-		lblPrimeraAlerta.setBounds(10, 73, 76, 14);
-		getContentPane().add(lblPrimeraAlerta);
-		/**
-		 * Label Segunda Alerta
-		 */
-		JLabel lblSegundaAlerta = new JLabel("Segunda Alerta");
-		lblSegundaAlerta.setBounds(140, 73, 76, 14);
-		getContentPane().add(lblSegundaAlerta);
-		/**
-		 * Label Alerta Final
-		 */
-		JLabel lblAlertaFinal = new JLabel("Alerta Final");
-		lblAlertaFinal.setBounds(282, 73, 76, 14);
-		getContentPane().add(lblAlertaFinal);
-		/**
-		 * Label de explicación
-		 */
-		JLabel lblTopPrestamos = new JLabel("Top Prestamos");
-		lblTopPrestamos.setBounds(10, 110, 76, 14);
-		getContentPane().add(lblTopPrestamos);
-		/** 
-		 * Label Título
-		 */
-		JLabel lblParmatrosGeneralesDe = new JLabel("Par\u00E1matros Generales de Configuraci\u00F3n");
-		lblParmatrosGeneralesDe.setBounds(121, 11, 199, 14);
-		getContentPane().add(lblParmatrosGeneralesDe);
 		
-		TextField fieldVerde = new TextField();
-		fieldVerde.setText("15");
-		fieldVerde.setBounds(92, 68, 28, 22);
-		getContentPane().add(fieldVerde);
+		JLabel lblDiasDePrestamo = new JLabel("Dias de Prestamo");
+		lblDiasDePrestamo.setBounds(10, 24, 102, 14);
+		getContentPane().add(lblDiasDePrestamo);
 		
-		TextField fieldAmarillo = new TextField();
-		fieldAmarillo.setText("30");
-		fieldAmarillo.setBounds(222, 68, 28, 22);
-		getContentPane().add(fieldAmarillo);
+		JLabel lblDiasDeTolerancia = new JLabel("Dias de Tolerancia");
+		lblDiasDeTolerancia.setBounds(10, 74, 102, 14);
+		getContentPane().add(lblDiasDeTolerancia);
 		
-		TextField fieldRojo = new TextField();
-		fieldRojo.setText("45");
-		fieldRojo.setBounds(343, 68, 28, 22);
-		getContentPane().add(fieldRojo);
+		spinner = new JSpinner();
+		spinner.setBounds(146, 21, 29, 20);
+		getContentPane().add(spinner);
 		
-		TextField fieldTop = new TextField();
-		fieldTop.setText("10");
-		fieldTop.setBounds(92, 110, 28, 22);
-		getContentPane().add(fieldTop);
+		spinner_1 = new JSpinner();
+		spinner_1.setBounds(146, 71, 29, 20);
+		getContentPane().add(spinner_1);
 		
-		JButton btnAceptar = new JButton("Guardar Cambios");
-		btnAceptar.setBounds(54, 212, 115, 23);
+		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				administradorAplicacion.getInstance().setDiasPrestamo((Integer)spinner.getValue());
+				administradorAplicacion.getInstance().setDiasTolerancia((Integer)spinner_1.getValue());
+				spinner.setValue(new Integer(0));
+				spinner_1.setValue(new Integer(0));
+				setVisible(false);
+			}
+		});
+		btnAceptar.setBounds(224, 20, 89, 23);
 		getContentPane().add(btnAceptar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) 
+			{
+				spinner.setValue(new Integer(0));
+				spinner_1.setValue(new Integer(0));
+				setVisible(false);
 			}
 		});
-		btnCancelar.setBounds(243, 212, 89, 23);
+		btnCancelar.setBounds(224, 70, 89, 23);
 		getContentPane().add(btnCancelar);
-		
-		JLabel lblVecesConsultados = new JLabel("Veces Consultados");
-		lblVecesConsultados.setBounds(10, 168, 102, 14);
-		getContentPane().add(lblVecesConsultados);
-		
-		JLabel lblTopDePrestamos = new JLabel("Top de Prestamos una cantidad de veces en ciertos meses");
-		lblTopDePrestamos.setBounds(10, 143, 288, 14);
-		getContentPane().add(lblTopDePrestamos);
-		
-		TextField fieldVeces = new TextField();
-		fieldVeces.setText("3");
-		fieldVeces.setBounds(109, 163, 28, 22);
-		getContentPane().add(fieldVeces);
-		
-		JLabel lblMesesConsultados = new JLabel("Meses Consultados");
-		lblMesesConsultados.setBounds(170, 168, 102, 14);
-		getContentPane().add(lblMesesConsultados);
-		
-		TextField fieldMeses = new TextField();
-		fieldMeses.setText("6");
-		fieldMeses.setBounds(270, 163, 28, 22);
-		getContentPane().add(fieldMeses);
-
+		setVisible(false);
 	}
 }
