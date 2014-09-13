@@ -127,6 +127,7 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 	 */
 	public ventanaAgregarArticulo()
 	{
+		setTitle("Mea Providere - Ingresar Articulo");
 		setFrameIcon(new ImageIcon(ventanaAgregarArticulo.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setIconifiable(true);

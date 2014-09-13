@@ -54,6 +54,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 import java.awt.Font;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.awt.Toolkit;
 
 /**
@@ -112,6 +114,8 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 	
 	private JLabel lblNewLabel_1;
 	
+	private int coordenadaY =0;
+	
 
 	//Método Público
 	/**
@@ -141,6 +145,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 	 */
 	private ventanaPrincipal() 
 	{
+		setTitle("Mea Providere version 1.0.0");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1152, 593);
@@ -175,12 +180,14 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		gl_escritorio.setVerticalGroup(
 			gl_escritorio.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_escritorio.createSequentialGroup()
-					.addGap(11)
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 470, GroupLayout.PREFERRED_SIZE)
-					.addGap(794))
-				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 1290, Short.MAX_VALUE)
+					.addGroup(gl_escritorio.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_escritorio.createSequentialGroup()
+							.addGap(11)
+							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 470, GroupLayout.PREFERRED_SIZE))
+						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 672, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		
 		ImageIcon portada = new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png"));
@@ -260,12 +267,30 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		});
 		
 		JMenuItem mntmMandarEmail = new JMenuItem("Mandar Email");
+		mntmMandarEmail.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				try {
+					administradorAplicacion.getInstance().getMiAdministradorConsultas().consultaArticulosConPrestamoVencido();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		mntmMandarEmail.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/email_go.png")));
 		mntmMandarEmail.setBackground(new Color(100, 149, 237));
 		menuConfiguracion.add(mntmMandarEmail);
 		menuConfiguracion.add(mntmNewMenuItem_7);
 		
 		JMenuItem mntmDevolverArticulo = new JMenuItem("Devolver Articulo");
+		mntmDevolverArticulo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				ventanaDevolverPrestamos.getInstance().cambiarComboBox();
+				ventanaDevolverPrestamos.getInstance().setVisible(true);
+			}
+		});
 		mntmDevolverArticulo.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/package_add.png")));
 		mntmDevolverArticulo.setBackground(new Color(100, 149, 237));
 		menuConfiguracion.add(mntmDevolverArticulo);
@@ -434,7 +459,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		}
 		ventaBuscador = new JFileChooser();
 		
-		//desactivarAplicacion();
+		desactivarAplicacion();
 		escritorio.add(ventanaRegistroUsuario.getInstance());
 		escritorio.add(ventanaLogin.getInstance());
 		escritorio.add(ventanaAgregarPersona.getInstance());
@@ -445,6 +470,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		escritorio.add(ventanaConfiguracion.getInstance());
 		escritorio.add(ventanaEditarArticulo.getInstance());
 		escritorio.add(ventanaEditarPersona.getInstance());
+		escritorio.add(ventanaDevolverPrestamos.getInstance());
 		
 		//mostrarConsultaArticulos(10);
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -469,6 +495,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		//menuConfiguracion.setEnabled(false);
 		menuAgregar.setEnabled(false);
 		menuConsultar.setEnabled(false);
+		menuConfiguracion.setEnabled(false);
 		lblNewLabel.setText("");
 	}
 	
@@ -510,6 +537,50 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		panel.setLayout(null);
 	}
 	
+	public void mostrarPrestamosParaCorreo(ArrayList<Prestamo> pConsulta,int pCategoria) throws Exception
+	{
+		//limpiarPanelConsulta();
+		for(int i = 0;i<pConsulta.size();i++)
+		{
+			panelArticulo panelTemp = new panelArticulo(coordenadaY,pConsulta.get(i),pCategoria);
+			long diasPrestamo = verificarEstadoPrestamo(pConsulta.get(i));
+			System.out.print("Dias de prestamo: " + diasPrestamo);
+			if(diasPrestamo <= administradorAplicacion.getInstance().getDiasPrestamo())
+			{
+				panelTemp.setBackground(new Color(107, 142, 35));
+				panel.add(panelTemp);
+			}
+			else if(administradorAplicacion.getInstance().getDiasPrestamo() < diasPrestamo  && diasPrestamo <= (administradorAplicacion.getInstance().getDiasTolerancia()+
+					administradorAplicacion.getInstance().getDiasPrestamo()))
+			{
+				panelTemp.setBackground(new Color(255, 215, 0));
+				panel.add(panelTemp);
+				//administradorAplicacion.getInstance().getMiAdministradorCorreos().simpleMail(pConsulta.get(i).getMiPersona().getCorreoE());
+			}
+			else
+			{
+				panelTemp.setBackground(new Color(255, 0, 0));
+				panel.add(panelTemp);
+				//administradorAplicacion.getInstance().getMiAdministradorCorreos().simpleMail(pConsulta.get(i).getMiPersona().getCorreoE());
+			}
+			coordenadaY+=270;
+		}//recordar poner el panel en absolute layout
+		panel.setPreferredSize(new Dimension(534,coordenadaY));
+		panel.setLayout(null);
+	}
+	
+	private long verificarEstadoPrestamo(Prestamo pPrestamo)
+	{
+		 Date startDate1 = pPrestamo.getMiFecha(); 
+		 Date endDate1 = new Date();
+		 long diff = endDate1.getTime() - startDate1.getTime();
+		 return (diff / (1000L*60L*60L*24L));
+	}
+	
+	public void setcoordenadaY(int pcoordenadaY)
+	{
+		this.coordenadaY = pcoordenadaY;
+	}
 	
 	public void limpiarPanelConsulta()
 	{

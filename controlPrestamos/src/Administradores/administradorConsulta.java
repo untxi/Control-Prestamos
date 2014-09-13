@@ -256,10 +256,22 @@ public class administradorConsulta implements IConstantes
 	}
 	
 
- public void consultaArticulosConPrestamoVencido()
- {
-	 
- }	
+	public void consultaArticulosConPrestamoVencido() throws Exception
+	{
+		ventanaPrincipal.getInstance().limpiarPanelConsulta();
+		ventanaPrincipal.getInstance().setcoordenadaY(0);
+		for (int i = 0;i < administradorAplicacion.getInstance().getMiListaPrestamos().size();i++)
+		{
+			for(int j = 0;j < administradorAplicacion.getInstance().getMiListaPrestamos().get(i).size();j++)
+			{
+				Prestamo Temp = administradorAplicacion.getInstance().getMiListaPrestamos().get(i).get(j);
+				ListaPrestamosTemp.add(Temp);
+			}
+			ventanaPrincipal.getInstance().mostrarPrestamosParaCorreo(ListaPrestamosTemp,i);
+			ListaPrestamosTemp = null;
+			ListaPrestamosTemp = new ArrayList<Prestamo>();
+		}
+	}	
 	
 	
 	public void consulta(int pConsulta,int pCategoria, int pLimit, int pCantPrestamos, Date pDesde, Date pHasta,

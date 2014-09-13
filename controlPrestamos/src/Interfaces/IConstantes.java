@@ -59,19 +59,19 @@ public interface IConstantes
 	/**
 	 * Imagen para el libro
 	 */
-	final String imagenLibro =    "imagenLibro.png";
+	final String imagenLibro =    "libro.png";
 	/**
 	 * Imagen para la revista
 	 */
-	final String imagenRevista =  "imagenRevista.png";
+	final String imagenRevista =  "revista.png";
 	/**
 	 * Imagen para la  pelicula
 	 */
-	final String imagenPelicula = "imagenPelicula.png";
+	final String imagenPelicula = "pelicula.png";
 	/**
 	 * Imagen para el articulo
 	 */
-	final String imagenArticulo = "imagenArticulo.png";
+	final String imagenArticulo = "articulo.png";
 	
 	/**
 	 * Constante de familia

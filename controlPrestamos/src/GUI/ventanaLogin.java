@@ -10,9 +10,12 @@ import javax.swing.JPasswordField;
 import javax.swing.JButton;
 
 import Administradores.administradorAplicacion;
+import Estructuras.Prestamo;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.Date;
+
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 
@@ -39,6 +42,7 @@ public class ventanaLogin extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public ventanaLogin() {
+		setTitle("Mea Providere - Iniciar Seci\u00F3n");
 		setFrameIcon(new ImageIcon(ventanaLogin.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setIconifiable(true);
@@ -75,6 +79,15 @@ public class ventanaLogin extends JInternalFrame {
 						ventanaPrincipal.getInstance().activarAplicacion();
 						setVisible(false);
 						JOptionPane.showMessageDialog(null, "Bienvenido "+ administradorAplicacion.getInstance().getUsuario().getNombre() );
+						administradorAplicacion.getInstance().agregarPrestamo(0, new Prestamo(administradorAplicacion.getInstance().getMiListaCategorias().get(0).get(0),
+								  administradorAplicacion.getInstance().getPersonas().get(0).get(0), new Date()));
+						administradorAplicacion.getInstance().getMiListaCategorias().get(0).get(0).setPrestado(true);
+						try {
+							administradorAplicacion.getInstance().getMiAdministradorConsultas().consultaArticulosConPrestamoVencido();
+						} catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 					}
 					else
 					{

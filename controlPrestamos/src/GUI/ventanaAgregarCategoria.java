@@ -37,6 +37,7 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 	 */
 	public ventanaAgregarCategoria() 
 	{
+		setTitle("Mea Providere - Ingresar Categoria");
 		setFrameIcon(new ImageIcon(ventanaAgregarCategoria.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setIconifiable(true);

@@ -85,6 +85,7 @@ public class ventanaAgregarPersona extends JInternalFrame
 	 */
 	private ventanaAgregarPersona() 
 	{
+		setTitle("Mea Providere - Agregar Persona");
 		setFrameIcon(new ImageIcon(ventanaAgregarPersona.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setIconifiable(true);

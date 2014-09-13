@@ -54,6 +54,7 @@ public class ventanaConfiguracion extends JInternalFrame
 	 * Create the frame.
 	 */
 	private ventanaConfiguracion() {
+		setTitle("Mea Providere - Preferencias");
 		setFrameIcon(new ImageIcon(ventanaConfiguracion.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setIconifiable(true);
 		setBounds(100, 100, 339, 142);

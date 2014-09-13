@@ -92,6 +92,7 @@ public class ventanaEditarPersona extends JInternalFrame
 	 */
 	private ventanaEditarPersona() 
 	{
+		setTitle("Mea Providere - Actualizar Persona");
 		setFrameIcon(new ImageIcon(ventanaAgregarPersona.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setIconifiable(true);

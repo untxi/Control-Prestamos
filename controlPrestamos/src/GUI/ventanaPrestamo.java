@@ -90,6 +90,7 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 	 * Create the frame.
 	 */
 	private ventanaPrestamo() {
+		setTitle("Mea Providere - Prestamo Articulo");
 		setFrameIcon(new ImageIcon(ventanaPrestamo.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setIconifiable(true);

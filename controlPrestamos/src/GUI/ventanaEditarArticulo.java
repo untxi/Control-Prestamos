@@ -137,6 +137,7 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 	 */
 	private ventanaEditarArticulo()
 	{
+		setTitle("Mea Providere - Actualizar Articulo");
 		setFrameIcon(new ImageIcon(ventanaEditarArticulo.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setIconifiable(true);

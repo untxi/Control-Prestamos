@@ -39,6 +39,7 @@ public class ventanaRegistroUsuario extends JInternalFrame
 	 */
 	private ventanaRegistroUsuario() 
 	{
+		setTitle("Mea Providere - Registro Usuario");
 		setFrameIcon(new ImageIcon(ventanaRegistroUsuario.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setIconifiable(true);

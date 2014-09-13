@@ -65,6 +65,7 @@ public class ventanaConsultas extends JInternalFrame {
 	 * Create the frame.
 	 */
 	private ventanaConsultas() {
+		setTitle("Mea Providere - Consultas");
 		setFrameIcon(new ImageIcon(ventanaConsultas.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setIconifiable(true);
 		setBounds(100, 100, 701, 319);

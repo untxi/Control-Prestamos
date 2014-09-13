@@ -20,6 +20,7 @@ public class administradorAplicacion implements IConstantes
 	private ArrayList<String> tiposCategorias = new ArrayList<String>();
 	private ArrayList<ArrayList<Articulo>> miListaCategorias = new ArrayList<ArrayList<Articulo>>();
 	private ArrayList<ArrayList<Prestamo>> miListaPrestamos = new ArrayList<ArrayList<Prestamo>>();
+	private administradorCorreos miAdministradorCorreos = new administradorCorreos();
 	private Usuario usuario;
 	private int diasPrestamo = 20;
 	private int diasTolerancia = 5;
@@ -257,6 +258,14 @@ public class administradorAplicacion implements IConstantes
 
 	public void setDiasTolerancia(int diasTolerancia) {
 		this.diasTolerancia = diasTolerancia;
+	}
+
+	public administradorCorreos getMiAdministradorCorreos() {
+		return miAdministradorCorreos;
+	}
+
+	public void setMiAdministradorCorreos(administradorCorreos miAdministradorCorreos) {
+		this.miAdministradorCorreos = miAdministradorCorreos;
 	}
 
 }
