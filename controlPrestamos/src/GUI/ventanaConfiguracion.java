@@ -87,11 +87,11 @@ public class ventanaConfiguracion extends JInternalFrame
 		getContentPane().add(lblDiasDeTolerancia);
 		
 		spinnerPrestamo = new JSpinner();
-		spinnerPrestamo.setBounds(146, 21, 29, 20);
+		spinnerPrestamo.setBounds(146, 21, 40, 20);
 		getContentPane().add(spinnerPrestamo);
 		
 		spinnerTolerancia = new JSpinner();
-		spinnerTolerancia.setBounds(146, 71, 29, 20);
+		spinnerTolerancia.setBounds(146, 71, 40, 20);
 		getContentPane().add(spinnerTolerancia);
 		
 		JButton btnAceptar = new JButton("Aceptar");
