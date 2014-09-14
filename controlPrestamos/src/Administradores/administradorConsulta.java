@@ -1,5 +1,5 @@
 package Administradores;
-
+// Importar Librerías y Clases
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -12,21 +12,37 @@ import Estructuras.Pelicula;
 import Estructuras.Prestamo;
 import GUI.ventanaPrincipal;
 import Interfaces.IConstantes;
-
+/**
+ * Clase administradorConsulta
+ * 	Administra las consultas que puede realizar 
+ * 	el usuario en sus préstamos
+ *
+ * @author Samantha Arburola
+ *
+ */
 public class administradorConsulta implements IConstantes
 {
-	
+	/**
+	 * Crea una lista de todos los artículos
+	 */
 	private ArrayList<Articulo> ListaArticulosTemp = new ArrayList<Articulo>();
+	/**
+	 * Crea uns lista de artículos Prestados
+	 */
 	private ArrayList<Prestamo> ListaPrestamosTemp = new ArrayList<Prestamo>();
 
+	// Constructor
 	public administradorConsulta()
 	{
 		
 	}
 	
 	
-//////////////////////////////Ordenamientos///////////////////////////////////////////////	
-	
+	// Ordenamientos //
+	/**
+	 * Ordena los artículos por orden alfabético del nombre
+	 * @param pListaCategorias lista de todos los artículos
+	 */
 	public void ordenarArticulosPorNombre(ArrayList<Articulo> pListaCategorias)
 	{
 		
@@ -41,7 +57,10 @@ public class administradorConsulta implements IConstantes
 	}
 	
 
-	
+	/**
+	 * Ordena los artículos por orden ascendente de la cantidad de préstamos
+	 * @param pListaCategorias Lista de categorías
+	 */
 	public void ordenarArticulosPorCantPrestamos(ArrayList<Articulo> pListaCategorias)
 	{
 		
@@ -55,7 +74,10 @@ public class administradorConsulta implements IConstantes
 	}
 	
 	
-	
+	/**
+	 * Ordenar los artículos prestados por orden alfabético de los nombres
+	 * @param pListaPrestamos Lista de artículos prestados
+	 */
 	public void ordenarPrestamosPorNombre(ArrayList<Prestamo> pListaPrestamos)
 	{
 		
@@ -69,7 +91,14 @@ public class administradorConsulta implements IConstantes
 			    });
 	}
 	
-///////////////////////////////////////////Filtros///////////////////////////////////////////////////////////
+	// Filtros //
+	/**
+	 * Filtrar la consulta de artículos por la categoría libros
+	 * @param pTitulo		título del libro
+	 * @param pAutor		autor del libro
+	 * @param pEditorial	editoria del libro
+	 * @param pCategoria	categoría del libro
+	 */
 	public void aplicarFiltroLibros(String pTitulo, String pAutor, String pEditorial, int pCategoria )
 	{
 		for(int i = 0;i < administradorAplicacion.getInstance().getMiListaCategorias().get(pCategoria).size(); i++)
@@ -102,6 +131,13 @@ public class administradorConsulta implements IConstantes
 			}
 		}
 	}
+	
+	/**
+	 * Filtrar la consulta de artículos por la categoría películas
+	 * @param pNombre		nombre de la película
+	 * @param pDirector		director de la película
+	 * @param pCategoria	categoría de la película
+	 */
 	public void aplicarFiltroPeliculas(String pNombre, String pDirector,int pCategoria)
 	{
 		for(int i = 0;i < administradorAplicacion.getInstance().getMiListaCategorias().get(pCategoria).size(); i++)
@@ -127,6 +163,12 @@ public class administradorConsulta implements IConstantes
 			}
 		}
 	}
+	
+	/**
+	 * Filtrar la consulta de artículos por la categoría agregada
+	 * @param pNombre		nombre del artículo
+	 * @param pCategoria	categoría del artículo
+	 */
 	public void aplicarFiltroOtros(String pNombre,int pCategoria)
 	{
 		for(int i = 0;i < administradorAplicacion.getInstance().getMiListaCategorias().get(pCategoria).size(); i++)
@@ -145,6 +187,12 @@ public class administradorConsulta implements IConstantes
 			}
 		}
 	}
+	
+	/**
+	 * Filtrar la consulta de artículos por los que se encuentran prestados
+	 * @param pNombrePersona  nombre de la persona que tiene el artículo como prestamo
+	 * @param pCategoria	  categoría del artículo
+	 */
 	public void aplicaFiltroPrestamos(String pNombrePersona,int pCategoria)
 	{
 		for (int i = 0;i < administradorAplicacion.getInstance().getMiListaPrestamos().get(pCategoria).size();i++)
@@ -167,8 +215,12 @@ public class administradorConsulta implements IConstantes
 	
 	
 	
-	////////////////////////////////////7Consultas//////////////////////////////////////////////
-	
+	// Consultas //
+	/**
+	 * Consultar los prestamos respecto a un número de prestamos
+	 * @param pCategoria	categoría de los artículos por consultar
+	 * @param pLimit		cantidad top de artículos
+	 */
 	private void consultaTop(int pCategoria, int pLimit)
 	{
 		ordenarArticulosPorCantPrestamos(administradorAplicacion.getInstance().getMiListaCategorias().get(pCategoria));
@@ -185,8 +237,14 @@ public class administradorConsulta implements IConstantes
 		ListaArticulosTemp = new ArrayList<Articulo>();
 	}
 	
-	
-
+	/**
+	 * Consulta todos los artículos existentes y los presenta en ordn alfabético
+	 * @param pCategoria	categoría de los artículos
+	 * @param pTitulo		título del artículo
+	 * @param pAutor		autor de la obra
+	 * @param pEditorial	editorial en caso de literatura
+	 * @param pConsulta		consulta cantidad de artículos a consultar
+	 */
 	private void consultaTodosLosArticulos(int pCategoria,String pTitulo,String pAutor,String pEditorial, int pConsulta)
 	{
 		if(pCategoria == 0 || pCategoria == 1)
@@ -211,6 +269,13 @@ public class administradorConsulta implements IConstantes
 		ListaArticulosTemp = new ArrayList<Articulo>();
 	}
 	
+	/**
+	 * Consulta flexible para que el usuario consulte según su gusto
+	 * @param pCategoria	 categoría a consultar
+	 * @param pCantPrestamos cantidad de artículos 
+	 * @param pDesde		 inicio del lapso de tiempo
+	 * @param pHasta		 final del lapso de tiempo
+	 */
 	private void consultaPersonalizada(int pCategoria,int pCantPrestamos, Date pDesde, Date pHasta)
 	{
 		ordenarArticulosPorNombre(administradorAplicacion.getInstance().getMiListaCategorias().get(pCategoria));
@@ -227,6 +292,12 @@ public class administradorConsulta implements IConstantes
 		ListaArticulosTemp = new ArrayList<Articulo>();
 	}
 	
+	/**
+	 * Consulta los artículos prestados actualmente
+	 * @param pCategoria	 categoría por consultar
+	 * @param pNombrePersona nombre de a quien se lo prestaron
+	 * @param pConsulta		 cantidad de consultas
+	 */
 	private void consultaPrestados(int pCategoria,String pNombrePersona, int pConsulta)
 	{
 		aplicaFiltroPrestamos(pNombrePersona, pCategoria);
@@ -238,6 +309,11 @@ public class administradorConsulta implements IConstantes
 		ListaPrestamosTemp = new ArrayList<Prestamo>();
 	}
 	
+	/**
+	 * Consulta de los no prestados
+	 * @param pCategoria categoría por consultar
+	 * @param pConsulta  cantidad de consultas
+	 */
 	private void consultaNoPrestados(int pCategoria, int pConsulta)
 	{
 		ordenarArticulosPorNombre(administradorAplicacion.getInstance().getMiListaCategorias().get(pCategoria));
@@ -255,7 +331,9 @@ public class administradorConsulta implements IConstantes
 		ListaArticulosTemp = new ArrayList<Articulo>();
 	}
 	
-
+	/**
+	 * Consulta los arítculos vencidos
+	 */
 	public void consultaArticulosConPrestamoVencido() throws Exception
 	{
 		ventanaPrincipal.getInstance().limpiarPanelConsulta();
@@ -273,7 +351,9 @@ public class administradorConsulta implements IConstantes
 		}
 	}	
 	
-	
+	/**
+	 * Menú para consultas
+	 */
 	public void consulta(int pConsulta,int pCategoria, int pLimit, int pCantPrestamos, Date pDesde, Date pHasta,
 						 String pTitulo,String pAutor,String pEditorial,String pNombrePersona)
 	{
@@ -299,7 +379,10 @@ public class administradorConsulta implements IConstantes
 		}
 		
 	}
-
+	
+	/**
+	 * Validación
+	 */
 	public boolean like(String str, String expr) 
 	{
 	    expr = expr.toLowerCase(); // ignoring locale for now

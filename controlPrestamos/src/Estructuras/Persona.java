@@ -1,16 +1,55 @@
 package Estructuras;
 
+/**
+ * Clase Persona
+ * Crea una persona 
+ * 
+ * @author Adrian Soto
+ *
+ */
 public class Persona 
 {
-
+	// Atributos
+	/**
+	* Nombre de la persona
+	*/
 	private String nombre;
+	/**
+	 * Primer apellido de la persona
+	 */
 	private String apellido1;
+	/**
+	 * Segundo Apellido de la persona
+	 */
 	private String apellido2;
+	/**
+	 * Número de cédula de la persona
+	 */
 	private String cedula;	
+	/**
+	 * Número de teléfono móvil/fijo de la persona
+	 */
 	private String telefono;
+	/**
+	 * Dirección de correo electrónico
+	 */
 	private String correoE;
+	/**
+	 * Categoría de la persona
+	 */
 	private int categoria;
 	
+	// Métodos
+	/**
+	* Contructor de la persona
+	* @param pNombre    : nobmre
+	* @param pApellido1 : 1er apellido
+	* @param pApellido2 : 2do apellido
+	* @param pCedula    :  número de cédula
+	* @param pTelefono  :  número de teléfono
+	* @param pCorreoE   : dirección de correo electrónico
+	* @param pCategoria : categoría de la persona
+	*/
 	public Persona(String pNombre, String pApellido1, String pApellido2,
 			String pCedula, String pTelefono, String pCorreoE, int pCategoria)
 	{
@@ -29,6 +68,9 @@ public class Persona
 		this.nombre = nombre;
 	}
 
+	/**
+	 * Get & Set
+	 */
 	public String getNombre() {
 		return nombre;
 	}

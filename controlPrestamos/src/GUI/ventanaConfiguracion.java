@@ -1,5 +1,11 @@
 package GUI;
+/**
+ * Ventana para el ingreso de los datos del usuario al registro
+ * 
+ * @author Samantha Arburola
+ */
 
+// Librerias y clases
 import java.awt.EventQueue;
 
 import javax.swing.JInternalFrame;
@@ -17,6 +23,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
+/**
+ * Clase ventanaRegistroUsuario
+ * 
+ * Permite ingresar toda la información de usuario
+ * 
+ * @author Samantha Arburola
+ */
 public class ventanaConfiguracion extends JInternalFrame
 {
 	
@@ -59,11 +72,11 @@ public class ventanaConfiguracion extends JInternalFrame
 		setIconifiable(true);
 		setBounds(100, 100, 339, 142);
 		getContentPane().setLayout(null);
-		
+		// Días de prestamo
 		JLabel lblDiasDePrestamo = new JLabel("D\u00EDas de Pr\u00E9stamo");
 		lblDiasDePrestamo.setBounds(10, 24, 102, 14);
 		getContentPane().add(lblDiasDePrestamo);
-		
+		// Días de tolerancia
 		JLabel lblDiasDeTolerancia = new JLabel("D\u00EDas de Tolerancia");
 		lblDiasDeTolerancia.setBounds(10, 74, 102, 14);
 		getContentPane().add(lblDiasDeTolerancia);

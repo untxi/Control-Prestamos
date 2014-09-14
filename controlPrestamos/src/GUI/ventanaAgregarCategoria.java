@@ -1,5 +1,11 @@
 package GUI;
+/**
+ * Ventana para el ingreso de los datos del usuario al registro
+ * 
+ * @author Samantha Arburola
+ */
 
+// Librerias y Clases
 import java.awt.EventQueue;
 
 import javax.swing.JInternalFrame;
@@ -15,10 +21,23 @@ import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 
+/**
+ * Clase ventanaRegistroUsuario
+ * 
+ * Permite ingresar toda la información de usuario
+ * 
+ * @author Samantha
+ */
 public class ventanaAgregarCategoria extends JInternalFrame {
 
-	
+	// Atributos
+	/**
+	 * Crea la ventana
+	 */
 	private static ventanaAgregarCategoria miVentanaAgregarCategoria;
+	/**
+	 * Ingresar la categoría nueva
+	 */
 	private JTextField fieldNuevaCategoria;
 	
 	

@@ -1,5 +1,11 @@
 package GUI;
+/**
+ * Ventana para el ingreso de los datos del usuario al registro
+ * 
+ * @author Samantha Arburola
+ */
 
+// Librerías y Clases
 import java.awt.EventQueue;
 
 import javax.swing.JInternalFrame;
@@ -16,15 +22,39 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
-
+/**
+ * Clase ventanaRegistroUsuario
+ * 
+ * Permite ingresar toda la información de usuario
+ * 
+ * @author Samantha
+ */
 public class ventanaRegistroUsuario extends JInternalFrame 
 {
+	// Atributos
+	/**
+	* Nombre del Usuario
+	*/
 	private JTextField fieldNombre;
+	/**
+	 * Nickname para usuario
+	 */
 	private JTextField fieldNombreUsuario;
+	/**
+	 * Contraseña 
+	 */
 	private JPasswordField fieldcontrasena;
+	/**
+	 * Ventana para ingresar datos
+	 */
 	private static ventanaRegistroUsuario miVentanaRegistroUsuario;
 
-
+	// Métodos
+	/**
+	* Método Público: ventanaRegistroUsuario
+	* 	Permite que el usuario se registre
+	* @return ventana de registro
+	*/
 	public static ventanaRegistroUsuario getInstance()
 	{
 		if(miVentanaRegistroUsuario == null)
