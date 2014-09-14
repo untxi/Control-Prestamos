@@ -144,7 +144,7 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 		
 		JLabel lblSeleccioneLaCategoria = new JLabel("Seleccione la categor\u00EDa");
 		lblSeleccioneLaCategoria.setFont(new Font("Gisha", Font.PLAIN, 11));
-		lblSeleccioneLaCategoria.setBounds(10, 11, 119, 14);
+		lblSeleccioneLaCategoria.setBounds(10, 11, 143, 14);
 		
 		comboBoxSeleccCategoria = new JComboBox();
 		comboBoxSeleccCategoria.setBounds(218, 11, 205, 20);
@@ -168,7 +168,7 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 		btnCancelar.setFont(new Font("Gisha", Font.PLAIN, 11));
 		btnCancelar.setForeground(new Color(204, 0, 102));
 		btnCancelar.setBackground(new Color(255, 153, 0));
-		btnCancelar.setBounds(349, 419, 75, 23);
+		btnCancelar.setBounds(336, 419, 88, 23);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
@@ -181,6 +181,8 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 				setVisible(false);
 			}
 		});
+		getContentPane().add(btnCancelar);
+		
 		
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setFont(new Font("Gisha", Font.PLAIN, 11));
@@ -221,7 +223,7 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 		btnBuscarImagen.setFont(new Font("Gisha", Font.PLAIN, 11));
 		btnBuscarImagen.setForeground(new Color(204, 0, 102));
 		btnBuscarImagen.setBackground(new Color(255, 153, 0));
-		btnBuscarImagen.setBounds(10, 419, 104, 23);
+		btnBuscarImagen.setBounds(10, 419, 119, 23);
 		btnBuscarImagen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
@@ -269,7 +271,7 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 		
 		JLabel lblDescripcion = new JLabel("Descripci\u00F3n");
 		lblDescripcion.setFont(new Font("Gisha", Font.PLAIN, 11));
-		lblDescripcion.setBounds(272, 265, 54, 14);
+		lblDescripcion.setBounds(256, 265, 70, 14);
 		
 		fieldDescripcion = new JEditorPane();
 		fieldDescripcion.setBounds(161, 290, 262, 112);

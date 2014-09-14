@@ -134,7 +134,7 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 		
 		JLabel lblSeleccioneLaCategoria = new JLabel("Seleccione la categor\u00EDa");
 		lblSeleccioneLaCategoria.setFont(new Font("Gisha", Font.PLAIN, 11));
-		lblSeleccioneLaCategoria.setBounds(10, 11, 119, 14);
+		lblSeleccioneLaCategoria.setBounds(10, 11, 143, 14);
 		
 		comboBoxSelecCategoria = new JComboBox();
 		comboBoxSelecCategoria.setModel(new DefaultComboBoxModel(new String[] {""}));
@@ -252,7 +252,7 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 		
 		JLabel lblDescripcion = new JLabel("Descripci\u00F3n");
 		lblDescripcion.setFont(new Font("Gisha", Font.PLAIN, 11));
-		lblDescripcion.setBounds(272, 265, 54, 14);
+		lblDescripcion.setBounds(256, 265, 70, 14);
 		
 		fieldDescripcion = new JEditorPane();
 		fieldDescripcion.setBounds(161, 290, 262, 112);

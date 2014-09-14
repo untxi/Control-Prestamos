@@ -77,7 +77,7 @@ public class ventanaConsultas extends JInternalFrame {
 		
 		JLabel lblTipoDeConsulta = new JLabel("Tipo de Consulta");
 		lblTipoDeConsulta.setFont(new Font("Gisha", Font.PLAIN, 11));
-		lblTipoDeConsulta.setBounds(10, 11, 85, 14);
+		lblTipoDeConsulta.setBounds(10, 11, 113, 14);
 		getContentPane().add(lblTipoDeConsulta);
 		
 		comboBoxTipoConsulta = new JComboBox();
@@ -230,7 +230,7 @@ public class ventanaConsultas extends JInternalFrame {
 		
 		JLabel lblCantidadDePrestamos = new JLabel("Cantidad de Prestamos");
 		lblCantidadDePrestamos.setFont(new Font("Gisha", Font.PLAIN, 11));
-		lblCantidadDePrestamos.setBounds(10, 27, 111, 14);
+		lblCantidadDePrestamos.setBounds(10, 27, 125, 14);
 		panel_1.add(lblCantidadDePrestamos);
 		
 		spinnerCantidadPrestamos = new JSpinner();
