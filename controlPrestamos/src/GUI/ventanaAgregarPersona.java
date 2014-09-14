@@ -175,7 +175,7 @@ public class ventanaAgregarPersona extends JInternalFrame
 					fieldTelefono.setText("");
 					fieldCorreo.setText("");
 					setVisible(false);
-					JOptionPane.showMessageDialog(null, "Se agrego la persona con exito");
+					JOptionPane.showMessageDialog(null, "Se agregó la persona con éxito");
 				}
 				else
 				{

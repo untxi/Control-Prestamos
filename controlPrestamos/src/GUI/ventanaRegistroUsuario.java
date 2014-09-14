@@ -83,7 +83,7 @@ public class ventanaRegistroUsuario extends JInternalFrame
 					fieldNombreUsuario.setText("");
 					fieldcontrasena.setText("");
 					setVisible(false);
-					JOptionPane.showMessageDialog(null, "Usuario agreado con exito");
+					JOptionPane.showMessageDialog(null, "Usuario agregado con éxito");
 					//System.out.println("Usuario agregado");
 				}
 				else

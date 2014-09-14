@@ -62,11 +62,11 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 					administradorAplicacion.getInstance().agregarCategoria(fieldNuevaCategoria.getText());
 					fieldNuevaCategoria.setText("");
 					setVisible(false);
-					JOptionPane.showMessageDialog(null, "La categoria se ha agregado correctamente");
+					JOptionPane.showMessageDialog(null, "La categoría se ha agregado correctamente");
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(null, "No ha escrito ninguna categoria");
+					JOptionPane.showMessageDialog(null, "No ha escrito ninguna categoría");
 				}
 			}
 		});

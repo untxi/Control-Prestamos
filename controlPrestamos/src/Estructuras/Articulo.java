@@ -68,7 +68,7 @@ public class Articulo {
 		return calificacion;
 	}
 	/**
-	 * contructor con un parametro
+	 * constructor con un parametro
 	 * @param calificacion
 	 */
 	public void setCalificacion(int calificacion) {
@@ -82,7 +82,7 @@ public class Articulo {
 		return imagen;
 	}
 	/**
-	 * construcctor con un parametro
+	 * constructor con un parametro
 	 * @param imagen
 	 */
 	public void setImagen(String imagen) {
@@ -111,7 +111,7 @@ public class Articulo {
 		return prestado;
 	}
 	/**
-	 * cosntructor con un parametro
+	 * constructor con un parametro
 	 * @param prestado
 	 */
 	public void setPrestado(boolean prestado) {
@@ -127,7 +127,7 @@ public class Articulo {
 		return cantPrestamosXMes[pMes];
 	}
 	/**
-	 * cosntrucctor con un parametro
+	 * constructor con un parametro
 	 * @param pMes
 	 */
 	public void setCantPrestamosXMes(int pMes) 

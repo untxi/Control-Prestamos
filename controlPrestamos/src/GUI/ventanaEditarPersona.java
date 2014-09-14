@@ -178,7 +178,7 @@ public class ventanaEditarPersona extends JInternalFrame
 				comboBoxPersona.setModel(new DefaultComboBoxModel(categorias));
 			}
 		});
-		comboBoxCategoria.setModel(new DefaultComboBoxModel(new String[] {"\"Seleccione\"", "Familia", "Colega", "Estudiante"}));
+		comboBoxCategoria.setModel(new DefaultComboBoxModel(new String[] {"Familia", "Colega", "Estudiante"}));
 		comboBoxCategoria.setSelectedIndex(0);
 		comboBoxCategoria.setMaximumRowCount(3);
 		comboBoxCategoria.setBounds(86, 98, 156, 20);

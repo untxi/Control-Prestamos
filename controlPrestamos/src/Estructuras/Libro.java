@@ -23,7 +23,7 @@ public class Libro extends Articulo {
 	private String edicion;
 	
 	/**
-	 * contructor con seis parametros
+	 * constructor con seis parametros
 	 * @param titulo
 	 * @param autor
 	 * @param editorial
@@ -58,7 +58,7 @@ public class Libro extends Articulo {
 	}
 
 	/**
-	 * costructor con un parametro
+	 * constructor con un parametro
 	 * @param autor
 	 */
 	public void setAutor(String autor) {
@@ -74,7 +74,7 @@ public class Libro extends Articulo {
 	}
 
 	/**
-	 * cosntructor con un parametro
+	 * constructor con un parametro
 	 * @param editorial
 	 */
 	public void seteditorial(String editorial) {

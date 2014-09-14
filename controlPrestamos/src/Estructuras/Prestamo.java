@@ -55,7 +55,7 @@ public class Prestamo
 	}
 
 	/**
-	 * construcctor con un parametro
+	 * constructor con un parametro
 	 * @param miArticulo
 	 */
 	public void setMiArticulo(Articulo miArticulo) {
@@ -80,7 +80,7 @@ public class Prestamo
 	}
 
 	/**
-	 * la fecha de prestamo
+	 * la fecha de préstamo
 	 * @return miFecha
 	 */
 	public Date getMiFecha() {
@@ -96,7 +96,7 @@ public class Prestamo
 	}
 
 	/**
-	 * el estado de prestamo
+	 * el estado de préstamo
 	 * @return estadoPrestamo
 	 */
 	public int getEstadoPrestamo() {

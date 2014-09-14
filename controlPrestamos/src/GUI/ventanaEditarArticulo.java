@@ -74,11 +74,11 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 	 */
 	private JTextField fieldAutor;
 	/**
-	 * edicion del articulo
+	 * edición del articulo
 	 */
 	private JTextField fieldEdicion;
 	/**
-	 * descripcion del articulo
+	 * descripción del articulo
 	 */
 	JEditorPane fieldDescripcion;
 	/**
@@ -98,15 +98,15 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 	 */
 	private JLabel lblImagen;
 	/**
-	 * editorial del articulo
+	 * editorial del artículo
 	 */
 	private JTextField fieldEditorial;
 	/**
-	 * categoria del articulo
+	 * categoría del artículo
 	 */
 	private JComboBox comboBoxCategoria;
 	/**
-	 * calificación del articulo
+	 * calificación del artículo
 	 */
 	private JComboBox comboBoxCalificacion;
 	
@@ -201,7 +201,7 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 		
 		comboBoxCalificacion = new JComboBox();
 		comboBoxCalificacion.setBounds(298, 134, 121, 20);
-		comboBoxCalificacion.setModel(new DefaultComboBoxModel(new String[] {"\"Seleccione\"", "1 Estrella", "2 Estrellas", "3 Estrellas", "4 Estrellas", "5 Estrellas", "6 Estrellas", "7 Estrellas", "8 Estrellas", "9 Estrellas", "10 Estrellas"}));
+		comboBoxCalificacion.setModel(new DefaultComboBoxModel(new String[] {"1 Estrella", "2 Estrellas", "3 Estrellas", "4 Estrellas", "5 Estrellas", "6 Estrellas", "7 Estrellas", "8 Estrellas", "9 Estrellas", "10 Estrellas"}));
 		
 		lblImagen = new JLabel("");
 		lblImagen.setBounds(10, 223, 104, 165);
@@ -334,7 +334,7 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 		fieldEditorial.setColumns(10);
 		
 		comboBoxCategoria = new JComboBox();
-		comboBoxCategoria.setModel(new DefaultComboBoxModel(new String[] {"\"Seleccione\"", "Acci\u00F3n ", "Suspenso", "Terror", "Comedia", "Ciencia Ficci\u00F3n", "Animada"}));
+		comboBoxCategoria.setModel(new DefaultComboBoxModel(new String[] {"Acci\u00F3n ", "Suspenso", "Terror", "Comedia", "Ciencia Ficci\u00F3n", "Animada"}));
 		comboBoxCategoria.setBounds(301, 183, 121, 20);
 		getContentPane().add(comboBoxCategoria);
 		

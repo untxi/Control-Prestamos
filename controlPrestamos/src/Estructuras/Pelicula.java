@@ -49,7 +49,7 @@ public class Pelicula extends Articulo{
 		return director;
 	}
 	/**
-	 * contructor con un parametro
+	 * constructor con un parametro
 	 * @param director
 	 */
 	public void setDirector(String director) {

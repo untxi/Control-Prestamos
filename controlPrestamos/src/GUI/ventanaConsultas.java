@@ -84,7 +84,7 @@ public class ventanaConsultas extends JInternalFrame {
 			}
 		});
 
-		comboBoxTipoConsulta.setModel(new DefaultComboBoxModel(new String[] {"\"Seleccione\"", "Top por categoria", "Todos los articulos por categoria", "Consulta Personalizada por categoria", "Todos los articulos prestados por categoria", "Todos los articulos no prestados por categoria"}));
+		comboBoxTipoConsulta.setModel(new DefaultComboBoxModel(new String[] {"Top por categoria", "Todos los articulos por categoria", "Consulta Personalizada por categoria", "Todos los articulos prestados por categoria", "Todos los articulos no prestados por categoria"}));
 		comboBoxTipoConsulta.setBounds(10, 36, 240, 20);
 		getContentPane().add(comboBoxTipoConsulta);
 		
