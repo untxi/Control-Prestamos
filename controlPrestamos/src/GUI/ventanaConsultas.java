@@ -24,24 +24,25 @@ import java.util.Date;
 
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
+import java.awt.Font;
 
 public class ventanaConsultas extends JInternalFrame {
 	
 	
 	private static ventanaConsultas miVentanaConsultas;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JComboBox comboBox_1;
-	private JComboBox comboBox;
-	private JSpinner spinner_1;
-	private JDateChooser dateChooser;
-	private JDateChooser dateChooser_1;
-	private JSpinner spinner;
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_2;
-	private JTextField textField_3;
+	private JTextField fieldTitulo;
+	private JTextField fieldAutor;
+	private JTextField fieldEditorial;
+	private JComboBox comboBoxDesde;
+	private JComboBox comboBoxTipoConsulta;
+	private JSpinner spinnerCantidadPrestamos;
+	private JDateChooser dateChooserDesde;
+	private JDateChooser dateChooserHasta;
+	private JSpinner spinnerLimite;
+	private JLabel lblTitulo;
+	private JLabel lblAutor;
+	private JLabel lblEditorial;
+	private JTextField fieldPersona;
 	private JPanel panel;
 	private JPanel panel_1;
 	private JPanel panel_2;
@@ -75,31 +76,31 @@ public class ventanaConsultas extends JInternalFrame {
 		lblTipoDeConsulta.setBounds(10, 11, 85, 14);
 		getContentPane().add(lblTipoDeConsulta);
 		
-		comboBox = new JComboBox();
-		comboBox.addActionListener(new ActionListener() {
+		comboBoxTipoConsulta = new JComboBox();
+		comboBoxTipoConsulta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
 				cambiarVentana();
 			}
 		});
 
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Top por categoria", "Todos los articulos por categoria", "Consulta Personalizada por categoria", "Todos los articulos prestados por categoria", "Todos los articulos no prestados por categoria"}));
-		comboBox.setBounds(10, 36, 240, 20);
-		getContentPane().add(comboBox);
+		comboBoxTipoConsulta.setModel(new DefaultComboBoxModel(new String[] {"\"Seleccione\"", "Top por categoria", "Todos los articulos por categoria", "Consulta Personalizada por categoria", "Todos los articulos prestados por categoria", "Todos los articulos no prestados por categoria"}));
+		comboBoxTipoConsulta.setBounds(10, 36, 240, 20);
+		getContentPane().add(comboBoxTipoConsulta);
 		
-		JLabel lblFrom = new JLabel("FROM");
-		lblFrom.setBounds(10, 117, 46, 14);
-		getContentPane().add(lblFrom);
+		JLabel lblDesdeTipo = new JLabel("Desde");
+		lblDesdeTipo.setBounds(10, 117, 46, 14);
+		getContentPane().add(lblDesdeTipo);
 		
-		comboBox_1 = new JComboBox();
-		comboBox_1.addActionListener(new ActionListener() {
+		comboBoxDesde = new JComboBox();
+		comboBoxDesde.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
 				cambiarVentanaPorFrom();
 			}
 		});
-		comboBox_1.setBounds(10, 142, 240, 20);
-		getContentPane().add(comboBox_1);
+		comboBoxDesde.setBounds(10, 142, 240, 20);
+		getContentPane().add(comboBoxDesde);
 		
 		JSeparator separator = new JSeparator();
 		separator.setOrientation(SwingConstants.VERTICAL);
@@ -120,9 +121,9 @@ public class ventanaConsultas extends JInternalFrame {
 			public void actionPerformed(ActionEvent e)
 			{
 				
-				administradorAplicacion.getInstance().getMiAdministradorConsultas().consulta(comboBox.getSelectedIndex(), comboBox_1.getSelectedIndex(),
-						(Integer)spinner.getValue(),(Integer)spinner_1.getValue(), dateChooser.getJCalendar().getDate(), dateChooser_1.getJCalendar().getDate(), textField.getText(), textField_1.getText(),
-						textField_2.getText(), textField_3.getText());
+				administradorAplicacion.getInstance().getMiAdministradorConsultas().consulta(comboBoxTipoConsulta.getSelectedIndex(), comboBoxDesde.getSelectedIndex(),
+						(Integer)spinnerLimite.getValue(),(Integer)spinnerCantidadPrestamos.getValue(), dateChooserDesde.getJCalendar().getDate(), dateChooserHasta.getJCalendar().getDate(), fieldTitulo.getText(), fieldAutor.getText(),
+						fieldEditorial.getText(), fieldPersona.getText());
 				limpiarVentana();
 				setVisible(false);
 					
@@ -158,41 +159,41 @@ public class ventanaConsultas extends JInternalFrame {
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblWhere = new JLabel("WHERE");
-		lblWhere.setBounds(77, 11, 46, 14);
-		panel.add(lblWhere);
+		JLabel lblFiltro = new JLabel("FILTRO");
+		lblFiltro.setBounds(78, 11, 46, 14);
+		panel.add(lblFiltro);
 		
-		textField = new JTextField();
-		textField.setBounds(116, 36, 86, 20);
-		panel.add(textField);
-		textField.setColumns(10);
+		fieldTitulo = new JTextField();
+		fieldTitulo.setBounds(116, 36, 86, 20);
+		panel.add(fieldTitulo);
+		fieldTitulo.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(116, 74, 86, 20);
-		panel.add(textField_1);
-		textField_1.setColumns(10);
+		fieldAutor = new JTextField();
+		fieldAutor.setBounds(116, 74, 86, 20);
+		panel.add(fieldAutor);
+		fieldAutor.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(116, 105, 86, 20);
-		panel.add(textField_2);
-		textField_2.setColumns(10);
+		fieldEditorial = new JTextField();
+		fieldEditorial.setBounds(116, 105, 86, 20);
+		panel.add(fieldEditorial);
+		fieldEditorial.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(116, 136, 86, 20);
-		panel.add(textField_3);
-		textField_3.setColumns(10);
+		fieldPersona = new JTextField();
+		fieldPersona.setBounds(116, 136, 86, 20);
+		panel.add(fieldPersona);
+		fieldPersona.setColumns(10);
 		
-		lblNewLabel = new JLabel("Titulo");
-		lblNewLabel.setBounds(25, 39, 46, 14);
-		panel.add(lblNewLabel);
+		lblTitulo = new JLabel("T\u00EDtulo");
+		lblTitulo.setBounds(25, 39, 46, 14);
+		panel.add(lblTitulo);
 		
-		lblNewLabel_1 = new JLabel("Autor");
-		lblNewLabel_1.setBounds(25, 77, 46, 14);
-		panel.add(lblNewLabel_1);
+		lblAutor = new JLabel("Autor");
+		lblAutor.setBounds(25, 77, 46, 14);
+		panel.add(lblAutor);
 		
-		lblNewLabel_2 = new JLabel("Editorial");
-		lblNewLabel_2.setBounds(25, 108, 46, 14);
-		panel.add(lblNewLabel_2);
+		lblEditorial = new JLabel("Editorial");
+		lblEditorial.setBounds(25, 108, 46, 14);
+		panel.add(lblEditorial);
 		
 		JLabel lblPersona = new JLabel("Persona");
 		lblPersona.setBounds(25, 139, 46, 14);
@@ -208,10 +209,10 @@ public class ventanaConsultas extends JInternalFrame {
 		lblCantidadDePrestamos.setBounds(10, 27, 111, 14);
 		panel_1.add(lblCantidadDePrestamos);
 		
-		spinner_1 = new JSpinner();
-		spinner_1.setBounds(145, 24, 47, 20);
-		panel_1.add(spinner_1);
-		spinner_1.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
+		spinnerCantidadPrestamos = new JSpinner();
+		spinnerCantidadPrestamos.setBounds(145, 24, 47, 20);
+		panel_1.add(spinnerCantidadPrestamos);
+		spinnerCantidadPrestamos.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
 		
 		JLabel lblDesde = new JLabel("Desde");
 		lblDesde.setBounds(10, 75, 46, 14);
@@ -221,13 +222,13 @@ public class ventanaConsultas extends JInternalFrame {
 		lblHasta.setBounds(10, 106, 46, 14);
 		panel_1.add(lblHasta);
 		
-		dateChooser = new JDateChooser();
-		dateChooser.setBounds(105, 69, 87, 20);
-		panel_1.add(dateChooser);
+		dateChooserDesde = new JDateChooser();
+		dateChooserDesde.setBounds(105, 69, 87, 20);
+		panel_1.add(dateChooserDesde);
 		
-		dateChooser_1 = new JDateChooser();
-		dateChooser_1.setBounds(105, 100, 87, 20);
-		panel_1.add(dateChooser_1);
+		dateChooserHasta = new JDateChooser();
+		dateChooserHasta.setBounds(105, 100, 87, 20);
+		panel_1.add(dateChooserHasta);
 		
 	
 		panel_2 = new JPanel();
@@ -235,19 +236,20 @@ public class ventanaConsultas extends JInternalFrame {
 		getContentPane().add(panel_2);
 		panel_2.setLayout(null);
 		
-		spinner = new JSpinner();
-		spinner.setBounds(74, 18, 46, 20);
-		panel_2.add(spinner);
-		spinner.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
+		spinnerLimite = new JSpinner();
+		spinnerLimite.setBounds(74, 18, 46, 20);
+		panel_2.add(spinnerLimite);
+		spinnerLimite.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
 		
-		JLabel lblLimit = new JLabel("LIMIT");
-		lblLimit.setBounds(10, 21, 46, 14);
-		panel_2.add(lblLimit);
+		JLabel lblLimite = new JLabel("L\u00EDmite");
+		lblLimite.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblLimite.setBounds(18, 21, 46, 14);
+		panel_2.add(lblLimite);
 		
 		setVisible(false);
 		cambiarComboBox();
-		comboBox_1.setSelectedIndex(0);
-		comboBox.setSelectedIndex(0);
+		comboBoxDesde.setSelectedIndex(0);
+		comboBoxTipoConsulta.setSelectedIndex(0);
 		
 		
 		cambiarVentanaPorFrom();
@@ -261,40 +263,40 @@ public class ventanaConsultas extends JInternalFrame {
 		{
 			categorias[i] = administradorAplicacion.getInstance().getTiposCategorias().get(i);
 		}
-		comboBox_1.setModel(new DefaultComboBoxModel(categorias));
+		comboBoxDesde.setModel(new DefaultComboBoxModel(categorias));
 	}
 	
 	private void cambiarVentana()
 	{
-		if(comboBox.getSelectedIndex() == 0)
+		if(comboBoxTipoConsulta.getSelectedIndex() == 0)
 		{
 			panel.setVisible(false);
 			panel_2.setVisible(true);
 			panel_1.setVisible(false);
 		}
-		if(comboBox.getSelectedIndex() == 1)
+		if(comboBoxTipoConsulta.getSelectedIndex() == 1)
 		{
 			panel.setVisible(true);
 			panel_2.setVisible(false);
 			panel_1.setVisible(false);
 		}
-		if(comboBox.getSelectedIndex() == 2)
+		if(comboBoxTipoConsulta.getSelectedIndex() == 2)
 		{
 			panel.setVisible(false);
 			panel_2.setVisible(false);
 			panel_1.setVisible(true);
 		}
-		if(comboBox.getSelectedIndex() == 3)
+		if(comboBoxTipoConsulta.getSelectedIndex() == 3)
 		{
 			panel.setVisible(true);
 			panel_2.setVisible(false);
 			panel_1.setVisible(false);
-			textField_3.setEnabled(true);
-			textField_2.setEnabled(false);
-			textField_1.setEnabled(false);
-			textField.setEnabled(false);
+			fieldPersona.setEnabled(true);
+			fieldEditorial.setEnabled(false);
+			fieldAutor.setEnabled(false);
+			fieldTitulo.setEnabled(false);
 		}
-		if(comboBox.getSelectedIndex() == 4)
+		if(comboBoxTipoConsulta.getSelectedIndex() == 4)
 		{
 			panel.setVisible(false);
 			panel_2.setVisible(false);
@@ -304,64 +306,64 @@ public class ventanaConsultas extends JInternalFrame {
 	
 	private void cambiarVentanaPorFrom()
 	{
-		if(comboBox_1.getSelectedIndex() == 0)
+		if(comboBoxDesde.getSelectedIndex() == 0)
 		{
-			lblNewLabel.setText("Titulo");
-			lblNewLabel_1.setText("Autor");
-			lblNewLabel_2.setText("Editorial");
-			textField_3.setEnabled(false);
-			textField_2.setEnabled(true);
-			textField_1.setEnabled(true);
-			textField.setEnabled(true);
+			lblTitulo.setText("Titulo");
+			lblAutor.setText("Autor");
+			lblEditorial.setText("Editorial");
+			fieldPersona.setEnabled(false);
+			fieldEditorial.setEnabled(true);
+			fieldAutor.setEnabled(true);
+			fieldTitulo.setEnabled(true);
 			cambiarVentana();
 		}
-		if(comboBox_1.getSelectedIndex() == 1)
+		if(comboBoxDesde.getSelectedIndex() == 1)
 		{
-			lblNewLabel.setText("Nombre");
-			lblNewLabel_1.setText("Credor");
-			lblNewLabel_2.setText("Editorial");
-			textField_3.setEnabled(false);
-			textField_2.setEnabled(true);
-			textField_1.setEnabled(true);
-			textField.setEnabled(true);
+			lblTitulo.setText("Nombre");
+			lblAutor.setText("Credor");
+			lblEditorial.setText("Editorial");
+			fieldPersona.setEnabled(false);
+			fieldEditorial.setEnabled(true);
+			fieldAutor.setEnabled(true);
+			fieldTitulo.setEnabled(true);
 			cambiarVentana();
 		}
-		if(comboBox_1.getSelectedIndex() == 2)
+		if(comboBoxDesde.getSelectedIndex() == 2)
 		{
-			lblNewLabel.setText("Nombre");
-			lblNewLabel_1.setText("Director");
-			lblNewLabel_2.setText("Editorial");
-			textField_3.setEnabled(false);
-			textField_2.setEnabled(false);
-			textField_1.setEnabled(true);
-			textField.setEnabled(true);
+			lblTitulo.setText("Nombre");
+			lblAutor.setText("Director");
+			lblEditorial.setText("Editorial");
+			fieldPersona.setEnabled(false);
+			fieldEditorial.setEnabled(false);
+			fieldAutor.setEnabled(true);
+			fieldTitulo.setEnabled(true);
 			cambiarVentana();
 		}
-		if(comboBox_1.getSelectedIndex() > 2)
+		if(comboBoxDesde.getSelectedIndex() > 2)
 		{
-			lblNewLabel.setText("Nombre");
-			lblNewLabel_1.setText("Director");
-			lblNewLabel_2.setText("Editorial");
-			textField_3.setEnabled(false);
-			textField_2.setEnabled(false);
-			textField_1.setEnabled(false);
-			textField.setEnabled(true);
+			lblTitulo.setText("Nombre");
+			lblAutor.setText("Director");
+			lblEditorial.setText("Editorial");
+			fieldPersona.setEnabled(false);
+			fieldEditorial.setEnabled(false);
+			fieldAutor.setEnabled(false);
+			fieldTitulo.setEnabled(true);
 			cambiarVentana();
 		}
 	}
 	
 	private void limpiarVentana()
 	{
-		comboBox.setSelectedIndex(0);
-		comboBox_1.setSelectedIndex(0);
-		textField_3.setText("");
-		textField_2.setText("");
-		textField_1.setText("");
-		textField.setText("");
-		((JTextField)dateChooser.getDateEditor().getUiComponent()).setText("");
-		((JTextField)dateChooser_1.getDateEditor().getUiComponent()).setText("");
-		spinner.setValue(new Integer(0));
-		spinner_1.setValue(new Integer(0));
+		comboBoxTipoConsulta.setSelectedIndex(0);
+		comboBoxDesde.setSelectedIndex(0);
+		fieldPersona.setText("");
+		fieldEditorial.setText("");
+		fieldAutor.setText("");
+		fieldTitulo.setText("");
+		((JTextField)dateChooserDesde.getDateEditor().getUiComponent()).setText("");
+		((JTextField)dateChooserHasta.getDateEditor().getUiComponent()).setText("");
+		spinnerLimite.setValue(new Integer(0));
+		spinnerCantidadPrestamos.setValue(new Integer(0));
 		cambiarVentanaPorFrom();
 	}
 }

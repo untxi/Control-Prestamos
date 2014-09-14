@@ -19,7 +19,7 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 
 	
 	private static ventanaAgregarCategoria miVentanaAgregarCategoria;
-	private JTextField textField;
+	private JTextField fieldNuevaCategoria;
 	
 	
 	public static ventanaAgregarCategoria getInstance()
@@ -37,30 +37,30 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 	 */
 	public ventanaAgregarCategoria() 
 	{
-		setTitle("Mea Providere - Ingresar Categoria");
+		setTitle("Mea Providere - Ingresar Categor\u00EDa");
 		setFrameIcon(new ImageIcon(ventanaAgregarCategoria.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setIconifiable(true);
 		setBounds(100, 100, 315, 149);
 		getContentPane().setLayout(null);
 		
-		JLabel lblNuevaCategoria = new JLabel("Nueva Categoria");
+		JLabel lblNuevaCategoria = new JLabel("Nueva Categor\u00EDa");
 		lblNuevaCategoria.setBounds(10, 23, 104, 14);
 		getContentPane().add(lblNuevaCategoria);
 		
-		textField = new JTextField();
-		textField.setBounds(136, 20, 147, 20);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		fieldNuevaCategoria = new JTextField();
+		fieldNuevaCategoria.setBounds(136, 20, 147, 20);
+		getContentPane().add(fieldNuevaCategoria);
+		fieldNuevaCategoria.setColumns(10);
 		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				if(!textField.getText().isEmpty())
+				if(!fieldNuevaCategoria.getText().isEmpty())
 				{
-					administradorAplicacion.getInstance().agregarCategoria(textField.getText());
-					textField.setText("");
+					administradorAplicacion.getInstance().agregarCategoria(fieldNuevaCategoria.getText());
+					fieldNuevaCategoria.setText("");
 					setVisible(false);
 					JOptionPane.showMessageDialog(null, "La categoria se ha agregado correctamente");
 				}
@@ -77,7 +77,7 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				textField.setText("");
+				fieldNuevaCategoria.setText("");
 				setVisible(false);
 			}
 		});

@@ -64,23 +64,23 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 	/**
 	 * 
 	 */
-	private JComboBox comboBox;
+	private JComboBox comboBoxSeleccCategoria;
 	/**
 	 * nombre del articulo
 	 */
-	private JTextField nombre;
+	private JTextField fieldNombre;
 	/**
 	 * autor del articulo
 	 */
-	private JTextField autor;
+	private JTextField fieldAutor;
 	/**
 	 * edicion del articulo
 	 */
-	private JTextField edicion;
+	private JTextField fieldEdicion;
 	/**
 	 * descripcion del articulo
 	 */
-	JEditorPane descripcion;
+	JEditorPane fieldDescripcion;
 	/**
 	 * nombre de la imagen
 	 */
@@ -92,30 +92,26 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 	/**
 	 * nueva etiqueta
 	 */
-	private JLabel lblNewLabel_1;
+	private JLabel lblAutor;
 	/**
 	 * etiqueta
 	 */
-	private JLabel label;
+	private JLabel lblImagen;
 	/**
 	 * editorial del articulo
 	 */
-	private JTextField editorial;
+	private JTextField fieldEditorial;
 	/**
 	 * categoria del articulo
 	 */
-	private JComboBox categoria;
+	private JComboBox comboBoxCategoria;
 	/**
 	 * calificación del articulo
 	 */
-	private JComboBox calificacion;
-	/**
-	 * barra
-	 */
-	private JProgressBar progressBar;
+	private JComboBox comboBoxCalificacion;
 	
 	
-	private JComboBox comboBox_1;
+	private JComboBox comboBoxSeleccArticulo;
 	
 	//metodo publico
 	/**
@@ -137,30 +133,30 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 	 */
 	private ventanaEditarArticulo()
 	{
-		setTitle("Mea Providere - Actualizar Articulo");
+		setTitle("Mea Providere - Actualizar Art\u00EDculo");
 		setFrameIcon(new ImageIcon(ventanaEditarArticulo.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setIconifiable(true);
 		setBounds(100, 100, 450, 482);
 		
-		JLabel lblSeleccioneLaCategoria = new JLabel("Seleccione la categoria");
+		JLabel lblSeleccioneLaCategoria = new JLabel("Seleccione la categor\u00EDa");
 		lblSeleccioneLaCategoria.setBounds(10, 11, 119, 14);
 		
-		comboBox = new JComboBox();
-		comboBox.setBounds(218, 11, 205, 20);
-		comboBox.addActionListener(new ActionListener() {
+		comboBoxSeleccCategoria = new JComboBox();
+		comboBoxSeleccCategoria.setBounds(218, 11, 205, 20);
+		comboBoxSeleccCategoria.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				int cantCategorias = administradorAplicacion.getInstance().getMiListaCategorias().get(comboBox.getSelectedIndex()).size();
+				int cantCategorias = administradorAplicacion.getInstance().getMiListaCategorias().get(comboBoxSeleccCategoria.getSelectedIndex()).size();
 				String [] categorias = new String[cantCategorias];
 				for(int i = 0; i < cantCategorias; i++)
 				{
-					if(!administradorAplicacion.getInstance().getMiListaCategorias().get(comboBox.getSelectedIndex()).get(i).isPrestado())
+					if(!administradorAplicacion.getInstance().getMiListaCategorias().get(comboBoxSeleccCategoria.getSelectedIndex()).get(i).isPrestado())
 					{
-						categorias[i] = administradorAplicacion.getInstance().getMiListaCategorias().get(comboBox.getSelectedIndex()).get(i).getNombre();
+						categorias[i] = administradorAplicacion.getInstance().getMiListaCategorias().get(comboBoxSeleccCategoria.getSelectedIndex()).get(i).getNombre();
 					}
 				}
-				comboBox_1.setModel(new DefaultComboBoxModel(categorias));
+				comboBoxSeleccArticulo.setModel(new DefaultComboBoxModel(categorias));
 			}
 		});
 		
@@ -169,50 +165,50 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				cambiarVentana(comboBox.getSelectedIndex());
-				nombre.setText("");
-				autor.setText("");
-				edicion.setText("");
-				editorial.setText("");
-				descripcion.setText("");
+				cambiarVentana(comboBoxSeleccCategoria.getSelectedIndex());
+				fieldNombre.setText("");
+				fieldAutor.setText("");
+				fieldEdicion.setText("");
+				fieldEditorial.setText("");
+				fieldDescripcion.setText("");
 				setVisible(false);
 			}
 		});
 		
-		JLabel lblNewLabel = new JLabel("Nombre");
-		lblNewLabel.setBounds(10, 100, 46, 14);
+		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setBounds(10, 100, 46, 14);
 		
-		nombre = new JTextField();
-		nombre.setBounds(60, 97, 143, 20);
-		nombre.setColumns(10);
+		fieldNombre = new JTextField();
+		fieldNombre.setBounds(60, 97, 143, 20);
+		fieldNombre.setColumns(10);
 		
-		lblNewLabel_1 = new JLabel("Autor");
-		lblNewLabel_1.setBounds(218, 100, 46, 14);
+		lblAutor = new JLabel("Autor");
+		lblAutor.setBounds(218, 100, 46, 14);
 		
-		autor = new JTextField();
-		autor.setBounds(271, 97, 152, 20);
-		autor.setColumns(10);
+		fieldAutor = new JTextField();
+		fieldAutor.setBounds(271, 97, 152, 20);
+		fieldAutor.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("Edicion");
-		lblNewLabel_2.setBounds(10, 186, 46, 14);
+		JLabel lblEdicion = new JLabel("Edici\u00F3n");
+		lblEdicion.setBounds(10, 186, 46, 14);
 		
-		edicion = new JTextField();
-		edicion.setBounds(60, 183, 143, 20);
-		edicion.setColumns(10);
+		fieldEdicion = new JTextField();
+		fieldEdicion.setBounds(60, 183, 143, 20);
+		fieldEdicion.setColumns(10);
 		
-		JLabel lblNewLabel_3 = new JLabel("Calificacion");
-		lblNewLabel_3.setBounds(218, 137, 70, 14);
+		JLabel lblCalificacion = new JLabel("Calificaci\u00F3n");
+		lblCalificacion.setBounds(218, 137, 70, 14);
 		
-		calificacion = new JComboBox();
-		calificacion.setBounds(298, 134, 121, 20);
-		calificacion.setModel(new DefaultComboBoxModel(new String[] {"1 Estrella", "2 Estrellas", "3 Estrellas", "4 Estrellas", "5 Estrellas", "6 Estrellas", "7 Estrellas", "8 Estrellas", "9 Estrellas", "10 Estrellas"}));
+		comboBoxCalificacion = new JComboBox();
+		comboBoxCalificacion.setBounds(298, 134, 121, 20);
+		comboBoxCalificacion.setModel(new DefaultComboBoxModel(new String[] {"\"Seleccione\"", "1 Estrella", "2 Estrellas", "3 Estrellas", "4 Estrellas", "5 Estrellas", "6 Estrellas", "7 Estrellas", "8 Estrellas", "9 Estrellas", "10 Estrellas"}));
 		
-		label = new JLabel("");
-		label.setBounds(10, 223, 104, 165);
+		lblImagen = new JLabel("");
+		lblImagen.setBounds(10, 223, 104, 165);
 		
-		JButton btnNewButton = new JButton("Buscar Imagen");
-		btnNewButton.setBounds(10, 419, 104, 23);
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnBuscarImagen = new JButton("Buscar Imagen");
+		btnBuscarImagen.setBounds(10, 419, 104, 23);
+		btnBuscarImagen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				/////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -243,7 +239,7 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 		        		fregis.close();
 						miArticulo.setImagen(nuevoArchivo.getName());
 						ImageIcon portada = new ImageIcon(pathImagenes + miArticulo.getImagen());
-						label.setIcon(new ImageIcon(portada.getImage().getScaledInstance(104, 165, Image.SCALE_SMOOTH)));
+						lblImagen.setIcon(new ImageIcon(portada.getImage().getScaledInstance(104, 165, Image.SCALE_SMOOTH)));
 		        		
 		        		
 		        		
@@ -257,74 +253,74 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 			}
 		});
 		
-		JLabel lblNewLabel_4 = new JLabel("Descripci\u00F3n");
-		lblNewLabel_4.setBounds(272, 265, 54, 14);
+		JLabel lblDescripcion = new JLabel("Descripci\u00F3n");
+		lblDescripcion.setBounds(272, 265, 54, 14);
 		
-		descripcion = new JEditorPane();
-		descripcion.setBounds(161, 290, 262, 112);
+		fieldDescripcion = new JEditorPane();
+		fieldDescripcion.setBounds(161, 290, 262, 112);
 		
-		JButton btnNewButton_1 = new JButton("Editar");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnEditar = new JButton("Editar");
+		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				if (comboBox.getSelectedIndex() == categoriaLibro)
+				if (comboBoxSeleccCategoria.getSelectedIndex() == categoriaLibro)
 				{
-					miArticulo.setNombre(nombre.getText());
-					miArticulo.setCalificacion(calificacion.getSelectedIndex()+1);
-					((Libro)miArticulo).setAutor(autor.getText());
-					((Libro)miArticulo).setEdicion(edicion.getText());
-					((Libro)miArticulo).seteditorial(editorial.getText());
+					miArticulo.setNombre(fieldNombre.getText());
+					miArticulo.setCalificacion(comboBoxCalificacion.getSelectedIndex()+1);
+					((Libro)miArticulo).setAutor(fieldAutor.getText());
+					((Libro)miArticulo).setEdicion(fieldEdicion.getText());
+					((Libro)miArticulo).seteditorial(fieldEditorial.getText());
 				}
-				else if(comboBox.getSelectedIndex() == categoriaRevista)
+				else if(comboBoxSeleccCategoria.getSelectedIndex() == categoriaRevista)
 				{	
-					miArticulo.setNombre(nombre.getText());
-					miArticulo.setCalificacion(calificacion.getSelectedIndex()+1);
-					((Libro)miArticulo).setAutor(autor.getText());
-					((Libro)miArticulo).setEdicion(edicion.getText());
-					((Libro)miArticulo).seteditorial(editorial.getText());
+					miArticulo.setNombre(fieldNombre.getText());
+					miArticulo.setCalificacion(comboBoxCalificacion.getSelectedIndex()+1);
+					((Libro)miArticulo).setAutor(fieldAutor.getText());
+					((Libro)miArticulo).setEdicion(fieldEdicion.getText());
+					((Libro)miArticulo).seteditorial(fieldEditorial.getText());
 				}
-				else if (comboBox.getSelectedIndex() == categoriaPelicula)
+				else if (comboBoxSeleccCategoria.getSelectedIndex() == categoriaPelicula)
 				{			
-					miArticulo.setNombre(nombre.getText());
-					miArticulo.setCalificacion(calificacion.getSelectedIndex()+1);
-					((Pelicula)miArticulo).setDirector(autor.getText());
-					((Pelicula)miArticulo).setCategoria(categoria.getSelectedItem().toString());
+					miArticulo.setNombre(fieldNombre.getText());
+					miArticulo.setCalificacion(comboBoxCalificacion.getSelectedIndex()+1);
+					((Pelicula)miArticulo).setDirector(fieldAutor.getText());
+					((Pelicula)miArticulo).setCategoria(comboBoxCategoria.getSelectedItem().toString());
 				}
 				else
 				{
-					miArticulo.setNombre(nombre.getText());
-					miArticulo.setCalificacion(calificacion.getSelectedIndex()+1);
-					((Otro)miArticulo).setDescripcion(descripcion.getText());
+					miArticulo.setNombre(fieldNombre.getText());
+					miArticulo.setCalificacion(comboBoxCalificacion.getSelectedIndex()+1);
+					((Otro)miArticulo).setDescripcion(fieldDescripcion.getText());
 				}
-				cambiarVentana(comboBox.getSelectedIndex());
-				nombre.setText("");
-				autor.setText("");
-				edicion.setText("");
-				editorial.setText("");
-				descripcion.setText("");
+				cambiarVentana(comboBoxSeleccCategoria.getSelectedIndex());
+				fieldNombre.setText("");
+				fieldAutor.setText("");
+				fieldEdicion.setText("");
+				fieldEditorial.setText("");
+				fieldDescripcion.setText("");
 				administradorAplicacion.getInstance().imprimirListaCategorias();
 			}
 		});
-		btnNewButton_1.setBounds(196, 419, 71, 23);
+		btnEditar.setBounds(196, 419, 71, 23);
 		getContentPane().setLayout(null);
 		getContentPane().add(lblSeleccioneLaCategoria);
-		getContentPane().add(comboBox);
-		getContentPane().add(lblNewLabel);
-		getContentPane().add(nombre);
-		getContentPane().add(lblNewLabel_1);
-		getContentPane().add(autor);
-		getContentPane().add(lblNewLabel_2);
-		getContentPane().add(edicion);
-		getContentPane().add(lblNewLabel_4);
-		getContentPane().add(lblNewLabel_3);
-		getContentPane().add(calificacion);
-		getContentPane().add(label);
-		getContentPane().add(descripcion);
-		getContentPane().add(btnNewButton);
-		getContentPane().add(btnNewButton_1);
+		getContentPane().add(comboBoxSeleccCategoria);
+		getContentPane().add(lblNombre);
+		getContentPane().add(fieldNombre);
+		getContentPane().add(lblAutor);
+		getContentPane().add(fieldAutor);
+		getContentPane().add(lblEdicion);
+		getContentPane().add(fieldEdicion);
+		getContentPane().add(lblDescripcion);
+		getContentPane().add(lblCalificacion);
+		getContentPane().add(comboBoxCalificacion);
+		getContentPane().add(lblImagen);
+		getContentPane().add(fieldDescripcion);
+		getContentPane().add(btnBuscarImagen);
+		getContentPane().add(btnEditar);
 		getContentPane().add(btnCancelar);
 		
-		JLabel lblCategoria = new JLabel("Categoria");
+		JLabel lblCategoria = new JLabel("Categor\u00EDa");
 		lblCategoria.setBounds(218, 186, 54, 14);
 		getContentPane().add(lblCategoria);
 		
@@ -332,34 +328,29 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 		lblEditorial.setBounds(10, 137, 46, 14);
 		getContentPane().add(lblEditorial);
 		
-		editorial = new JTextField();
-		editorial.setBounds(60, 134, 134, 20);
-		getContentPane().add(editorial);
-		editorial.setColumns(10);
+		fieldEditorial = new JTextField();
+		fieldEditorial.setBounds(60, 134, 134, 20);
+		getContentPane().add(fieldEditorial);
+		fieldEditorial.setColumns(10);
 		
-		categoria = new JComboBox();
-		categoria.setModel(new DefaultComboBoxModel(new String[] {"Accion ", "Suspenso", "Terror", "Comedia", "Infantil"}));
-		categoria.setBounds(301, 183, 121, 20);
-		getContentPane().add(categoria);
+		comboBoxCategoria = new JComboBox();
+		comboBoxCategoria.setModel(new DefaultComboBoxModel(new String[] {"\"Seleccione\"", "Acci\u00F3n ", "Suspenso", "Terror", "Comedia", "Ciencia Ficci\u00F3n", "Animada"}));
+		comboBoxCategoria.setBounds(301, 183, 121, 20);
+		getContentPane().add(comboBoxCategoria);
 		
-		progressBar = new JProgressBar();
-		progressBar.setBounds(10, 394, 104, 14);
-		//progressBar.setVisible(false);
-		getContentPane().add(progressBar);
-		
-		JLabel lblSeleccioneElArticulo = new JLabel("Seleccione el articulo");
+		JLabel lblSeleccioneElArticulo = new JLabel("Seleccione el art\u00EDculo");
 		lblSeleccioneElArticulo.setBounds(10, 61, 119, 14);
 		getContentPane().add(lblSeleccioneElArticulo);
 		
-		comboBox_1 = new JComboBox();
-		comboBox_1.addActionListener(new ActionListener() {
+		comboBoxSeleccArticulo = new JComboBox();
+		comboBoxSeleccArticulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
 				escogerArticulo();
 			}
 		});
-		comboBox_1.setBounds(218, 58, 205, 20);
-		getContentPane().add(comboBox_1);
+		comboBoxSeleccArticulo.setBounds(218, 58, 205, 20);
+		getContentPane().add(comboBoxSeleccArticulo);
 		
 		ventaBuscador = new JFileChooser();
 		
@@ -372,78 +363,78 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 	{
 		if(pCategoria == categoriaLibro)
 		{
-			lblNewLabel_1.setText("Autor");
-			nombre.setEnabled(true);
-			autor.setEnabled(true);
-			edicion.setEnabled(true);
-			editorial.setEnabled(true);
+			lblAutor.setText("Autor");
+			fieldNombre.setEnabled(true);
+			fieldAutor.setEnabled(true);
+			fieldEdicion.setEnabled(true);
+			fieldEditorial.setEnabled(true);
 			
 			
-			nombre.setText(miArticulo.getNombre());
-			autor.setText(((Libro)miArticulo).getAutor());
-			edicion.setText(((Libro)miArticulo).getEdicion());
-			editorial.setText(((Libro)miArticulo).geteditorial());
-			calificacion.setSelectedIndex(miArticulo.getCalificacion()-1);
+			fieldNombre.setText(miArticulo.getNombre());
+			fieldAutor.setText(((Libro)miArticulo).getAutor());
+			fieldEdicion.setText(((Libro)miArticulo).getEdicion());
+			fieldEditorial.setText(((Libro)miArticulo).geteditorial());
+			comboBoxCalificacion.setSelectedIndex(miArticulo.getCalificacion()-1);
 
 			
-			descripcion.setEnabled(false);
-			categoria.setEnabled(false);
+			fieldDescripcion.setEnabled(false);
+			comboBoxCategoria.setEnabled(false);
 			ImageIcon portada = new ImageIcon(pathImagenes + miArticulo.getImagen());
-			label.setIcon(new ImageIcon(portada.getImage().getScaledInstance(104, 165, Image.SCALE_SMOOTH)));
+			lblImagen.setIcon(new ImageIcon(portada.getImage().getScaledInstance(104, 165, Image.SCALE_SMOOTH)));
 			
 		}
 		else if(pCategoria == categoriaRevista)
 		{
-			lblNewLabel_1.setText("Creador");
-			nombre.setEnabled(true);
-			autor.setEnabled(true);
-			edicion.setEnabled(true);
-			editorial.setEnabled(true);
+			lblAutor.setText("Creador");
+			fieldNombre.setEnabled(true);
+			fieldAutor.setEnabled(true);
+			fieldEdicion.setEnabled(true);
+			fieldEditorial.setEnabled(true);
 			
-			nombre.setText(miArticulo.getNombre());
-			autor.setText(((Libro)miArticulo).getAutor());
-			edicion.setText(((Libro)miArticulo).getEdicion());
-			editorial.setText(((Libro)miArticulo).geteditorial());
-			calificacion.setSelectedIndex(miArticulo.getCalificacion()-1);
+			fieldNombre.setText(miArticulo.getNombre());
+			fieldAutor.setText(((Libro)miArticulo).getAutor());
+			fieldEdicion.setText(((Libro)miArticulo).getEdicion());
+			fieldEditorial.setText(((Libro)miArticulo).geteditorial());
+			comboBoxCalificacion.setSelectedIndex(miArticulo.getCalificacion()-1);
 			
-			descripcion.setEnabled(false);
-			categoria.setEnabled(false);
+			fieldDescripcion.setEnabled(false);
+			comboBoxCategoria.setEnabled(false);
 			ImageIcon portada = new ImageIcon(pathImagenes + miArticulo.getImagen());
-			label.setIcon(new ImageIcon(portada.getImage().getScaledInstance(104, 165, Image.SCALE_SMOOTH)));
+			lblImagen.setIcon(new ImageIcon(portada.getImage().getScaledInstance(104, 165, Image.SCALE_SMOOTH)));
 		}
 		else if(pCategoria == categoriaPelicula)
 		{
-			lblNewLabel_1.setText("Director");
-			nombre.setEnabled(true);
-			autor.setEnabled(true);
+			lblAutor.setText("Director");
+			fieldNombre.setEnabled(true);
+			fieldAutor.setEnabled(true);
 
-			nombre.setText(miArticulo.getNombre());
-			autor.setText(((Pelicula)miArticulo).getDirector());
-			calificacion.setSelectedIndex(miArticulo.getCalificacion()-1);
-			categoria.setSelectedItem(((Pelicula)miArticulo).getCategoria());
+			fieldNombre.setText(miArticulo.getNombre());
+			fieldAutor.setText(((Pelicula)miArticulo).getDirector());
+			comboBoxCalificacion.setSelectedIndex(miArticulo.getCalificacion()-1);
+			comboBoxCategoria.setSelectedItem(((Pelicula)miArticulo).getCategoria());
 			
-			edicion.setEnabled(false);
-			editorial.setEnabled(false);
-			descripcion.setEnabled(false);
-			categoria.setEnabled(true);
+			fieldEdicion.setEnabled(false);
+			fieldEditorial.setEnabled(false);
+			fieldDescripcion.setEnabled(false);
+			comboBoxCategoria.setEnabled(true);
 			ImageIcon portada = new ImageIcon(pathImagenes + miArticulo.getImagen());
-			label.setIcon(new ImageIcon(portada.getImage().getScaledInstance(104, 165, Image.SCALE_SMOOTH)));
+			lblImagen.setIcon(new ImageIcon(portada.getImage().getScaledInstance(104, 165, Image.SCALE_SMOOTH)));
 		}
 		else
 		{
-			nombre.setEnabled(true);
-			autor.setEnabled(false);
-			edicion.setEnabled(false);
-			editorial.setEnabled(false);
-			descripcion.setEnabled(true);
+			fieldNombre.setEnabled(true);
+			fieldAutor.setEnabled(false);
+			fieldEdicion.setEnabled(false);
+			fieldEditorial.setEnabled(false);
+			fieldDescripcion.setEnabled(true);
 			
-			nombre.setText(miArticulo.getNombre());
-			descripcion.setText(((Otro)miArticulo).getDescripcion());
-			calificacion.setSelectedIndex(miArticulo.getCalificacion()-1);
+			fieldNombre.setText(miArticulo.getNombre());
+			fieldDescripcion.setText(((Otro)miArticulo).getDescripcion());
+			comboBoxCalificacion.setSelectedIndex(miArticulo.getCalificacion()-1);
 			
-			categoria.setEnabled(false);
+			comboBoxCategoria.setEnabled(false);
 			ImageIcon portada = new ImageIcon(pathImagenes + miArticulo.getImagen());
-			label.setIcon(new ImageIcon(portada.getImage().getScaledInstance(104, 165, Image.SCALE_SMOOTH)));
+			lblImagen.setIcon(new ImageIcon(portada.getImage().getScaledInstance(104, 165, Image.SCALE_SMOOTH)));
 		}
 		
 	}
@@ -451,8 +442,8 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 	
 	private void escogerArticulo()
 	{
-		miArticulo = administradorAplicacion.getInstance().getMiListaCategorias().get(comboBox.getSelectedIndex()).get(comboBox_1.getSelectedIndex());
-		cambiarVentana(comboBox.getSelectedIndex());
+		miArticulo = administradorAplicacion.getInstance().getMiListaCategorias().get(comboBoxSeleccCategoria.getSelectedIndex()).get(comboBoxSeleccArticulo.getSelectedIndex());
+		cambiarVentana(comboBoxSeleccCategoria.getSelectedIndex());
 	}
 	
 	
@@ -465,7 +456,7 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 		{
 			categorias[i] = administradorAplicacion.getInstance().getTiposCategorias().get(i);
 		}
-		comboBox.setModel(new DefaultComboBoxModel(categorias));
+		comboBoxSeleccCategoria.setModel(new DefaultComboBoxModel(categorias));
 	}
 }
 

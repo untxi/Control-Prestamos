@@ -19,9 +19,9 @@ import javax.swing.ImageIcon;
 
 public class ventanaRegistroUsuario extends JInternalFrame 
 {
-	private JTextField textField;
-	private JTextField textField_1;
-	private JPasswordField passwordField;
+	private JTextField fieldNombre;
+	private JTextField fieldNombreUsuario;
+	private JPasswordField fieldcontrasena;
 	private static ventanaRegistroUsuario miVentanaRegistroUsuario;
 
 
@@ -46,42 +46,42 @@ public class ventanaRegistroUsuario extends JInternalFrame
 		setBounds(100, 100, 351, 232);
 		getContentPane().setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(171, 11, 150, 20);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		fieldNombre = new JTextField();
+		fieldNombre.setBounds(171, 11, 150, 20);
+		getContentPane().add(fieldNombre);
+		fieldNombre.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Nombre");
-		lblNewLabel.setBounds(10, 14, 122, 14);
-		getContentPane().add(lblNewLabel);
+		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setBounds(10, 14, 122, 14);
+		getContentPane().add(lblNombre);
 		
-		JLabel lblNewLabel_1 = new JLabel("Nombre Usuario");
-		lblNewLabel_1.setBounds(10, 68, 94, 14);
-		getContentPane().add(lblNewLabel_1);
+		JLabel lblNombreUsuario = new JLabel("Nombre Usuario");
+		lblNombreUsuario.setBounds(10, 68, 94, 14);
+		getContentPane().add(lblNombreUsuario);
 		
-		JLabel lblNewLabel_2 = new JLabel("Contrase\u00F1a");
-		lblNewLabel_2.setBounds(10, 116, 86, 14);
-		getContentPane().add(lblNewLabel_2);
+		JLabel lblContrasena = new JLabel("Contrase\u00F1a");
+		lblContrasena.setBounds(10, 116, 86, 14);
+		getContentPane().add(lblContrasena);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(171, 65, 150, 20);
-		getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		fieldNombreUsuario = new JTextField();
+		fieldNombreUsuario.setBounds(171, 65, 150, 20);
+		getContentPane().add(fieldNombreUsuario);
+		fieldNombreUsuario.setColumns(10);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(171, 113, 150, 20);
-		getContentPane().add(passwordField);
+		fieldcontrasena = new JPasswordField();
+		fieldcontrasena.setBounds(171, 113, 150, 20);
+		getContentPane().add(fieldcontrasena);
 		
-		JButton btnNewButton = new JButton("Aceptar");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0)
 			{
-				if(!textField.getText().isEmpty() && !textField_1.getText().isEmpty() && !passwordField.getText().isEmpty())
+				if(!fieldNombre.getText().isEmpty() && !fieldNombreUsuario.getText().isEmpty() && !fieldcontrasena.getText().isEmpty())
 				{
-					administradorAplicacion.getInstance().setUsuario(new Usuario(textField.getText(), textField_1.getText(), passwordField.getText()));
-					textField.setText("");
-					textField_1.setText("");
-					passwordField.setText("");
+					administradorAplicacion.getInstance().setUsuario(new Usuario(fieldNombre.getText(), fieldNombreUsuario.getText(), fieldcontrasena.getText()));
+					fieldNombre.setText("");
+					fieldNombreUsuario.setText("");
+					fieldcontrasena.setText("");
 					setVisible(false);
 					JOptionPane.showMessageDialog(null, "Usuario agreado con exito");
 					//System.out.println("Usuario agregado");
@@ -93,21 +93,21 @@ public class ventanaRegistroUsuario extends JInternalFrame
 			}
 			
 		});
-		btnNewButton.setBounds(43, 169, 89, 23);
-		getContentPane().add(btnNewButton);
+		btnAceptar.setBounds(43, 169, 89, 23);
+		getContentPane().add(btnAceptar);
 		
-		JButton btnNewButton_1 = new JButton("Cancelar");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0)
 			{
-				textField.setText("");
-				textField_1.setText("");
-				passwordField.setText("");
+				fieldNombre.setText("");
+				fieldNombreUsuario.setText("");
+				fieldcontrasena.setText("");
 				setVisible(false);
 			}
 		});
-		btnNewButton_1.setBounds(183, 169, 89, 23);
-		getContentPane().add(btnNewButton_1);
+		btnCancelar.setBounds(183, 169, 89, 23);
+		getContentPane().add(btnCancelar);
 
 	}
 }

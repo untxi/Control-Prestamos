@@ -20,8 +20,8 @@ import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 
 public class ventanaLogin extends JInternalFrame {
-	private JTextField textField;
-	private JPasswordField passwordField;
+	private JTextField fieldNombreUsuario;
+	private JPasswordField fieldContrasena;
 	private static ventanaLogin miVentanaLogin;
 
 
@@ -42,40 +42,40 @@ public class ventanaLogin extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public ventanaLogin() {
-		setTitle("Mea Providere - Iniciar Seci\u00F3n");
+		setTitle("Mea Providere - Iniciar Sesi\u00F3n");
 		setFrameIcon(new ImageIcon(ventanaLogin.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setIconifiable(true);
 		setBounds(100, 100, 315, 186);
 		getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Nombre Usuario");
-		lblNewLabel.setBounds(10, 36, 99, 14);
-		getContentPane().add(lblNewLabel);
+		JLabel lblNombreUsuario = new JLabel("Nombre de Usuario");
+		lblNombreUsuario.setBounds(10, 36, 99, 14);
+		getContentPane().add(lblNombreUsuario);
 		
-		JLabel lblNewLabel_1 = new JLabel("Contrase\u00F1a");
-		lblNewLabel_1.setBounds(10, 80, 86, 14);
-		getContentPane().add(lblNewLabel_1);
+		JLabel lblContrasena = new JLabel("Contrase\u00F1a");
+		lblContrasena.setBounds(10, 80, 86, 14);
+		getContentPane().add(lblContrasena);
 		
-		textField = new JTextField();
-		textField.setBounds(137, 33, 145, 20);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		fieldNombreUsuario = new JTextField();
+		fieldNombreUsuario.setBounds(137, 33, 145, 20);
+		getContentPane().add(fieldNombreUsuario);
+		fieldNombreUsuario.setColumns(10);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(137, 77, 145, 20);
-		getContentPane().add(passwordField);
+		fieldContrasena = new JPasswordField();
+		fieldContrasena.setBounds(137, 77, 145, 20);
+		getContentPane().add(fieldContrasena);
 		
-		JButton btnNewButton = new JButton("Aceptar");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				if(!textField.getText().isEmpty() && !passwordField.getText().isEmpty())
+				if(!fieldNombreUsuario.getText().isEmpty() && !fieldContrasena.getText().isEmpty())
 				{
-					if(administradorAplicacion.getInstance().validarUsuario(textField.getText(), passwordField.getText()))
+					if(administradorAplicacion.getInstance().validarUsuario(fieldNombreUsuario.getText(), fieldContrasena.getText()))
 					{
-						textField.setText("");
-						passwordField.setText("");
+						fieldNombreUsuario.setText("");
+						fieldContrasena.setText("");
 						ventanaPrincipal.getInstance().activarAplicacion();
 						setVisible(false);
 						JOptionPane.showMessageDialog(null, "Bienvenido "+ administradorAplicacion.getInstance().getUsuario().getNombre() );
@@ -97,20 +97,20 @@ public class ventanaLogin extends JInternalFrame {
 				/// iniciar 
 			}
 		});
-		btnNewButton.setBounds(22, 123, 89, 23);
-		getContentPane().add(btnNewButton);
+		btnAceptar.setBounds(22, 123, 89, 23);
+		getContentPane().add(btnAceptar);
 		
-		JButton btnNewButton_1 = new JButton("Cancelar");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				textField.setText("");
-				passwordField.setText("");
+				fieldNombreUsuario.setText("");
+				fieldContrasena.setText("");
 				setVisible(false);
 			}
 		});
-		btnNewButton_1.setBounds(159, 123, 89, 23);
-		getContentPane().add(btnNewButton_1);
+		btnCancelar.setBounds(159, 123, 89, 23);
+		getContentPane().add(btnCancelar);
 		
 	}
 }

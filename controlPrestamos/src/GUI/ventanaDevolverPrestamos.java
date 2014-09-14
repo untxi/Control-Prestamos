@@ -22,9 +22,9 @@ public class ventanaDevolverPrestamos extends JInternalFrame implements IConstan
 {
 	
 	private static ventanaDevolverPrestamos miVentanaDevolverPrestamos;
-	private JComboBox comboBox;
-	private JComboBox comboBox_1;
-	private JLabel label_1;
+	private JComboBox comboBoxCategoria;
+	private JComboBox comboBoxArticulo;
+	private JLabel lblImagen;
 	
 	
 	public static ventanaDevolverPrestamos getInstance()
@@ -48,54 +48,54 @@ public class ventanaDevolverPrestamos extends JInternalFrame implements IConstan
 		setBounds(100, 100, 299, 300);
 		getContentPane().setLayout(null);
 		
-		comboBox = new JComboBox();
-		comboBox.addActionListener(new ActionListener() {
+		comboBoxCategoria = new JComboBox();
+		comboBoxCategoria.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0)
 			{
-				int cantCategorias = administradorAplicacion.getInstance().getMiListaPrestamos().get(comboBox.getSelectedIndex()).size();
+				int cantCategorias = administradorAplicacion.getInstance().getMiListaPrestamos().get(comboBoxCategoria.getSelectedIndex()).size();
 				String [] categorias = new String[cantCategorias];
 				for(int i = 0; i < cantCategorias; i++)
 				{
-						categorias[i] = administradorAplicacion.getInstance().getMiListaPrestamos().get(comboBox.getSelectedIndex()).get(i).getMiArticulo().getNombre();
+						categorias[i] = administradorAplicacion.getInstance().getMiListaPrestamos().get(comboBoxCategoria.getSelectedIndex()).get(i).getMiArticulo().getNombre();
 				}
-				comboBox_1.setModel(new DefaultComboBoxModel(categorias));
+				comboBoxArticulo.setModel(new DefaultComboBoxModel(categorias));
 			}
 		});
-		comboBox.setBounds(103, 19, 150, 20);
-		getContentPane().add(comboBox);
+		comboBoxCategoria.setBounds(103, 19, 150, 20);
+		getContentPane().add(comboBoxCategoria);
 		
-		JLabel label = new JLabel("Categoria");
-		label.setBounds(10, 22, 68, 14);
-		getContentPane().add(label);
+		JLabel lblCategoria = new JLabel("Categor\u00EDa");
+		lblCategoria.setBounds(10, 22, 68, 14);
+		getContentPane().add(lblCategoria);
 		
-		JLabel lblArticulo = new JLabel("Articulo");
+		JLabel lblArticulo = new JLabel("Art\u00EDculo");
 		lblArticulo.setBounds(10, 61, 46, 14);
 		getContentPane().add(lblArticulo);
 		
-		comboBox_1 = new JComboBox();
-		comboBox_1.addActionListener(new ActionListener() {
+		comboBoxArticulo = new JComboBox();
+		comboBoxArticulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
 				String nombreImagen;
-				nombreImagen = administradorAplicacion.getInstance().getMiListaPrestamos().get(comboBox.getSelectedIndex()).get(comboBox_1.getSelectedIndex()).getMiArticulo().getImagen();
+				nombreImagen = administradorAplicacion.getInstance().getMiListaPrestamos().get(comboBoxCategoria.getSelectedIndex()).get(comboBoxArticulo.getSelectedIndex()).getMiArticulo().getImagen();
 				ImageIcon portada = new ImageIcon(pathImagenes + nombreImagen);
-				label_1.setIcon(new ImageIcon(portada.getImage().getScaledInstance(104, 165, Image.SCALE_SMOOTH)));
+				lblImagen.setIcon(new ImageIcon(portada.getImage().getScaledInstance(104, 165, Image.SCALE_SMOOTH)));
 			}
 		});
-		comboBox_1.setBounds(103, 58, 150, 20);
-		getContentPane().add(comboBox_1);
+		comboBoxArticulo.setBounds(103, 58, 150, 20);
+		getContentPane().add(comboBoxArticulo);
 		
 		JButton btnDevolver = new JButton("Devolver");
 		btnDevolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				administradorAplicacion.getInstance().getMiListaPrestamos().get(comboBox.getSelectedIndex()).get(comboBox_1.getSelectedIndex()).getMiArticulo().setPrestado(false);
-				administradorAplicacion.getInstance().getMiListaPrestamos().get(comboBox.getSelectedIndex()).set(comboBox_1.getSelectedIndex(), null);
-				administradorAplicacion.getInstance().getMiListaPrestamos().get(comboBox.getSelectedIndex()).remove(comboBox_1.getSelectedIndex());
-				comboBox.setSelectedIndex(0);
-				if(comboBox_1.getItemCount() != 0)
+				administradorAplicacion.getInstance().getMiListaPrestamos().get(comboBoxCategoria.getSelectedIndex()).get(comboBoxArticulo.getSelectedIndex()).getMiArticulo().setPrestado(false);
+				administradorAplicacion.getInstance().getMiListaPrestamos().get(comboBoxCategoria.getSelectedIndex()).set(comboBoxArticulo.getSelectedIndex(), null);
+				administradorAplicacion.getInstance().getMiListaPrestamos().get(comboBoxCategoria.getSelectedIndex()).remove(comboBoxArticulo.getSelectedIndex());
+				comboBoxCategoria.setSelectedIndex(0);
+				if(comboBoxArticulo.getItemCount() != 0)
 				{
-					comboBox_1.setSelectedIndex(0);
+					comboBoxArticulo.setSelectedIndex(0);
 				}
 				setVisible(false);
 			}
@@ -107,10 +107,10 @@ public class ventanaDevolverPrestamos extends JInternalFrame implements IConstan
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				comboBox.setSelectedIndex(0);
-				if(comboBox_1.getItemCount() != 0)
+				comboBoxCategoria.setSelectedIndex(0);
+				if(comboBoxArticulo.getItemCount() != 0)
 				{
-					comboBox_1.setSelectedIndex(0);
+					comboBoxArticulo.setSelectedIndex(0);
 				}
 				setVisible(false);
 			}
@@ -118,9 +118,9 @@ public class ventanaDevolverPrestamos extends JInternalFrame implements IConstan
 		btnCancelar.setBounds(164, 237, 89, 23);
 		getContentPane().add(btnCancelar);
 		
-		label_1 = new JLabel("");
-		label_1.setBounds(10, 100, 104, 165);
-		getContentPane().add(label_1);
+		lblImagen = new JLabel("");
+		lblImagen.setBounds(10, 100, 104, 165);
+		getContentPane().add(lblImagen);
 	}
 	
 	public void cambiarComboBox()
@@ -131,7 +131,7 @@ public class ventanaDevolverPrestamos extends JInternalFrame implements IConstan
 		{
 			categorias[i] = administradorAplicacion.getInstance().getTiposCategorias().get(i);
 		}
-		comboBox.setModel(new DefaultComboBoxModel(categorias));
+		comboBoxCategoria.setModel(new DefaultComboBoxModel(categorias));
 	}
 	
 

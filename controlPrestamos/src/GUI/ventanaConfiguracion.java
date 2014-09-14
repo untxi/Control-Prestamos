@@ -20,8 +20,8 @@ import javax.swing.ImageIcon;
 public class ventanaConfiguracion extends JInternalFrame
 {
 	
-	private JSpinner spinner;
-	private JSpinner spinner_1;
+	private JSpinner spinnerPrestamo;
+	private JSpinner spinnerTolerancia;
 	private static ventanaConfiguracion miVentanaConfiguracion;
 	
 	
@@ -60,30 +60,30 @@ public class ventanaConfiguracion extends JInternalFrame
 		setBounds(100, 100, 339, 142);
 		getContentPane().setLayout(null);
 		
-		JLabel lblDiasDePrestamo = new JLabel("Dias de Prestamo");
+		JLabel lblDiasDePrestamo = new JLabel("D\u00EDas de Pr\u00E9stamo");
 		lblDiasDePrestamo.setBounds(10, 24, 102, 14);
 		getContentPane().add(lblDiasDePrestamo);
 		
-		JLabel lblDiasDeTolerancia = new JLabel("Dias de Tolerancia");
+		JLabel lblDiasDeTolerancia = new JLabel("D\u00EDas de Tolerancia");
 		lblDiasDeTolerancia.setBounds(10, 74, 102, 14);
 		getContentPane().add(lblDiasDeTolerancia);
 		
-		spinner = new JSpinner();
-		spinner.setBounds(146, 21, 29, 20);
-		getContentPane().add(spinner);
+		spinnerPrestamo = new JSpinner();
+		spinnerPrestamo.setBounds(146, 21, 29, 20);
+		getContentPane().add(spinnerPrestamo);
 		
-		spinner_1 = new JSpinner();
-		spinner_1.setBounds(146, 71, 29, 20);
-		getContentPane().add(spinner_1);
+		spinnerTolerancia = new JSpinner();
+		spinnerTolerancia.setBounds(146, 71, 29, 20);
+		getContentPane().add(spinnerTolerancia);
 		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				administradorAplicacion.getInstance().setDiasPrestamo((Integer)spinner.getValue());
-				administradorAplicacion.getInstance().setDiasTolerancia((Integer)spinner_1.getValue());
-				spinner.setValue(new Integer(0));
-				spinner_1.setValue(new Integer(0));
+				administradorAplicacion.getInstance().setDiasPrestamo((Integer)spinnerPrestamo.getValue());
+				administradorAplicacion.getInstance().setDiasTolerancia((Integer)spinnerTolerancia.getValue());
+				spinnerPrestamo.setValue(new Integer(0));
+				spinnerTolerancia.setValue(new Integer(0));
 				setVisible(false);
 			}
 		});
@@ -94,8 +94,8 @@ public class ventanaConfiguracion extends JInternalFrame
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				spinner.setValue(new Integer(0));
-				spinner_1.setValue(new Integer(0));
+				spinnerPrestamo.setValue(new Integer(0));
+				spinnerTolerancia.setValue(new Integer(0));
 				setVisible(false);
 			}
 		});
