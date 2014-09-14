@@ -22,6 +22,8 @@ import Administradores.administradorAplicacion;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Font;
 
 /**
  * Clase ventanaRegistroUsuario
@@ -67,6 +69,7 @@ public class ventanaConfiguracion extends JInternalFrame
 	 * Create the frame.
 	 */
 	private ventanaConfiguracion() {
+		getContentPane().setBackground(new Color(51, 153, 204));
 		setTitle("Mea Providere - Preferencias");
 		setFrameIcon(new ImageIcon(ventanaConfiguracion.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setIconifiable(true);
@@ -74,10 +77,12 @@ public class ventanaConfiguracion extends JInternalFrame
 		getContentPane().setLayout(null);
 		// Días de prestamo
 		JLabel lblDiasDePrestamo = new JLabel("D\u00EDas de Pr\u00E9stamo");
+		lblDiasDePrestamo.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblDiasDePrestamo.setBounds(10, 24, 102, 14);
 		getContentPane().add(lblDiasDePrestamo);
 		// Días de tolerancia
 		JLabel lblDiasDeTolerancia = new JLabel("D\u00EDas de Tolerancia");
+		lblDiasDeTolerancia.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblDiasDeTolerancia.setBounds(10, 74, 102, 14);
 		getContentPane().add(lblDiasDeTolerancia);
 		
@@ -90,6 +95,9 @@ public class ventanaConfiguracion extends JInternalFrame
 		getContentPane().add(spinnerTolerancia);
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.setBackground(new Color(255, 153, 0));
+		btnAceptar.setForeground(new Color(204, 0, 102));
+		btnAceptar.setFont(new Font("Gisha", Font.PLAIN, 11));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
@@ -104,6 +112,9 @@ public class ventanaConfiguracion extends JInternalFrame
 		getContentPane().add(btnAceptar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBackground(new Color(255, 153, 0));
+		btnCancelar.setForeground(new Color(204, 0, 102));
+		btnCancelar.setFont(new Font("Gisha", Font.PLAIN, 11));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{

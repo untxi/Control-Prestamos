@@ -154,6 +154,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		escritorio = new JDesktopPane();
 		escritorio.setBackground(new Color(135, 206, 250));
 		getContentPane().add(escritorio);
+		panel.setBackground(new Color(102, 204, 102));
 		
 		panel.setSize(534, 5000);
 		scrollPane = new JScrollPane(panel);
@@ -196,17 +197,21 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		escritorio.setLayout(gl_escritorio);
 		
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setFont(new Font("Gisha", Font.PLAIN, 12));
 		menuBar.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		menuBar.setAlignmentX(10.0f);
 		menuBar.setAlignmentY(1.0f);
-		menuBar.setBackground(new Color(100, 149, 237));
+		menuBar.setBackground(new Color(153, 50, 204));
 		setJMenuBar(menuBar);
 		
 		menuRegistro = new JMenu("");
+		menuRegistro.setFont(new Font("Gisha", Font.PLAIN, 12));
+		menuRegistro.setBackground(new Color(153, 102, 153));
 		menuRegistro.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/lock.png")));
 		menuBar.add(menuRegistro);
 		
 		JMenuItem mntmCrearCuenta = new JMenuItem("Crear cuenta");
+		mntmCrearCuenta.setFont(new Font("Gisha", Font.PLAIN, 12));
 		mntmCrearCuenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
@@ -218,6 +223,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		menuRegistro.add(mntmCrearCuenta);
 		
 		JMenuItem mntmIniciarSesion = new JMenuItem("Iniciar Sesi\u00F3n");
+		mntmIniciarSesion.setFont(new Font("Gisha", Font.PLAIN, 12));
 		mntmIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
@@ -229,6 +235,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		menuRegistro.add(mntmIniciarSesion);
 		
 		JMenuItem mntmCerrarSesion = new JMenuItem("Cerrar Sesi\u00F3n");
+		mntmCerrarSesion.setFont(new Font("Gisha", Font.PLAIN, 12));
 		mntmCerrarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
@@ -245,6 +252,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		menuBar.add(menuConfiguracion);
 		
 		JMenuItem mntmPreferenciasSistema = new JMenuItem("Preferencias del sistema");
+		mntmPreferenciasSistema.setFont(new Font("Gisha", Font.PLAIN, 12));
 		mntmPreferenciasSistema.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/gear_in_peque.png")));
 		mntmPreferenciasSistema.setBackground(new Color(100, 149, 237));
 		mntmPreferenciasSistema.addActionListener(new ActionListener() {
@@ -257,6 +265,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		});
 		
 		JMenuItem mntmPrestarArticulo = new JMenuItem("Prestar Articulo");
+		mntmPrestarArticulo.setFont(new Font("Gisha", Font.PLAIN, 12));
 		mntmPrestarArticulo.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/package_delete.png")));
 		mntmPrestarArticulo.setBackground(new Color(100, 149, 237));
 		mntmPrestarArticulo.addActionListener(new ActionListener() {
@@ -267,6 +276,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		});
 		
 		JMenuItem mntmMandarEmail = new JMenuItem("Mandar Email");
+		mntmMandarEmail.setFont(new Font("Gisha", Font.PLAIN, 12));
 		mntmMandarEmail.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -284,6 +294,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		menuConfiguracion.add(mntmPrestarArticulo);
 		
 		JMenuItem mntmDevolverArticulo = new JMenuItem("Devolver Articulo");
+		mntmDevolverArticulo.setFont(new Font("Gisha", Font.PLAIN, 12));
 		mntmDevolverArticulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
@@ -301,6 +312,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		menuBar.add(menuAgregar);
 		
 		JMenuItem mntmAgregarArticulo = new JMenuItem("Agregar art\u00EDculo");
+		mntmAgregarArticulo.setFont(new Font("Gisha", Font.PLAIN, 12));
 		mntmAgregarArticulo.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/Recursos/ImagenesGUI/installer_box.png")));
 		mntmAgregarArticulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
@@ -313,6 +325,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		menuAgregar.add(mntmAgregarArticulo);
 		
 		JMenuItem mntmAgregarPersona = new JMenuItem("Agregar persona");
+		mntmAgregarPersona.setFont(new Font("Gisha", Font.PLAIN, 12));
 		mntmAgregarPersona.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
@@ -324,6 +337,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		menuAgregar.add(mntmAgregarPersona);
 		
 		JMenuItem mntmAgregarCategoriaArticulo = new JMenuItem("Agregar categor\u00EDa art\u00EDculo");
+		mntmAgregarCategoriaArticulo.setFont(new Font("Gisha", Font.PLAIN, 12));
 		mntmAgregarCategoriaArticulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -332,6 +346,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		});
 		
 		JMenuItem mntmEditarPersona = new JMenuItem("Editar Persona");
+		mntmEditarPersona.setFont(new Font("Gisha", Font.PLAIN, 12));
 		mntmEditarPersona.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -346,6 +361,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		menuAgregar.add(mntmAgregarCategoriaArticulo);
 		
 		JMenuItem mntmAgregarArticulosDesde = new JMenuItem("Agregar Libros desde archivo txt");
+		mntmAgregarArticulosDesde.setFont(new Font("Gisha", Font.PLAIN, 12));
 		mntmAgregarArticulosDesde.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0)
 			{
@@ -358,6 +374,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 			});
 		
 		JMenuItem mntmEditarArticulo = new JMenuItem("Editar Art\u00EDculo");
+		mntmEditarArticulo.setFont(new Font("Gisha", Font.PLAIN, 12));
 		mntmEditarArticulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
@@ -373,6 +390,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		menuAgregar.add(mntmAgregarArticulosDesde);
 		
 		JMenuItem mntmAgregarRevistasDesde = new JMenuItem("Agregar revistas desde archivo txt");
+		mntmAgregarRevistasDesde.setFont(new Font("Gisha", Font.PLAIN, 12));
 		mntmAgregarRevistasDesde.setBackground(new Color(100, 149, 237));
 		mntmAgregarRevistasDesde.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
@@ -389,6 +407,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		menuAgregar.add(mntmAgregarRevistasDesde);
 		
 		JMenuItem mntmAgregarPeliculasDesde = new JMenuItem("Agregar peliculas desde archivo txt");
+		mntmAgregarPeliculasDesde.setFont(new Font("Gisha", Font.PLAIN, 12));
 		mntmAgregarPeliculasDesde.setBackground(new Color(100, 149, 237));
 		mntmAgregarPeliculasDesde.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
@@ -404,6 +423,7 @@ public class ventanaPrincipal extends JFrame implements IConstantes
 		menuAgregar.add(mntmAgregarPeliculasDesde);
 		
 		JMenuItem mntmAgregarPersonasDesde = new JMenuItem("Agregar personas desde archivo txt");
+		mntmAgregarPersonasDesde.setFont(new Font("Gisha", Font.PLAIN, 12));
 		mntmAgregarPersonasDesde.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{

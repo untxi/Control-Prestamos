@@ -24,6 +24,8 @@ import java.util.Date;
 
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Font;
 
 /**
  * Clase ventanaRegistroUsuario
@@ -70,6 +72,7 @@ public class ventanaLogin extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public ventanaLogin() {
+		getContentPane().setBackground(new Color(51, 153, 204));
 		setTitle("Mea Providere - Iniciar Sesi\u00F3n");
 		setFrameIcon(new ImageIcon(ventanaLogin.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -78,10 +81,12 @@ public class ventanaLogin extends JInternalFrame {
 		getContentPane().setLayout(null);
 		
 		JLabel lblNombreUsuario = new JLabel("Nombre de Usuario");
+		lblNombreUsuario.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblNombreUsuario.setBounds(10, 36, 99, 14);
 		getContentPane().add(lblNombreUsuario);
 		
 		JLabel lblContrasena = new JLabel("Contrase\u00F1a");
+		lblContrasena.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblContrasena.setBounds(10, 80, 86, 14);
 		getContentPane().add(lblContrasena);
 		
@@ -95,6 +100,9 @@ public class ventanaLogin extends JInternalFrame {
 		getContentPane().add(fieldContrasena);
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.setForeground(new Color(204, 0, 102));
+		btnAceptar.setBackground(new Color(255, 153, 0));
+		btnAceptar.setFont(new Font("Gisha", Font.PLAIN, 11));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -129,6 +137,9 @@ public class ventanaLogin extends JInternalFrame {
 		getContentPane().add(btnAceptar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setForeground(new Color(204, 0, 102));
+		btnCancelar.setBackground(new Color(255, 153, 0));
+		btnCancelar.setFont(new Font("Gisha", Font.PLAIN, 11));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{

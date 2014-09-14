@@ -16,6 +16,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Font;
 /**
  * Clase ventanaagregarpersona
  * 
@@ -85,6 +87,8 @@ public class ventanaAgregarPersona extends JInternalFrame
 	 */
 	private ventanaAgregarPersona() 
 	{
+		getContentPane().setForeground(new Color(153, 0, 204));
+		getContentPane().setBackground(new Color(51, 153, 204));
 		setTitle("Mea Providere - Agregar Persona");
 		setFrameIcon(new ImageIcon(ventanaAgregarPersona.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -93,26 +97,32 @@ public class ventanaAgregarPersona extends JInternalFrame
 		getContentPane().setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblNombre.setBounds(10, 14, 46, 14);
 		getContentPane().add(lblNombre);
 		
 		JLabel lblApellido1 = new JLabel("Primer Apellido");
-		lblApellido1.setBounds(176, 14, 80, 14);
+		lblApellido1.setFont(new Font("Gisha", Font.PLAIN, 11));
+		lblApellido1.setBounds(176, 14, 89, 14);
 		getContentPane().add(lblApellido1);
 		
 		JLabel lblApellido2 = new JLabel("Segundo Apellido");
-		lblApellido2.setBounds(381, 14, 96, 14);
+		lblApellido2.setFont(new Font("Gisha", Font.PLAIN, 11));
+		lblApellido2.setBounds(381, 14, 105, 14);
 		getContentPane().add(lblApellido2);
 		
 		JLabel lblCedula = new JLabel("C\u00E9dula");
+		lblCedula.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblCedula.setBounds(10, 69, 46, 14);
 		getContentPane().add(lblCedula);
 		
 		JLabel lblTelefono = new JLabel("Tel\u00E9fono");
-		lblTelefono.setBounds(201, 69, 46, 14);
+		lblTelefono.setFont(new Font("Gisha", Font.PLAIN, 11));
+		lblTelefono.setBounds(200, 69, 47, 14);
 		getContentPane().add(lblTelefono);
 		
 		JLabel lblCorreo = new JLabel("Correo");
+		lblCorreo.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblCorreo.setBounds(431, 69, 46, 14);
 		getContentPane().add(lblCorreo);
 		
@@ -154,10 +164,14 @@ public class ventanaAgregarPersona extends JInternalFrame
 		getContentPane().add(comboBoxCategoria);
 		
 		JLabel lblCaegoria = new JLabel("Categor\u00EDa");
+		lblCaegoria.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblCaegoria.setBounds(10, 126, 71, 14);
 		getContentPane().add(lblCaegoria);
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.setBackground(new Color(255, 153, 0));
+		btnAceptar.setForeground(new Color(204, 0, 102));
+		btnAceptar.setFont(new Font("Gisha", Font.PLAIN, 11));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -187,6 +201,9 @@ public class ventanaAgregarPersona extends JInternalFrame
 		getContentPane().add(btnAceptar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBackground(new Color(255, 153, 0));
+		btnCancelar.setForeground(new Color(204, 0, 102));
+		btnCancelar.setFont(new Font("Gisha", Font.PLAIN, 11));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{

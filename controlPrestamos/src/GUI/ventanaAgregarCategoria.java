@@ -20,6 +20,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Font;
 
 /**
  * Clase ventanaRegistroUsuario
@@ -56,6 +58,7 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 	 */
 	public ventanaAgregarCategoria() 
 	{
+		getContentPane().setBackground(new Color(51, 153, 204));
 		setTitle("Mea Providere - Ingresar Categor\u00EDa");
 		setFrameIcon(new ImageIcon(ventanaAgregarCategoria.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -64,7 +67,8 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 		getContentPane().setLayout(null);
 		
 		JLabel lblNuevaCategoria = new JLabel("Nueva Categor\u00EDa");
-		lblNuevaCategoria.setBounds(10, 23, 104, 14);
+		lblNuevaCategoria.setFont(new Font("Gisha", Font.PLAIN, 11));
+		lblNuevaCategoria.setBounds(22, 20, 104, 14);
 		getContentPane().add(lblNuevaCategoria);
 		
 		fieldNuevaCategoria = new JTextField();
@@ -73,6 +77,9 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 		fieldNuevaCategoria.setColumns(10);
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.setBackground(new Color(255, 153, 0));
+		btnAceptar.setForeground(new Color(204, 0, 102));
+		btnAceptar.setFont(new Font("Gisha", Font.PLAIN, 11));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -89,10 +96,13 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 				}
 			}
 		});
-		btnAceptar.setBounds(10, 82, 89, 23);
+		btnAceptar.setBounds(22, 79, 89, 23);
 		getContentPane().add(btnAceptar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBackground(new Color(255, 153, 0));
+		btnCancelar.setForeground(new Color(204, 0, 102));
+		btnCancelar.setFont(new Font("Gisha", Font.PLAIN, 11));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{

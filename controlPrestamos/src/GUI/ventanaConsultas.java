@@ -25,6 +25,7 @@ import java.util.Date;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
 import java.awt.Font;
+import java.awt.Color;
 
 public class ventanaConsultas extends JInternalFrame {
 	
@@ -66,6 +67,8 @@ public class ventanaConsultas extends JInternalFrame {
 	 * Create the frame.
 	 */
 	private ventanaConsultas() {
+		setBackground(new Color(153, 102, 153));
+		getContentPane().setBackground(new Color(51, 153, 204));
 		setTitle("Mea Providere - Consultas");
 		setFrameIcon(new ImageIcon(ventanaConsultas.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setIconifiable(true);
@@ -73,10 +76,12 @@ public class ventanaConsultas extends JInternalFrame {
 		getContentPane().setLayout(null);
 		
 		JLabel lblTipoDeConsulta = new JLabel("Tipo de Consulta");
+		lblTipoDeConsulta.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblTipoDeConsulta.setBounds(10, 11, 85, 14);
 		getContentPane().add(lblTipoDeConsulta);
 		
 		comboBoxTipoConsulta = new JComboBox();
+		comboBoxTipoConsulta.setBackground(new Color(255, 102, 0));
 		comboBoxTipoConsulta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -89,10 +94,12 @@ public class ventanaConsultas extends JInternalFrame {
 		getContentPane().add(comboBoxTipoConsulta);
 		
 		JLabel lblDesdeTipo = new JLabel("Desde");
+		lblDesdeTipo.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblDesdeTipo.setBounds(10, 117, 46, 14);
 		getContentPane().add(lblDesdeTipo);
 		
 		comboBoxDesde = new JComboBox();
+		comboBoxDesde.setBackground(new Color(255, 102, 0));
 		comboBoxDesde.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -117,6 +124,9 @@ public class ventanaConsultas extends JInternalFrame {
 		getContentPane().add(separator_2);
 		
 		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.setForeground(new Color(204, 0, 102));
+		btnConsultar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnConsultar.setBackground(new Color(255, 153, 0));
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
@@ -133,6 +143,9 @@ public class ventanaConsultas extends JInternalFrame {
 		getContentPane().add(btnConsultar);
 		
 		JButton btnLimpiar = new JButton("Limpiar");
+		btnLimpiar.setForeground(new Color(204, 0, 102));
+		btnLimpiar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnLimpiar.setBackground(new Color(255, 153, 0));
 		btnLimpiar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -143,6 +156,9 @@ public class ventanaConsultas extends JInternalFrame {
 		getContentPane().add(btnLimpiar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setForeground(new Color(204, 0, 102));
+		btnCancelar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnCancelar.setBackground(new Color(255, 153, 0));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
@@ -155,11 +171,13 @@ public class ventanaConsultas extends JInternalFrame {
 		
 		
 		panel = new JPanel();
+		panel.setBackground(new Color(51, 153, 204));
 		panel.setBounds(260, 0, 212, 162);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblFiltro = new JLabel("FILTRO");
+		lblFiltro.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblFiltro.setBounds(78, 11, 46, 14);
 		panel.add(lblFiltro);
 		
@@ -184,28 +202,34 @@ public class ventanaConsultas extends JInternalFrame {
 		fieldPersona.setColumns(10);
 		
 		lblTitulo = new JLabel("T\u00EDtulo");
+		lblTitulo.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblTitulo.setBounds(25, 39, 46, 14);
 		panel.add(lblTitulo);
 		
 		lblAutor = new JLabel("Autor");
+		lblAutor.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblAutor.setBounds(25, 77, 46, 14);
 		panel.add(lblAutor);
 		
 		lblEditorial = new JLabel("Editorial");
+		lblEditorial.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblEditorial.setBounds(25, 108, 46, 14);
 		panel.add(lblEditorial);
 		
 		JLabel lblPersona = new JLabel("Persona");
+		lblPersona.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblPersona.setBounds(25, 139, 46, 14);
 		panel.add(lblPersona);
 		panel.setVisible(false);
 		
 		panel_1 = new JPanel();
+		panel_1.setBackground(new Color(51, 153, 204));
 		panel_1.setBounds(270, 159, 202, 131);
 		getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
 		JLabel lblCantidadDePrestamos = new JLabel("Cantidad de Prestamos");
+		lblCantidadDePrestamos.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblCantidadDePrestamos.setBounds(10, 27, 111, 14);
 		panel_1.add(lblCantidadDePrestamos);
 		
@@ -215,23 +239,28 @@ public class ventanaConsultas extends JInternalFrame {
 		spinnerCantidadPrestamos.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
 		
 		JLabel lblDesde = new JLabel("Desde");
+		lblDesde.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblDesde.setBounds(10, 75, 46, 14);
 		panel_1.add(lblDesde);
 		
 		JLabel lblHasta = new JLabel("Hasta");
+		lblHasta.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblHasta.setBounds(10, 106, 46, 14);
 		panel_1.add(lblHasta);
 		
 		dateChooserDesde = new JDateChooser();
+		dateChooserDesde.getCalendarButton().setBackground(new Color(255, 153, 0));
 		dateChooserDesde.setBounds(105, 69, 87, 20);
 		panel_1.add(dateChooserDesde);
 		
 		dateChooserHasta = new JDateChooser();
+		dateChooserHasta.getCalendarButton().setBackground(new Color(255, 153, 0));
 		dateChooserHasta.setBounds(105, 100, 87, 20);
 		panel_1.add(dateChooserHasta);
 		
 	
 		panel_2 = new JPanel();
+		panel_2.setBackground(new Color(51, 153, 204));
 		panel_2.setBounds(57, 218, 120, 49);
 		getContentPane().add(panel_2);
 		panel_2.setLayout(null);
@@ -242,7 +271,7 @@ public class ventanaConsultas extends JInternalFrame {
 		spinnerLimite.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
 		
 		JLabel lblLimite = new JLabel("L\u00EDmite");
-		lblLimite.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblLimite.setFont(new Font("Gisha", Font.PLAIN, 12));
 		lblLimite.setBounds(18, 21, 46, 14);
 		panel_2.add(lblLimite);
 		

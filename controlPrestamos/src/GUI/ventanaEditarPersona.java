@@ -20,6 +20,8 @@ import java.util.Locale.Category;
 
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Font;
 /**
  * Clase ventanaagregarpersona
  * 
@@ -92,6 +94,7 @@ public class ventanaEditarPersona extends JInternalFrame
 	 */
 	private ventanaEditarPersona() 
 	{
+		getContentPane().setBackground(new Color(51, 153, 204));
 		setTitle("Mea Providere - Actualizar Persona");
 		setFrameIcon(new ImageIcon(ventanaAgregarPersona.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -100,26 +103,32 @@ public class ventanaEditarPersona extends JInternalFrame
 		getContentPane().setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblNombre.setBounds(10, 14, 46, 14);
 		getContentPane().add(lblNombre);
 		
 		JLabel lblApellido1 = new JLabel("Primer Apellido");
-		lblApellido1.setBounds(176, 14, 80, 14);
+		lblApellido1.setFont(new Font("Gisha", Font.PLAIN, 11));
+		lblApellido1.setBounds(176, 14, 96, 14);
 		getContentPane().add(lblApellido1);
 		
 		JLabel lblApellido2 = new JLabel("Segundo Apellido");
-		lblApellido2.setBounds(381, 14, 96, 14);
+		lblApellido2.setFont(new Font("Gisha", Font.PLAIN, 11));
+		lblApellido2.setBounds(381, 14, 105, 14);
 		getContentPane().add(lblApellido2);
 		
 		JLabel lblCedula = new JLabel("C\u00E9dula");
+		lblCedula.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblCedula.setBounds(10, 69, 46, 14);
 		getContentPane().add(lblCedula);
 		
 		JLabel lblTelefono = new JLabel("Tel\u00E9fono");
-		lblTelefono.setBounds(210, 69, 46, 14);
+		lblTelefono.setFont(new Font("Gisha", Font.PLAIN, 11));
+		lblTelefono.setBounds(194, 69, 62, 14);
 		getContentPane().add(lblTelefono);
 		
 		JLabel lblCorreo = new JLabel("Correo");
+		lblCorreo.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblCorreo.setBounds(431, 69, 46, 14);
 		getContentPane().add(lblCorreo);
 		
@@ -185,10 +194,14 @@ public class ventanaEditarPersona extends JInternalFrame
 		getContentPane().add(comboBoxCategoria);
 		
 		JLabel lblCategoria = new JLabel("Categor\u00EDa");
+		lblCategoria.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblCategoria.setBounds(10, 98, 71, 14);
 		getContentPane().add(lblCategoria);
 		
 		JButton btnEditar = new JButton("Editar");
+		btnEditar.setForeground(new Color(204, 0, 102));
+		btnEditar.setBackground(new Color(255, 153, 0));
+		btnEditar.setFont(new Font("Gisha", Font.PLAIN, 11));
 		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -211,6 +224,9 @@ public class ventanaEditarPersona extends JInternalFrame
 		getContentPane().add(btnEditar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setForeground(new Color(204, 0, 102));
+		btnCancelar.setBackground(new Color(255, 153, 0));
+		btnCancelar.setFont(new Font("Gisha", Font.PLAIN, 11));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
@@ -227,6 +243,7 @@ public class ventanaEditarPersona extends JInternalFrame
 		getContentPane().add(btnCancelar);
 		
 		JLabel lblPersona = new JLabel("Persona");
+		lblPersona.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblPersona.setBounds(10, 142, 46, 14);
 		getContentPane().add(lblPersona);
 		

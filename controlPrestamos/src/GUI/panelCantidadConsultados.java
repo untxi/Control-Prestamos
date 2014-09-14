@@ -22,7 +22,7 @@ public class panelCantidadConsultados extends JPanel implements IConstantes
 	public panelCantidadConsultados(int y,int pCantidad, int pConsulta) 
 	{
 		setBounds(new Rectangle(0, y, 534, 267));
-		setBackground(new Color(112, 128, 144));
+		setBackground(new Color(204, 153, 204));
 		setLayout(null);
 		
 		if(pConsulta == consultaTodos)

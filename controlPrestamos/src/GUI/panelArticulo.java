@@ -60,43 +60,45 @@ public class panelArticulo extends JPanel implements IConstantes
 	 */
 	public panelArticulo(int y, Articulo pArticulo, int pCategoria) 
 	{
+		setForeground(new Color(153, 102, 153));
 		portada = new ImageIcon(pathImagenes+pArticulo.getImagen());
 		setBounds(new Rectangle(0, y, 534, 267));
-		setBackground(new Color(112, 128, 144));
+		setBackground(new Color(153, 102, 153));
 		setLayout(null);
 		
 		lblNewLabel = new JLabel("");
+		lblNewLabel.setForeground(new Color(153, 102, 153));
 		lblNewLabel.setBounds(0, 0, 165, 265);
 		lblNewLabel.setIcon(new ImageIcon(portada.getImage().getScaledInstance(164, 265, Image.SCALE_SMOOTH)));
 		add(lblNewLabel);
 		
 		titulo = new JLabel("New label");
-		titulo.setFont(new Font("Calibri", Font.BOLD | Font.ITALIC, 15));
+		titulo.setFont(new Font("Gisha", Font.BOLD | Font.ITALIC, 15));
 		titulo.setBounds(198, 11, 87, 14);
 		add(titulo);
 		
 		autor = new JLabel("New label");
-		autor.setFont(new Font("Calibri", Font.BOLD | Font.ITALIC, 15));
+		autor.setFont(new Font("Gisha", Font.BOLD | Font.ITALIC, 15));
 		autor.setBounds(198, 36, 87, 14);
 		add(autor);
 		
 		editorial = new JLabel("New label");
-		editorial.setFont(new Font("Calibri", Font.BOLD | Font.ITALIC, 15));
+		editorial.setFont(new Font("Gisha", Font.BOLD | Font.ITALIC, 15));
 		editorial.setBounds(198, 61, 87, 14);
 		add(editorial);
 		
 		edicion = new JLabel("New label");
-		edicion.setFont(new Font("Calibri", Font.BOLD | Font.ITALIC, 15));
+		edicion.setFont(new Font("Gisha", Font.BOLD | Font.ITALIC, 15));
 		edicion.setBounds(198, 86, 87, 14);
 		add(edicion);
 		
 		persona = new JLabel("Prestado a: ");
-		persona.setFont(new Font("Calibri", Font.BOLD | Font.ITALIC, 15));
+		persona.setFont(new Font("Gisha", Font.BOLD | Font.ITALIC, 15));
 		persona.setBounds(198, 110, 87, 14);
 		add(persona);
 		
 		Descripcion = new JLabel("Descripci\u00F3n");
-		Descripcion.setFont(new Font("Calibri", Font.BOLD | Font.ITALIC, 15));
+		Descripcion.setFont(new Font("Gisha", Font.BOLD | Font.ITALIC, 15));
 		Descripcion.setBounds(198, 135, 87, 14);
 		add(Descripcion);
 		

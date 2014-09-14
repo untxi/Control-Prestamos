@@ -17,6 +17,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
+import java.awt.Color;
+import java.awt.Font;
 
 public class ventanaDevolverPrestamos extends JInternalFrame implements IConstantes
 {
@@ -42,6 +44,7 @@ public class ventanaDevolverPrestamos extends JInternalFrame implements IConstan
 	 */
 	private ventanaDevolverPrestamos() 
 	{
+		getContentPane().setBackground(new Color(51, 153, 204));
 		setTitle("Mea Providere - Devoluci\u00F3n");
 		setIconifiable(true);
 		setFrameIcon(new ImageIcon(ventanaDevolverPrestamos.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
@@ -65,10 +68,12 @@ public class ventanaDevolverPrestamos extends JInternalFrame implements IConstan
 		getContentPane().add(comboBoxCategoria);
 		
 		JLabel lblCategoria = new JLabel("Categor\u00EDa");
+		lblCategoria.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblCategoria.setBounds(10, 22, 68, 14);
 		getContentPane().add(lblCategoria);
 		
 		JLabel lblArticulo = new JLabel("Art\u00EDculo");
+		lblArticulo.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblArticulo.setBounds(10, 61, 46, 14);
 		getContentPane().add(lblArticulo);
 		
@@ -86,6 +91,9 @@ public class ventanaDevolverPrestamos extends JInternalFrame implements IConstan
 		getContentPane().add(comboBoxArticulo);
 		
 		JButton btnDevolver = new JButton("Devolver");
+		btnDevolver.setForeground(new Color(204, 0, 102));
+		btnDevolver.setBackground(new Color(255, 153, 0));
+		btnDevolver.setFont(new Font("Gisha", Font.PLAIN, 11));
 		btnDevolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -104,6 +112,9 @@ public class ventanaDevolverPrestamos extends JInternalFrame implements IConstan
 		getContentPane().add(btnDevolver);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setForeground(new Color(204, 0, 102));
+		btnCancelar.setBackground(new Color(255, 153, 0));
+		btnCancelar.setFont(new Font("Gisha", Font.PLAIN, 11));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
@@ -119,6 +130,7 @@ public class ventanaDevolverPrestamos extends JInternalFrame implements IConstan
 		getContentPane().add(btnCancelar);
 		
 		lblImagen = new JLabel("");
+		lblImagen.setBackground(new Color(255, 153, 0));
 		lblImagen.setBounds(10, 100, 104, 165);
 		getContentPane().add(lblImagen);
 	}

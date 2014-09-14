@@ -40,6 +40,8 @@ import javax.swing.JTextPane;
 import javax.swing.JEditorPane;
 import javax.swing.JProgressBar;
 import javax.swing.JFrame;
+import java.awt.Color;
+import java.awt.Font;
 /**
  * Clase ventanaAgregarArticulo
  * 
@@ -123,6 +125,7 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 	 */
 	public ventanaAgregarArticulo()
 	{
+		getContentPane().setBackground(new Color(51, 153, 204));
 		setTitle("Mea Providere - Ingresar Art\u00EDculo");
 		setFrameIcon(new ImageIcon(ventanaAgregarArticulo.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -130,6 +133,7 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 		setBounds(100, 100, 450, 482);
 		
 		JLabel lblSeleccioneLaCategoria = new JLabel("Seleccione la categor\u00EDa");
+		lblSeleccioneLaCategoria.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblSeleccioneLaCategoria.setBounds(10, 11, 119, 14);
 		
 		comboBoxSelecCategoria = new JComboBox();
@@ -143,7 +147,10 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 		});
 		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(349, 419, 75, 23);
+		btnCancelar.setBackground(new Color(255, 153, 0));
+		btnCancelar.setForeground(new Color(204, 0, 102));
+		btnCancelar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnCancelar.setBounds(341, 419, 83, 23);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
@@ -159,6 +166,7 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 		});
 		
 		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblNombre.setBounds(10, 71, 46, 14);
 		
 		fieldNombre = new JTextField();
@@ -166,6 +174,7 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 		fieldNombre.setColumns(10);
 		
 		lblAutor = new JLabel("Autor");
+		lblAutor.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblAutor.setBounds(221, 71, 46, 14);
 		
 		fieldAutor = new JTextField();
@@ -173,6 +182,7 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 		fieldAutor.setColumns(10);
 		
 		JLabel lblEdicion = new JLabel("Edici\u00F3n");
+		lblEdicion.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblEdicion.setBounds(10, 186, 46, 14);
 		
 		filedEdicion = new JTextField();
@@ -180,6 +190,7 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 		filedEdicion.setColumns(10);
 		
 		JLabel lblCalificacion = new JLabel("Calificaci\u00F3n");
+		lblCalificacion.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblCalificacion.setBounds(221, 130, 70, 14);
 		
 		comboBoxCalificacion = new JComboBox();
@@ -190,7 +201,10 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 		lblImagen.setBounds(10, 223, 104, 165);
 		
 		JButton btnBuscarImagen = new JButton("Buscar Imagen");
-		btnBuscarImagen.setBounds(10, 419, 104, 23);
+		btnBuscarImagen.setBackground(new Color(255, 153, 0));
+		btnBuscarImagen.setForeground(new Color(204, 0, 102));
+		btnBuscarImagen.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnBuscarImagen.setBounds(10, 419, 119, 23);
 		btnBuscarImagen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
@@ -237,12 +251,16 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 		});
 		
 		JLabel lblDescripcion = new JLabel("Descripci\u00F3n");
+		lblDescripcion.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblDescripcion.setBounds(272, 265, 54, 14);
 		
 		fieldDescripcion = new JEditorPane();
 		fieldDescripcion.setBounds(161, 290, 262, 112);
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.setBackground(new Color(255, 153, 0));
+		btnAceptar.setForeground(new Color(204, 0, 102));
+		btnAceptar.setFont(new Font("Gisha", Font.PLAIN, 11));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -309,7 +327,7 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 				administradorAplicacion.getInstance().imprimirListaCategorias();
 			}
 		});
-		btnAceptar.setBounds(196, 419, 71, 23);
+		btnAceptar.setBounds(196, 419, 76, 23);
 		getContentPane().setLayout(null);
 		getContentPane().add(lblSeleccioneLaCategoria);
 		getContentPane().add(comboBoxSelecCategoria);
@@ -329,10 +347,12 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 		getContentPane().add(btnCancelar);
 		
 		JLabel lblCategoria = new JLabel("Categor\u00EDa");
+		lblCategoria.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblCategoria.setBounds(218, 186, 54, 14);
 		getContentPane().add(lblCategoria);
 		
 		JLabel lblEditorial = new JLabel("Editorial");
+		lblEditorial.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblEditorial.setBounds(10, 130, 46, 14);
 		getContentPane().add(lblEditorial);
 		

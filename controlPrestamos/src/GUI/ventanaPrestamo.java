@@ -30,6 +30,7 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 
 import com.toedter.calendar.JDateChooser;
+import java.awt.Color;
 /**
  * Clase ventana prestamo
  * 
@@ -90,6 +91,7 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 	 * Create the frame.
 	 */
 	private ventanaPrestamo() {
+		getContentPane().setBackground(new Color(51, 153, 204));
 		setTitle("Mea Providere - Pr\u00E9stamo Art\u00EDculo");
 		setFrameIcon(new ImageIcon(ventanaPrestamo.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -98,8 +100,8 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		getContentPane().setLayout(null);
 		
 		JLabel lblTituloPersona = new JLabel("Persona");
-		lblTituloPersona.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblTituloPersona.setBounds(102, 11, 79, 25);
+		lblTituloPersona.setFont(new Font("Gisha", Font.PLAIN, 20));
+		lblTituloPersona.setBounds(102, 11, 98, 25);
 		getContentPane().add(lblTituloPersona);
 		
 		JSeparator separator = new JSeparator();
@@ -107,10 +109,12 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		getContentPane().add(separator);
 		
 		JLabel lblCategoriaPersona = new JLabel("Categor\u00EDa");
+		lblCategoriaPersona.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblCategoriaPersona.setBounds(10, 66, 68, 14);
 		getContentPane().add(lblCategoriaPersona);
 		
 		JLabel lblPersona = new JLabel("Persona");
+		lblPersona.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblPersona.setBounds(10, 115, 46, 14);
 		getContentPane().add(lblPersona);
 		
@@ -142,6 +146,7 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		getContentPane().add(comboBoxPersona);
 		
 		JLabel lblCedula = new JLabel("C\u00E9dula");
+		lblCedula.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblCedula.setBounds(10, 161, 46, 14);
 		getContentPane().add(lblCedula);
 		
@@ -152,11 +157,12 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		txtCedula.setColumns(10);
 		
 		JLabel lblTituloArticulo = new JLabel("Art\u00EDculo");
-		lblTituloArticulo.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblTituloArticulo.setBounds(108, 215, 73, 25);
+		lblTituloArticulo.setFont(new Font("Gisha", Font.PLAIN, 20));
+		lblTituloArticulo.setBounds(108, 215, 92, 25);
 		getContentPane().add(lblTituloArticulo);
 		
 		JLabel lblCategoriaArticulo = new JLabel("Categor\u00EDa");
+		lblCategoriaArticulo.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblCategoriaArticulo.setBounds(10, 260, 68, 14);
 		getContentPane().add(lblCategoriaArticulo);
 		
@@ -180,6 +186,7 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		getContentPane().add(comboBoxCategoriaArticulo);
 		
 		JLabel lblNombreArticulo = new JLabel("Nombre art\u00EDculo");
+		lblNombreArticulo.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblNombreArticulo.setBounds(10, 314, 87, 14);
 		getContentPane().add(lblNombreArticulo);
 		
@@ -204,6 +211,9 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		getContentPane().add(lblImagen);
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.setForeground(new Color(204, 0, 102));
+		btnAceptar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnAceptar.setBackground(new Color(255, 153, 0));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
@@ -229,6 +239,9 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		getContentPane().add(btnAceptar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setForeground(new Color(204, 0, 102));
+		btnCancelar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnCancelar.setBackground(new Color(255, 153, 0));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -241,10 +254,14 @@ public class ventanaPrestamo extends JInternalFrame implements IConstantes {
 		getContentPane().add(btnCancelar);
 		
 		JLabel lblFechaDePrestamo = new JLabel("Fecha de pr\u00E9stamo");
+		lblFechaDePrestamo.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblFechaDePrestamo.setBounds(158, 362, 104, 14);
 		getContentPane().add(lblFechaDePrestamo);
 		
 		dateChooserPrestamo = new JDateChooser();
+		dateChooserPrestamo.getCalendarButton().setForeground(new Color(204, 0, 102));
+		dateChooserPrestamo.getCalendarButton().setFont(new Font("Gisha", Font.PLAIN, 11));
+		dateChooserPrestamo.getCalendarButton().setBackground(new Color(255, 153, 0));
 		dateChooserPrestamo.setBounds(145, 387, 133, 20);
 		getContentPane().add(dateChooserPrestamo);
 		cambiarComboBox();
