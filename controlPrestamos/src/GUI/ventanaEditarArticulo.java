@@ -51,7 +51,7 @@ import java.awt.Font;
 /**
  * Clase ventanaAgregarArticulo
  * 
- * Contiene información de la ventana agregar articulo 
+ * Contiene informaciï¿½n de la ventana agregar articulo 
  * 
  * @author Marco
  *
@@ -76,11 +76,11 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 	 */
 	private JTextField fieldAutor;
 	/**
-	 * edición del articulo
+	 * ediciï¿½n del articulo
 	 */
 	private JTextField fieldEdicion;
 	/**
-	 * descripción del articulo
+	 * descripciï¿½n del articulo
 	 */
 	JEditorPane fieldDescripcion;
 	/**
@@ -100,15 +100,15 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 	 */
 	private JLabel lblImagen;
 	/**
-	 * editorial del artículo
+	 * editorial del artï¿½culo
 	 */
 	private JTextField fieldEditorial;
 	/**
-	 * categoría del artículo
+	 * categorï¿½a del artï¿½culo
 	 */
 	private JComboBox comboBoxCategoria;
 	/**
-	 * calificación del artículo
+	 * calificaciï¿½n del artï¿½culo
 	 */
 	private JComboBox comboBoxCalificacion;
 	
@@ -165,10 +165,10 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 		});
 		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setFont(new Font("Gisha", Font.PLAIN, 11));
-		btnCancelar.setForeground(new Color(204, 0, 102));
+		btnCancelar.setFont(new Font("Dialog", Font.BOLD, 11));
+		btnCancelar.setForeground(Color.WHITE);
 		btnCancelar.setBackground(new Color(255, 153, 0));
-		btnCancelar.setBounds(336, 419, 88, 23);
+		btnCancelar.setBounds(325, 419, 99, 23);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
@@ -220,10 +220,10 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 		lblImagen.setBounds(10, 223, 104, 165);
 		
 		JButton btnBuscarImagen = new JButton("Buscar Imagen");
-		btnBuscarImagen.setFont(new Font("Gisha", Font.PLAIN, 11));
-		btnBuscarImagen.setForeground(new Color(204, 0, 102));
+		btnBuscarImagen.setFont(new Font("Dialog", Font.BOLD, 11));
+		btnBuscarImagen.setForeground(Color.WHITE);
 		btnBuscarImagen.setBackground(new Color(255, 153, 0));
-		btnBuscarImagen.setBounds(10, 419, 119, 23);
+		btnBuscarImagen.setBounds(10, 419, 143, 23);
 		btnBuscarImagen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
@@ -277,8 +277,8 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 		fieldDescripcion.setBounds(161, 290, 262, 112);
 		
 		JButton btnEditar = new JButton("Editar");
-		btnEditar.setFont(new Font("Gisha", Font.PLAIN, 11));
-		btnEditar.setForeground(new Color(204, 0, 102));
+		btnEditar.setFont(new Font("Dialog", Font.BOLD, 11));
+		btnEditar.setForeground(Color.WHITE);
 		btnEditar.setBackground(new Color(255, 153, 0));
 		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
@@ -321,7 +321,7 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 				administradorAplicacion.getInstance().imprimirListaCategorias();
 			}
 		});
-		btnEditar.setBounds(196, 419, 71, 23);
+		btnEditar.setBounds(196, 419, 79, 23);
 		getContentPane().setLayout(null);
 		getContentPane().add(lblSeleccioneLaCategoria);
 		getContentPane().add(comboBoxSeleccCategoria);
@@ -342,7 +342,7 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 		
 		JLabel lblCategoria = new JLabel("Categor\u00EDa");
 		lblCategoria.setFont(new Font("Gisha", Font.PLAIN, 11));
-		lblCategoria.setBounds(218, 186, 54, 14);
+		lblCategoria.setBounds(218, 186, 70, 14);
 		getContentPane().add(lblCategoria);
 		
 		JLabel lblEditorial = new JLabel("Editorial");
@@ -362,7 +362,7 @@ public class ventanaEditarArticulo extends JInternalFrame implements IConstantes
 		
 		JLabel lblSeleccioneElArticulo = new JLabel("Seleccione el art\u00EDculo");
 		lblSeleccioneElArticulo.setFont(new Font("Gisha", Font.PLAIN, 11));
-		lblSeleccioneElArticulo.setBounds(10, 61, 119, 14);
+		lblSeleccioneElArticulo.setBounds(10, 61, 143, 14);
 		getContentPane().add(lblSeleccioneElArticulo);
 		
 		comboBoxSeleccArticulo = new JComboBox();

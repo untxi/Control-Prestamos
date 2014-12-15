@@ -30,7 +30,7 @@ import java.awt.Font;
 /**
  * Clase ventanaRegistroUsuario
  * 
- * Permite ingresar toda la información de usuario
+ * Permite ingresar toda la informaciï¿½n de usuario
  * 
  * @author Samantha
  */
@@ -41,7 +41,7 @@ public class ventanaLogin extends JInternalFrame {
 	*/
 	private JTextField fieldNombreUsuario;
 	/**
-	 * Contraseña 
+	 * Contraseï¿½a 
 	 */
 	private JPasswordField fieldContrasena;
 	/**
@@ -49,9 +49,9 @@ public class ventanaLogin extends JInternalFrame {
 	 */
 	private static ventanaLogin miVentanaLogin;
 
-	// Métodos
+	// Mï¿½todos
 	/**
-	* Método Público: ventanaRegistroUsuario
+	* Mï¿½todo Pï¿½blico: ventanaRegistroUsuario
 	* 	Permite que el usuario se registre
 	* @return ventana de registro
 	*/
@@ -73,7 +73,7 @@ public class ventanaLogin extends JInternalFrame {
 	 */
 	public ventanaLogin() {
 		getContentPane().setBackground(new Color(51, 153, 204));
-		setTitle("Mea Providere - Iniciar Sesi\u00F3n");
+		setTitle("Mea Providere - Iniciar SesiÃ³n");
 		setFrameIcon(new ImageIcon(ventanaLogin.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setIconifiable(true);
@@ -82,7 +82,7 @@ public class ventanaLogin extends JInternalFrame {
 		
 		JLabel lblNombreUsuario = new JLabel("Nombre de Usuario");
 		lblNombreUsuario.setFont(new Font("Gisha", Font.PLAIN, 11));
-		lblNombreUsuario.setBounds(10, 36, 99, 14);
+		lblNombreUsuario.setBounds(10, 36, 122, 14);
 		getContentPane().add(lblNombreUsuario);
 		
 		JLabel lblContrasena = new JLabel("Contrase\u00F1a");
@@ -91,7 +91,7 @@ public class ventanaLogin extends JInternalFrame {
 		getContentPane().add(lblContrasena);
 		
 		fieldNombreUsuario = new JTextField();
-		fieldNombreUsuario.setBounds(137, 33, 145, 20);
+		fieldNombreUsuario.setBounds(137, 33, 145, 23);
 		getContentPane().add(fieldNombreUsuario);
 		fieldNombreUsuario.setColumns(10);
 		
@@ -100,9 +100,9 @@ public class ventanaLogin extends JInternalFrame {
 		getContentPane().add(fieldContrasena);
 		
 		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.setForeground(new Color(204, 0, 102));
+		btnAceptar.setForeground(Color.WHITE);
 		btnAceptar.setBackground(new Color(255, 153, 0));
-		btnAceptar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnAceptar.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -114,10 +114,29 @@ public class ventanaLogin extends JInternalFrame {
 						fieldContrasena.setText("");
 						ventanaPrincipal.getInstance().activarAplicacion();
 						setVisible(false);
+						///home/sam/Documentos/MeaProvidere-DropBox/POO_Proyecto#1/Control-Prestamos/controlPrestamos/src/Recursos/Archivos
+						//administradorAplicacion.getInstance().cargarPersonas("src/Recursos/Archivos/Personas.txt");
+						//administradorAplicacion.getInstance().cargarLibros("src/Recursos/Archivos/Libros.txt");
+						//administradorAplicacion.getInstance().cargarRevistas("src/Recursos/ArchivosRevistas.txt");
+						//administradorAplicacion.getInstance().cargarPeliculas("src/Recursos/Archivos/Peliculas.txt");
+						
 						JOptionPane.showMessageDialog(null, "Bienvenido "+ administradorAplicacion.getInstance().getUsuario().getNombre() );
+						//PRestamo Verde
 						administradorAplicacion.getInstance().agregarPrestamo(0, new Prestamo(administradorAplicacion.getInstance().getMiListaCategorias().get(0).get(0),
 								  administradorAplicacion.getInstance().getPersonas().get(0).get(0), new Date()));
 						administradorAplicacion.getInstance().getMiListaCategorias().get(0).get(0).setPrestado(true);
+						//Prestamo Amarillo
+						administradorAplicacion.getInstance().agregarPrestamo(0, new Prestamo(
+								administradorAplicacion.getInstance().getMiListaCategorias().get(0).get(4),
+								administradorAplicacion.getInstance().getPersonas().get(1).get(0), 
+								new Date("Mon Nov 20 23:24:12 CST 2014")));
+						administradorAplicacion.getInstance().getMiListaCategorias().get(0).get(4).setPrestado(true);
+						//Prestamo Rojo
+						administradorAplicacion.getInstance().agregarPrestamo(0, new Prestamo(
+								administradorAplicacion.getInstance().getMiListaCategorias().get(0).get(7),
+								administradorAplicacion.getInstance().getPersonas().get(2).get(0), 
+								new Date("Thu Dec 04 23:24:12 CST 2014")));
+						administradorAplicacion.getInstance().getMiListaCategorias().get(0).get(4).setPrestado(true);
 						try {
 							administradorAplicacion.getInstance().getMiAdministradorConsultas().consultaArticulosConPrestamoVencido();
 						} catch (Exception e1) {
@@ -127,7 +146,7 @@ public class ventanaLogin extends JInternalFrame {
 					}
 					else
 					{
-						JOptionPane.showMessageDialog(null, "Usuario o Contraseña incorrecta");			
+						JOptionPane.showMessageDialog(null, "Usuario o ContraseÃ±a incorrecta");			
 					}
 				}
 				/// iniciar 
@@ -137,9 +156,9 @@ public class ventanaLogin extends JInternalFrame {
 		getContentPane().add(btnAceptar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setForeground(new Color(204, 0, 102));
+		btnCancelar.setForeground(Color.WHITE);
 		btnCancelar.setBackground(new Color(255, 153, 0));
-		btnCancelar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnCancelar.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
@@ -148,7 +167,7 @@ public class ventanaLogin extends JInternalFrame {
 				setVisible(false);
 			}
 		});
-		btnCancelar.setBounds(159, 123, 89, 23);
+		btnCancelar.setBounds(159, 123, 98, 23);
 		getContentPane().add(btnCancelar);
 		
 	}

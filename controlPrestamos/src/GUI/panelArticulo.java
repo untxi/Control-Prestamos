@@ -23,9 +23,9 @@ import javax.swing.JEditorPane;
 /**
  * Clase panel articulo
  * 
- * contiene información del articulo
+ * contiene informaciï¿½n del articulo
  * 
- * @author Adrián
+ * @author Adriï¿½n
  *
  */
 public class panelArticulo extends JPanel implements IConstantes
@@ -40,7 +40,7 @@ public class panelArticulo extends JPanel implements IConstantes
 	private JTextField texEditorial;
 	private JTextField textedicion;
 	private JTextField textPersona;
-	private JLabel lblNewLabel;
+	private JLabel lblImagen;
 	private JLabel titulo;
 	private JLabel autor;
 	private JLabel editorial;
@@ -50,7 +50,7 @@ public class panelArticulo extends JPanel implements IConstantes
 	private JEditorPane textDescripcion;
 	private JLabel label;
 
-	//Médoto
+	//Mï¿½doto
 	/**
 	 * constructor con tres parametros
 	 * @param y
@@ -66,46 +66,46 @@ public class panelArticulo extends JPanel implements IConstantes
 		setBackground(new Color(153, 102, 153));
 		setLayout(null);
 		
-		lblNewLabel = new JLabel("");
-		lblNewLabel.setForeground(new Color(153, 102, 153));
-		lblNewLabel.setBounds(0, 0, 165, 265);
-		lblNewLabel.setIcon(new ImageIcon(portada.getImage().getScaledInstance(164, 265, Image.SCALE_SMOOTH)));
-		add(lblNewLabel);
+		lblImagen = new JLabel("");
+		lblImagen.setForeground(new Color(153, 102, 153));
+		lblImagen.setBounds(0, 0, 165, 265);
+		lblImagen.setIcon(new ImageIcon(portada.getImage().getScaledInstance(164, 265, Image.SCALE_SMOOTH)));
+		add(lblImagen);
 		
 		titulo = new JLabel("New label");
 		titulo.setFont(new Font("Gisha", Font.BOLD | Font.ITALIC, 15));
-		titulo.setBounds(198, 11, 87, 14);
+		titulo.setBounds(177, 10, 87, 14);
 		add(titulo);
 		
 		autor = new JLabel("New label");
 		autor.setFont(new Font("Gisha", Font.BOLD | Font.ITALIC, 15));
-		autor.setBounds(198, 36, 87, 14);
+		autor.setBounds(177, 34, 87, 14);
 		add(autor);
 		
 		editorial = new JLabel("New label");
 		editorial.setFont(new Font("Gisha", Font.BOLD | Font.ITALIC, 15));
-		editorial.setBounds(198, 61, 87, 14);
+		editorial.setBounds(177, 60, 87, 14);
 		add(editorial);
 		
 		edicion = new JLabel("New label");
 		edicion.setFont(new Font("Gisha", Font.BOLD | Font.ITALIC, 15));
-		edicion.setBounds(198, 86, 87, 14);
+		edicion.setBounds(177, 84, 87, 14);
 		add(edicion);
 		
 		persona = new JLabel("Prestado a: ");
 		persona.setFont(new Font("Gisha", Font.BOLD | Font.ITALIC, 15));
-		persona.setBounds(198, 110, 87, 14);
+		persona.setBounds(177, 109, 108, 14);
 		add(persona);
 		
 		Descripcion = new JLabel("Descripci\u00F3n");
 		Descripcion.setFont(new Font("Gisha", Font.BOLD | Font.ITALIC, 15));
-		Descripcion.setBounds(198, 135, 87, 14);
+		Descripcion.setBounds(177, 134, 108, 14);
 		add(Descripcion);
 		
 		textitulo = new JTextField();
 		textitulo.setFont(new Font("Calibri", Font.ITALIC, 11));
 		textitulo.setEditable(false);
-		textitulo.setBounds(298, 8, 226, 20);
+		textitulo.setBounds(298, 8, 226, 25);
 		add(textitulo);
 		textitulo.setColumns(10);
 		
@@ -113,28 +113,28 @@ public class panelArticulo extends JPanel implements IConstantes
 		textAutor.setFont(new Font("Calibri", Font.ITALIC, 11));
 		textAutor.setEditable(false);
 		textAutor.setColumns(10);
-		textAutor.setBounds(298, 33, 226, 20);
+		textAutor.setBounds(298, 33, 226, 25);
 		add(textAutor);
 		
 		texEditorial = new JTextField();
 		texEditorial.setFont(new Font("Calibri", Font.ITALIC, 11));
 		texEditorial.setEditable(false);
 		texEditorial.setColumns(10);
-		texEditorial.setBounds(298, 58, 226, 20);
+		texEditorial.setBounds(298, 58, 226, 25);
 		add(texEditorial);
 		
 		textedicion = new JTextField();
 		textedicion.setFont(new Font("Calibri", Font.ITALIC, 11));
 		textedicion.setEditable(false);
 		textedicion.setColumns(10);
-		textedicion.setBounds(298, 83, 226, 20);
+		textedicion.setBounds(298, 83, 226, 25);
 		add(textedicion);
 		
 		textPersona = new JTextField();
 		textPersona.setFont(new Font("Calibri", Font.ITALIC, 11));
 		textPersona.setEditable(false);
 		textPersona.setColumns(10);
-		textPersona.setBounds(298, 107, 226, 20);
+		textPersona.setBounds(298, 107, 226, 25);
 		add(textPersona);
 		
 		textDescripcion = new JEditorPane();
@@ -160,10 +160,10 @@ public class panelArticulo extends JPanel implements IConstantes
 		titulo.setBounds(198, 11, 87, 14);
 		add(titulo);
 
-		lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(0, 0, 165, 265);
-		lblNewLabel.setIcon(new ImageIcon(portada.getImage().getScaledInstance(164, 265, Image.SCALE_SMOOTH)));
-		add(lblNewLabel);
+		lblImagen = new JLabel("");
+		lblImagen.setBounds(0, 0, 165, 265);
+		lblImagen.setIcon(new ImageIcon(portada.getImage().getScaledInstance(164, 265, Image.SCALE_SMOOTH)));
+		add(lblImagen);
 		
 		autor = new JLabel("New label");
 		autor.setFont(new Font("Calibri", Font.BOLD | Font.ITALIC, 15));
@@ -246,7 +246,7 @@ public class panelArticulo extends JPanel implements IConstantes
 			titulo.setText("Titulo: ");
 			autor.setText("Autor: ");
 			editorial.setText("Editorial: ");
-			edicion.setText("Edición: ");
+			edicion.setText("EdiciÃ³n: ");
 			textitulo.setText(pArticulo.getNombre());
 			textAutor.setText(((Libro)pArticulo).getAutor());
 			texEditorial.setText(((Libro)pArticulo).geteditorial());
@@ -261,7 +261,7 @@ public class panelArticulo extends JPanel implements IConstantes
 			titulo.setText("Nombre: ");
 			autor.setText("Creador: ");
 			editorial.setText("Editorial: ");
-			edicion.setText("Edición: ");
+			edicion.setText("EdiciÃ³n: ");
 			textitulo.setText(pArticulo.getNombre());
 			textAutor.setText(((Libro)pArticulo).getAutor());
 			texEditorial.setText(((Libro)pArticulo).geteditorial());

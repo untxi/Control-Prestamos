@@ -5,7 +5,7 @@ package GUI;
  * @author Samantha Arburola
  */
 
-// Librerías y Clases
+// Librerï¿½as y Clases
 import java.awt.EventQueue;
 
 import javax.swing.JInternalFrame;
@@ -27,7 +27,7 @@ import java.awt.Font;
 /**
  * Clase ventanaRegistroUsuario
  * 
- * Permite ingresar toda la información de usuario
+ * Permite ingresar toda la informaciï¿½n de usuario
  * 
  * @author Samantha
  */
@@ -43,7 +43,7 @@ public class ventanaRegistroUsuario extends JInternalFrame
 	 */
 	private JTextField fieldNombreUsuario;
 	/**
-	 * Contraseña 
+	 * Contraseï¿½a 
 	 */
 	private JPasswordField fieldcontrasena;
 	/**
@@ -51,9 +51,9 @@ public class ventanaRegistroUsuario extends JInternalFrame
 	 */
 	private static ventanaRegistroUsuario miVentanaRegistroUsuario;
 
-	// Métodos
+	// Mï¿½todos
 	/**
-	* Método Público: ventanaRegistroUsuario
+	* Mï¿½todo Pï¿½blico: ventanaRegistroUsuario
 	* 	Permite que el usuario se registre
 	* @return ventana de registro
 	*/
@@ -80,7 +80,7 @@ public class ventanaRegistroUsuario extends JInternalFrame
 		getContentPane().setLayout(null);
 		
 		fieldNombre = new JTextField();
-		fieldNombre.setBounds(171, 11, 150, 20);
+		fieldNombre.setBounds(171, 11, 150, 29);
 		getContentPane().add(fieldNombre);
 		fieldNombre.setColumns(10);
 		
@@ -100,7 +100,7 @@ public class ventanaRegistroUsuario extends JInternalFrame
 		getContentPane().add(lblContrasena);
 		
 		fieldNombreUsuario = new JTextField();
-		fieldNombreUsuario.setBounds(171, 65, 150, 20);
+		fieldNombreUsuario.setBounds(171, 65, 150, 29);
 		getContentPane().add(fieldNombreUsuario);
 		fieldNombreUsuario.setColumns(10);
 		
@@ -109,8 +109,8 @@ public class ventanaRegistroUsuario extends JInternalFrame
 		getContentPane().add(fieldcontrasena);
 		
 		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.setForeground(new Color(204, 0, 102));
-		btnAceptar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnAceptar.setForeground(Color.WHITE);
+		btnAceptar.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnAceptar.setBackground(new Color(255, 102, 0));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0)
@@ -122,7 +122,7 @@ public class ventanaRegistroUsuario extends JInternalFrame
 					fieldNombreUsuario.setText("");
 					fieldcontrasena.setText("");
 					setVisible(false);
-					JOptionPane.showMessageDialog(null, "Usuario agregado con éxito");
+					JOptionPane.showMessageDialog(null, "Usuario agregado con Ã©xito");
 					//System.out.println("Usuario agregado");
 				}
 				else
@@ -136,8 +136,8 @@ public class ventanaRegistroUsuario extends JInternalFrame
 		getContentPane().add(btnAceptar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setForeground(new Color(204, 0, 102));
-		btnCancelar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnCancelar.setForeground(Color.WHITE);
+		btnCancelar.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnCancelar.setBackground(new Color(255, 102, 0));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0)

@@ -63,7 +63,7 @@ public class ventanaAgregarPersona extends JInternalFrame
 	private JComboBox comboBoxCategoria;
 	
 	
-	//Método Público
+	//Mï¿½todo Pï¿½blico
 	/**
 	 * Abre la ventana de agregar persona
 	 * @return miVentanaAgregarPersona
@@ -118,7 +118,7 @@ public class ventanaAgregarPersona extends JInternalFrame
 		
 		JLabel lblTelefono = new JLabel("Tel\u00E9fono");
 		lblTelefono.setFont(new Font("Gisha", Font.PLAIN, 11));
-		lblTelefono.setBounds(200, 69, 47, 14);
+		lblTelefono.setBounds(184, 69, 81, 14);
 		getContentPane().add(lblTelefono);
 		
 		JLabel lblCorreo = new JLabel("Correo");
@@ -170,8 +170,8 @@ public class ventanaAgregarPersona extends JInternalFrame
 		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.setBackground(new Color(255, 153, 0));
-		btnAceptar.setForeground(new Color(204, 0, 102));
-		btnAceptar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnAceptar.setForeground(Color.WHITE);
+		btnAceptar.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -189,7 +189,7 @@ public class ventanaAgregarPersona extends JInternalFrame
 					fieldTelefono.setText("");
 					fieldCorreo.setText("");
 					setVisible(false);
-					JOptionPane.showMessageDialog(null, "Se agregó la persona con éxito");
+					JOptionPane.showMessageDialog(null, "Se agregï¿½ la persona con ï¿½xito");
 				}
 				else
 				{
@@ -202,8 +202,8 @@ public class ventanaAgregarPersona extends JInternalFrame
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBackground(new Color(255, 153, 0));
-		btnCancelar.setForeground(new Color(204, 0, 102));
-		btnCancelar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnCancelar.setForeground(Color.WHITE);
+		btnCancelar.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
@@ -216,7 +216,7 @@ public class ventanaAgregarPersona extends JInternalFrame
 				setVisible(false);
 			}
 		});
-		btnCancelar.setBounds(487, 122, 89, 23);
+		btnCancelar.setBounds(487, 122, 100, 23);
 		getContentPane().add(btnCancelar);
 	}
 }

@@ -91,9 +91,9 @@ public class ventanaDevolverPrestamos extends JInternalFrame implements IConstan
 		getContentPane().add(comboBoxArticulo);
 		
 		JButton btnDevolver = new JButton("Devolver");
-		btnDevolver.setForeground(new Color(204, 0, 102));
+		btnDevolver.setForeground(Color.WHITE);
 		btnDevolver.setBackground(new Color(255, 153, 0));
-		btnDevolver.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnDevolver.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnDevolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -108,13 +108,13 @@ public class ventanaDevolverPrestamos extends JInternalFrame implements IConstan
 				setVisible(false);
 			}
 		});
-		btnDevolver.setBounds(164, 184, 89, 23);
+		btnDevolver.setBounds(164, 141, 100, 23);
 		getContentPane().add(btnDevolver);
 		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setForeground(new Color(204, 0, 102));
+		btnCancelar.setForeground(Color.WHITE);
 		btnCancelar.setBackground(new Color(255, 153, 0));
-		btnCancelar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnCancelar.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
@@ -126,7 +126,7 @@ public class ventanaDevolverPrestamos extends JInternalFrame implements IConstan
 				setVisible(false);
 			}
 		});
-		btnCancelar.setBounds(164, 237, 89, 23);
+		btnCancelar.setBounds(164, 205, 100, 23);
 		getContentPane().add(btnCancelar);
 		
 		lblImagen = new JLabel("");

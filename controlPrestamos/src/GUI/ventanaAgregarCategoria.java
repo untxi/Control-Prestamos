@@ -26,7 +26,7 @@ import java.awt.Font;
 /**
  * Clase ventanaRegistroUsuario
  * 
- * Permite ingresar toda la información de usuario
+ * Permite ingresar toda la informaciï¿½n de usuario
  * 
  * @author Samantha
  */
@@ -38,7 +38,7 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 	 */
 	private static ventanaAgregarCategoria miVentanaAgregarCategoria;
 	/**
-	 * Ingresar la categoría nueva
+	 * Ingresar la categorï¿½a nueva
 	 */
 	private JTextField fieldNuevaCategoria;
 	
@@ -72,14 +72,14 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 		getContentPane().add(lblNuevaCategoria);
 		
 		fieldNuevaCategoria = new JTextField();
-		fieldNuevaCategoria.setBounds(136, 20, 147, 20);
+		fieldNuevaCategoria.setBounds(136, 20, 147, 30);
 		getContentPane().add(fieldNuevaCategoria);
 		fieldNuevaCategoria.setColumns(10);
 		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.setBackground(new Color(255, 153, 0));
-		btnAceptar.setForeground(new Color(204, 0, 102));
-		btnAceptar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnAceptar.setForeground(Color.WHITE);
+		btnAceptar.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -88,11 +88,11 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 					administradorAplicacion.getInstance().agregarCategoria(fieldNuevaCategoria.getText());
 					fieldNuevaCategoria.setText("");
 					setVisible(false);
-					JOptionPane.showMessageDialog(null, "La categoría se ha agregado correctamente");
+					JOptionPane.showMessageDialog(null, "La categorÃ­a se ha agregado correctamente");
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(null, "No ha escrito ninguna categoría");
+					JOptionPane.showMessageDialog(null, "No ha escrito ninguna categorÃ­a");
 				}
 			}
 		});
@@ -101,8 +101,8 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBackground(new Color(255, 153, 0));
-		btnCancelar.setForeground(new Color(204, 0, 102));
-		btnCancelar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnCancelar.setForeground(Color.WHITE);
+		btnCancelar.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -110,7 +110,7 @@ public class ventanaAgregarCategoria extends JInternalFrame {
 				setVisible(false);
 			}
 		});
-		btnCancelar.setBounds(194, 82, 89, 23);
+		btnCancelar.setBounds(185, 82, 98, 23);
 		getContentPane().add(btnCancelar);
 
 	}

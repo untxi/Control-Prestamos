@@ -9,22 +9,22 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 /**
  * Clase Administrador de Correos
- * 	Enviar un correo electrónico con un mensaje de recordatorio 
- * 	para la devolución del artículo
+ * 	Enviar un correo electrï¿½nico con un mensaje de recordatorio 
+ * 	para la devoluciï¿½n del artï¿½culo
  * 
  * @author Adrian Soto
  */
 public class administradorCorreos
 {
 	
-	// Métodos
+	// Mï¿½todos
 	// Constructor
 	public administradorCorreos(){}
 	
 	/**
 	 * simpleMail
-	 * 	Función con la que se envía el correo electrónico a los préstamos vencidos
-	 * @param to 		  a quien se envía el correo 
+	 * 	Funciï¿½n con la que se envï¿½a el correo electrï¿½nico a los prï¿½stamos vencidos
+	 * @param to 		  a quien se envï¿½a el correo 
 	 */
 	public void simpleMail(String to) throws Exception {
 		  
@@ -36,7 +36,7 @@ public class administradorCorreos
 		    props.put("mail.smtp.auth", true);      
 		    props.put("mail.smtp.host", host);
 		    props.put("mail.smtp.user", "controlprestamos896@gmail.com");
-		    props.put("mail.smtp.password", "Control1234");
+		    props.put("mail.smtp.password", "ControlAdrian");
 		    props.put("mail.smtp.port", "587");
 		  
 		    Session session = Session.getDefaultInstance(props, null);
@@ -44,21 +44,21 @@ public class administradorCorreos
 		    message.setFrom(new InternetAddress("controlprestamos896@gmail.com"));
 		 
 		    InternetAddress toAddress = new InternetAddress(to);
-		    // Correo Electrónico del Destinatario
+		    // Correo Electrï¿½nico del Destinatario
 		    message.addRecipient(Message.RecipientType.TO, toAddress);
 		    // Subject del correo
 		    message.setSubject("Recordatorio Prestamo");
 		    // Mensaje de Recordatorio
-		    message.setText("¡Hola!"+
-		    		"Se le recuerda que se le ha prestado un artículo."+
-		    		"Su plazo está por vencer, comuníquese conmigo"+
+		    message.setText("ï¿½Hola!"+
+		    		"Se le recuerda que se le ha prestado un artï¿½culo."+
+		    		"Su plazo estï¿½ por vencer, comunï¿½quese conmigo"+
 		    		"                                             "+
 		    		"                                             "+
-		    		"by MeaProvidere®");
+		    		"by MeaProvidereï¿½");
 		 
 		    Transport transport = session.getTransport("smtp");
 		  
-		    transport.connect(host, "controlprestamos896@gmail.com", "Control1234");
+		    transport.connect(host, "controlprestamos896@gmail.com", "ControlAdrian");
 		 
 		    transport.sendMessage(message, message.getAllRecipients());
 		    transport.close();

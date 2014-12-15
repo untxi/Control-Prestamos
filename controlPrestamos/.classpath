@@ -3,15 +3,16 @@
 	<classpathentry including="Administradores/|Estructuras/|GUI/|Interfaces/|Main/|Recursos/" kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="lib" path="miglayout15-swing.jar" sourcepath="miglayout-src.zip"/>
-	<classpathentry kind="lib" path="C:/Users/Marco/Downloads/lib/jcalendar-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Marco/Downloads/lib/jgoodies-common-1.2.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Marco/Downloads/lib/jgoodies-looks-2.4.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Marco/Downloads/lib/junit-4.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Marco/Downloads/javamail1_4_7/javamail-1.4.7/lib/dsn.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Marco/Downloads/javamail1_4_7/javamail-1.4.7/lib/gimap.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Marco/Downloads/javamail1_4_7/javamail-1.4.7/lib/imap.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Marco/Downloads/javamail1_4_7/javamail-1.4.7/lib/mailapi.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Marco/Downloads/javamail1_4_7/javamail-1.4.7/lib/pop3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Marco/Downloads/javamail1_4_7/javamail-1.4.7/lib/smtp.jar"/>
+	<classpathentry kind="lib" path="/home/sam/Documentos/MeaProvidere-DropBox/POO_Proyecto#1/Control-Prestamos/controlPrestamos/src/Librerias/dsn.jar"/>
+	<classpathentry kind="lib" path="/home/sam/Documentos/MeaProvidere-DropBox/POO_Proyecto#1/Control-Prestamos/controlPrestamos/src/Librerias/gimap.jar"/>
+	<classpathentry kind="lib" path="/home/sam/Documentos/MeaProvidere-DropBox/POO_Proyecto#1/Control-Prestamos/controlPrestamos/src/Librerias/imap.jar"/>
+	<classpathentry kind="lib" path="/home/sam/Documentos/MeaProvidere-DropBox/POO_Proyecto#1/Control-Prestamos/controlPrestamos/src/Librerias/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="/home/sam/Documentos/MeaProvidere-DropBox/POO_Proyecto#1/Control-Prestamos/controlPrestamos/src/Librerias/jgoodies-common-1.2.0.jar"/>
+	<classpathentry kind="lib" path="/home/sam/Documentos/MeaProvidere-DropBox/POO_Proyecto#1/Control-Prestamos/controlPrestamos/src/Librerias/jgoodies-looks-2.4.1.jar"/>
+	<classpathentry kind="lib" path="/home/sam/Documentos/MeaProvidere-DropBox/POO_Proyecto#1/Control-Prestamos/controlPrestamos/src/Librerias/junit-4.6.jar"/>
+	<classpathentry kind="lib" path="/home/sam/Documentos/MeaProvidere-DropBox/POO_Proyecto#1/Control-Prestamos/controlPrestamos/src/Librerias/mail.jar"/>
+	<classpathentry kind="lib" path="/home/sam/Documentos/MeaProvidere-DropBox/POO_Proyecto#1/Control-Prestamos/controlPrestamos/src/Librerias/mailapi.jar"/>
+	<classpathentry kind="lib" path="/home/sam/Documentos/MeaProvidere-DropBox/POO_Proyecto#1/Control-Prestamos/controlPrestamos/src/Librerias/pop3.jar"/>
+	<classpathentry kind="lib" path="/home/sam/Documentos/MeaProvidere-DropBox/POO_Proyecto#1/Control-Prestamos/controlPrestamos/src/Librerias/smtp.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

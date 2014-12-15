@@ -4,7 +4,7 @@ package Interfaces;
  *
  *Contiene las definiciones de las constantes para todo el proyecto Java
  *
- * @author Adrián
+ * @author Adriï¿½n
  *
  */
 public interface IConstantes
@@ -14,47 +14,47 @@ public interface IConstantes
 	/**
 	 * Imagen para el login
 	 */
-	final String imagenLogin = "src\\Recursos\\ImagenesAplicacion\\login.png";
+	final String imagenLogin = "src/Recursos/ImagenesAplicacion/login.png";
 	/**
 	 * Imagen para el usuario
 	 */
-	final String imagenUser = "src\\Recursos\\ImagenesAplicacion\\user.png";
+	final String imagenUser = "src/Recursos/ImagenesAplicacion/user.png";
 	/**
 	 * Imagen para la configuracion
 	 */
-	final String imagenConfiguracion = "src\\Recursos\\ImagenesAplicacion\\configuracion.png";
+	final String imagenConfiguracion = "src/Recursos/ImagenesAplicacion/configuracion.png";
 	/**
 	 * Imagen para config
 	 */
-	final String imagenConfig = "src\\Recursos\\ImagenesAplicacion\\config.png";
+	final String imagenConfig = "src/Recursos/ImagenesAplicacion/config.png";
 	/**
 	 * Imagen de carga
 	 */
-	final String imagenCargar = "src\\Recursos\\ImagenesAplicacion\\cargar.png";
+	final String imagenCargar = "src/Recursos/ImagenesAplicacion/cargar.png";
 	/**
 	 * Imagen para los articulos
 	 */
-	final String imagenArticulos = "src\\Recursos\\ImagenesAplicacion\\articulos.png";
+	final String imagenArticulos = "src/Recursos/ImagenesAplicacion/articulos.png";
 	/**
 	 * Imagen para persona
 	 */
-	final String imagenPersona = "src\\Recursos\\ImagenesAplicacion\\persona.png";
+	final String imagenPersona = "src/Recursos/ImagenesAplicacion/persona.png";
 	/**
 	 * Imagen para consulta
 	 */
-	final String imagenConsulta = "src\\Recursos\\ImagenesAplicacion\\consulta.png";
+	final String imagenConsulta = "src/Recursos/ImagenesAplicacion/consulta.png";
 	/**
 	 * Imagen para salir
 	 */
-	final String imagenSalir = "src\\Recursos\\ImagenesAplicacion\\salir.png";
+	final String imagenSalir = "src/Recursos/ImagenesAplicacion/salir.png";
 	/**
 	 * Imagen para la portada
 	 */
-	final String imagenPortada = "src\\Recursos\\ImagenesAplicacion\\portada.png";
+	final String imagenPortada = "src/Recursos/ImagenesAplicacion/portada.png";
 	/**
 	 * Imagenes
 	 */
-	final String pathImagenes = "src\\Recursos\\ImagenesAplicacion\\";
+	final String pathImagenes = "src/Recursos/ImagenesAplicacion/";
 	
 	/**
 	 * Imagen para el libro

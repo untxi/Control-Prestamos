@@ -9,6 +9,7 @@ import Administradores.administradorAplicacion;
 import GUI.ventanaPrincipal;
 import Estructuras.Otro;
 import Estructuras.Prestamo;
+import Estructuras.Usuario;
 /**
  * Clase Main
  * 
@@ -17,7 +18,7 @@ import Estructuras.Prestamo;
  * @author Adrian Soto
  */
 public class Main {
-	// Métodos Públicos
+	// Mï¿½todos Pï¿½blicos
 	public static void main(String[] args)
 	{
 		/**
@@ -25,10 +26,11 @@ public class Main {
 		 * @param lista de string
 		 */
 		ventanaPrincipal miVentana = ventanaPrincipal.getInstance();
-		administradorAplicacion.getInstance().cargarPersonas("src\\Recursos\\Archivos\\Personas.txt");
-		administradorAplicacion.getInstance().cargarLibros("src\\Recursos\\Archivos\\Libros.txt");
-		administradorAplicacion.getInstance().cargarRevistas("src\\Recursos\\Archivos\\Revistas.txt");
-		administradorAplicacion.getInstance().cargarPeliculas("src\\Recursos\\Archivos\\Peliculas.txt");		
+		administradorAplicacion.getInstance().setUsuario(new Usuario("Administrador", "a", "a"));
+		administradorAplicacion.getInstance().cargarPersonas("src/Recursos/Archivos/Personas.txt");
+		administradorAplicacion.getInstance().cargarLibros("src/Recursos/Archivos/Libros.txt");
+		administradorAplicacion.getInstance().cargarRevistas("src/Recursos/Archivos/Revistas.txt");
+		administradorAplicacion.getInstance().cargarPeliculas("src/Recursos/Archivos/Peliculas.txt");
 	}
 	
 

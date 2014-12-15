@@ -28,7 +28,7 @@ import java.awt.Font;
 /**
  * Clase ventanaRegistroUsuario
  * 
- * Permite ingresar toda la información de usuario
+ * Permite ingresar toda la informaciï¿½n de usuario
  * 
  * @author Samantha Arburola
  */
@@ -75,29 +75,29 @@ public class ventanaConfiguracion extends JInternalFrame
 		setIconifiable(true);
 		setBounds(100, 100, 339, 142);
 		getContentPane().setLayout(null);
-		// Días de prestamo
+		// Dï¿½as de prestamo
 		JLabel lblDiasDePrestamo = new JLabel("D\u00EDas de Pr\u00E9stamo");
 		lblDiasDePrestamo.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblDiasDePrestamo.setBounds(10, 24, 102, 14);
 		getContentPane().add(lblDiasDePrestamo);
-		// Días de tolerancia
+		// Dï¿½as de tolerancia
 		JLabel lblDiasDeTolerancia = new JLabel("D\u00EDas de Tolerancia");
 		lblDiasDeTolerancia.setFont(new Font("Gisha", Font.PLAIN, 11));
-		lblDiasDeTolerancia.setBounds(10, 74, 102, 14);
+		lblDiasDeTolerancia.setBounds(10, 74, 118, 14);
 		getContentPane().add(lblDiasDeTolerancia);
 		
 		spinnerPrestamo = new JSpinner();
-		spinnerPrestamo.setBounds(146, 21, 40, 20);
+		spinnerPrestamo.setBounds(130, 12, 56, 29);
 		getContentPane().add(spinnerPrestamo);
 		
 		spinnerTolerancia = new JSpinner();
-		spinnerTolerancia.setBounds(146, 71, 40, 20);
+		spinnerTolerancia.setBounds(130, 62, 56, 29);
 		getContentPane().add(spinnerTolerancia);
 		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.setBackground(new Color(255, 153, 0));
-		btnAceptar.setForeground(new Color(204, 0, 102));
-		btnAceptar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnAceptar.setForeground(Color.WHITE);
+		btnAceptar.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
@@ -108,13 +108,13 @@ public class ventanaConfiguracion extends JInternalFrame
 				setVisible(false);
 			}
 		});
-		btnAceptar.setBounds(224, 20, 89, 23);
+		btnAceptar.setBounds(218, 20, 95, 23);
 		getContentPane().add(btnAceptar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBackground(new Color(255, 153, 0));
-		btnCancelar.setForeground(new Color(204, 0, 102));
-		btnCancelar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnCancelar.setForeground(Color.WHITE);
+		btnCancelar.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -123,7 +123,7 @@ public class ventanaConfiguracion extends JInternalFrame
 				setVisible(false);
 			}
 		});
-		btnCancelar.setBounds(224, 70, 89, 23);
+		btnCancelar.setBounds(218, 70, 95, 23);
 		getContentPane().add(btnCancelar);
 		setVisible(false);
 	}

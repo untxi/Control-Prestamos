@@ -70,7 +70,7 @@ public class ventanaEditarPersona extends JInternalFrame
 	
 	private Persona miPersona;
 	
-	//Método Público
+	//Mï¿½todo Pï¿½blico
 	/**
 	 * Abre la ventana de agregar persona
 	 * @return miVentanaAgregarPersona
@@ -133,7 +133,7 @@ public class ventanaEditarPersona extends JInternalFrame
 		getContentPane().add(lblCorreo);
 		
 		fieldNombre = new JTextField();
-		fieldNombre.setBounds(66, 11, 100, 20);
+		fieldNombre.setBounds(66, 11, 100, 23);
 		getContentPane().add(fieldNombre);
 		fieldNombre.setColumns(10);
 		
@@ -193,15 +193,15 @@ public class ventanaEditarPersona extends JInternalFrame
 		comboBoxCategoria.setBounds(86, 98, 156, 20);
 		getContentPane().add(comboBoxCategoria);
 		
-		JLabel lblCategoria = new JLabel("Categor\u00EDa");
+		JLabel lblCategoria = new JLabel("CategorÃ­a");
 		lblCategoria.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblCategoria.setBounds(10, 98, 71, 14);
 		getContentPane().add(lblCategoria);
 		
 		JButton btnEditar = new JButton("Editar");
-		btnEditar.setForeground(new Color(204, 0, 102));
+		btnEditar.setForeground(Color.WHITE);
 		btnEditar.setBackground(new Color(255, 153, 0));
-		btnEditar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnEditar.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -224,9 +224,9 @@ public class ventanaEditarPersona extends JInternalFrame
 		getContentPane().add(btnEditar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setForeground(new Color(204, 0, 102));
+		btnCancelar.setForeground(Color.WHITE);
 		btnCancelar.setBackground(new Color(255, 153, 0));
-		btnCancelar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnCancelar.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
@@ -239,12 +239,12 @@ public class ventanaEditarPersona extends JInternalFrame
 				setVisible(false);
 			}
 		});
-		btnCancelar.setBounds(487, 122, 89, 23);
+		btnCancelar.setBounds(480, 122, 96, 23);
 		getContentPane().add(btnCancelar);
 		
 		JLabel lblPersona = new JLabel("Persona");
 		lblPersona.setFont(new Font("Gisha", Font.PLAIN, 11));
-		lblPersona.setBounds(10, 142, 46, 14);
+		lblPersona.setBounds(10, 142, 71, 14);
 		getContentPane().add(lblPersona);
 		
 	}

@@ -1,7 +1,7 @@
 package Estructuras;
 /**
  * Clase Usuario
- * Crea una persona con características para manejar una cuenta
+ * Crea una persona con caracterï¿½sticas para manejar una cuenta
  * @author Samantha Arburola
  *
  */
@@ -9,38 +9,38 @@ public class Usuario extends Persona
 {
 	// Atributos
 	/**
-	* Contraseña del usuario
+	* Contraseï¿½a del usuario
 	*/
-	private String contraseña;
+	private String contrasena;
 	/**
 	 * nickname del usuario
 	 */
 	private String nikname;
 
 	/**
-	 * Construcción de usuario
+	 * Construcciï¿½n de usuario
 	 * @param nombre      : nombre
-	 * @param pNickName   : nickname o seudónimo
-	 * @param pContraseña : contraseña del usuario
+	 * @param pNickName   : nickname o seudï¿½nimo
+	 * @param pContraseï¿½a : contraseï¿½a del usuario
 	 */
-	public Usuario(String nombre, String pNickName ,String pContraseña) 
+	public Usuario(String nombre, String pNickName ,String pContrasena) 
 	{
 		super(nombre);
-		this.setContraseña(pContraseña);
+		this.setContrasena(pContrasena);
 		this.setNikname(pNickName);
 	}
 
 	/**
 	 * Get & Set
 	 */
-	public String getContraseña() 
+	public String getContrasena() 
 	{
-		return contraseña;
+		return contrasena;
 	}
 
-	public void setContraseña(String contraseña) 
+	public void setContrasena(String contrasena) 
 	{
-		this.contraseña = contraseña;
+		this.contrasena = contrasena;
 	}
 
 	public String getNikname() {

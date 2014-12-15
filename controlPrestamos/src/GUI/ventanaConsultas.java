@@ -72,7 +72,7 @@ public class ventanaConsultas extends JInternalFrame {
 		setTitle("Mea Providere - Consultas");
 		setFrameIcon(new ImageIcon(ventanaConsultas.class.getResource("/Recursos/ImagenesGUI/Logo Adrian.png")));
 		setIconifiable(true);
-		setBounds(100, 100, 701, 319);
+		setBounds(100, 100, 758, 319);
 		getContentPane().setLayout(null);
 		
 		JLabel lblTipoDeConsulta = new JLabel("Tipo de Consulta");
@@ -90,7 +90,7 @@ public class ventanaConsultas extends JInternalFrame {
 		});
 
 		comboBoxTipoConsulta.setModel(new DefaultComboBoxModel(new String[] {"Top por categoria", "Todos los articulos por categoria", "Consulta Personalizada por categoria", "Todos los articulos prestados por categoria", "Todos los articulos no prestados por categoria"}));
-		comboBoxTipoConsulta.setBounds(10, 36, 240, 20);
+		comboBoxTipoConsulta.setBounds(10, 36, 313, 20);
 		getContentPane().add(comboBoxTipoConsulta);
 		
 		JLabel lblDesdeTipo = new JLabel("Desde");
@@ -111,21 +111,17 @@ public class ventanaConsultas extends JInternalFrame {
 		
 		JSeparator separator = new JSeparator();
 		separator.setOrientation(SwingConstants.VERTICAL);
-		separator.setBounds(260, 0, 8, 290);
+		separator.setBounds(359, 0, 8, 290);
 		getContentPane().add(separator);
 		
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setOrientation(SwingConstants.VERTICAL);
-		separator_1.setBounds(482, 0, 8, 290);
+		separator_1.setBounds(611, 0, 8, 290);
 		getContentPane().add(separator_1);
 		
-		JSeparator separator_2 = new JSeparator();
-		separator_2.setBounds(260, 159, 220, 8);
-		getContentPane().add(separator_2);
-		
 		JButton btnConsultar = new JButton("Consultar");
-		btnConsultar.setForeground(new Color(204, 0, 102));
-		btnConsultar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnConsultar.setForeground(Color.WHITE);
+		btnConsultar.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnConsultar.setBackground(new Color(255, 153, 0));
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
@@ -139,12 +135,12 @@ public class ventanaConsultas extends JInternalFrame {
 					
 			}
 		});
-		btnConsultar.setBounds(545, 11, 89, 23);
+		btnConsultar.setBounds(631, 47, 105, 23);
 		getContentPane().add(btnConsultar);
 		
 		JButton btnLimpiar = new JButton("Limpiar");
-		btnLimpiar.setForeground(new Color(204, 0, 102));
-		btnLimpiar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnLimpiar.setForeground(Color.WHITE);
+		btnLimpiar.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnLimpiar.setBackground(new Color(255, 153, 0));
 		btnLimpiar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
@@ -152,12 +148,12 @@ public class ventanaConsultas extends JInternalFrame {
 				limpiarVentana();
 			}
 		});
-		btnLimpiar.setBounds(545, 141, 89, 23);
+		btnLimpiar.setBounds(631, 142, 105, 23);
 		getContentPane().add(btnLimpiar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setForeground(new Color(204, 0, 102));
-		btnCancelar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnCancelar.setForeground(Color.WHITE);
+		btnCancelar.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnCancelar.setBackground(new Color(255, 153, 0));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
@@ -166,13 +162,13 @@ public class ventanaConsultas extends JInternalFrame {
 				miVentanaConsultas.setVisible(false);
 			}
 		});
-		btnCancelar.setBounds(545, 256, 89, 23);
+		btnCancelar.setBounds(631, 218, 105, 23);
 		getContentPane().add(btnCancelar);
 		
 		
 		panel = new JPanel();
 		panel.setBackground(new Color(51, 153, 204));
-		panel.setBounds(260, 0, 212, 162);
+		panel.setBounds(379, 0, 212, 162);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
@@ -182,22 +178,22 @@ public class ventanaConsultas extends JInternalFrame {
 		panel.add(lblFiltro);
 		
 		fieldTitulo = new JTextField();
-		fieldTitulo.setBounds(116, 36, 86, 20);
+		fieldTitulo.setBounds(116, 36, 86, 26);
 		panel.add(fieldTitulo);
 		fieldTitulo.setColumns(10);
 		
 		fieldAutor = new JTextField();
-		fieldAutor.setBounds(116, 74, 86, 20);
+		fieldAutor.setBounds(116, 74, 86, 26);
 		panel.add(fieldAutor);
 		fieldAutor.setColumns(10);
 		
 		fieldEditorial = new JTextField();
-		fieldEditorial.setBounds(116, 105, 86, 20);
+		fieldEditorial.setBounds(116, 105, 86, 26);
 		panel.add(fieldEditorial);
 		fieldEditorial.setColumns(10);
 		
 		fieldPersona = new JTextField();
-		fieldPersona.setBounds(116, 136, 86, 20);
+		fieldPersona.setBounds(116, 136, 86, 26);
 		panel.add(fieldPersona);
 		fieldPersona.setColumns(10);
 		
@@ -218,19 +214,19 @@ public class ventanaConsultas extends JInternalFrame {
 		
 		JLabel lblPersona = new JLabel("Persona");
 		lblPersona.setFont(new Font("Gisha", Font.PLAIN, 11));
-		lblPersona.setBounds(25, 139, 46, 14);
+		lblPersona.setBounds(25, 139, 73, 14);
 		panel.add(lblPersona);
 		panel.setVisible(false);
 		
 		panel_1 = new JPanel();
 		panel_1.setBackground(new Color(51, 153, 204));
-		panel_1.setBounds(270, 159, 202, 131);
+		panel_1.setBounds(379, 159, 212, 131);
 		getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
 		JLabel lblCantidadDePrestamos = new JLabel("Cantidad de Prestamos");
 		lblCantidadDePrestamos.setFont(new Font("Gisha", Font.PLAIN, 11));
-		lblCantidadDePrestamos.setBounds(10, 27, 125, 14);
+		lblCantidadDePrestamos.setBounds(10, 27, 134, 14);
 		panel_1.add(lblCantidadDePrestamos);
 		
 		spinnerCantidadPrestamos = new JSpinner();
@@ -257,6 +253,10 @@ public class ventanaConsultas extends JInternalFrame {
 		dateChooserHasta.getCalendarButton().setBackground(new Color(255, 153, 0));
 		dateChooserHasta.setBounds(105, 100, 87, 20);
 		panel_1.add(dateChooserHasta);
+		
+		JSeparator separator_2 = new JSeparator();
+		separator_2.setBounds(0, 7, 220, 8);
+		panel_1.add(separator_2);
 		
 	
 		panel_2 = new JPanel();

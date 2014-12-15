@@ -1,5 +1,5 @@
 package Administradores;
-// Importar Librerías y Classes
+// Importar Librerï¿½as y Classes
 import java.util.ArrayList;
 
 import Estructuras.Articulo;
@@ -12,7 +12,7 @@ import Estructuras.Usuario;
 import Interfaces.IConstantes;
 
 /**
- * Clase Administrador de Aplicación
+ * Clase Administrador de Aplicaciï¿½n
  * Administra el programa 
  * @author Adrian Soto
  *
@@ -21,7 +21,7 @@ public class administradorAplicacion implements IConstantes
 {
 	// Atributos
 	/**
-	 *  Crea una instancia de administradorAplicación
+	 *  Crea una instancia de administradorAplicaciï¿½n
 	 */
 	private static administradorAplicacion miAdministrador;
 	/**
@@ -37,11 +37,11 @@ public class administradorAplicacion implements IConstantes
 	 */
 	private administradorArchivos miAdministradorArchivos = new administradorArchivos();
 	/**
-	 * Crea  lista de categorías
+	 * Crea  lista de categorï¿½as
 	 */
 	private ArrayList<String> tiposCategorias = new ArrayList<String>();
 	/**
-	 * Crea  lista de tipos de categorías
+	 * Crea  lista de tipos de categorï¿½as
 	 */
 	private ArrayList<ArrayList<Articulo>> miListaCategorias = new ArrayList<ArrayList<Articulo>>();
 	/**
@@ -55,15 +55,15 @@ public class administradorAplicacion implements IConstantes
 	 */
 	private Usuario usuario;
 	/**
-	 * Declarar los días de prestamo
+	 * Declarar los dï¿½as de prestamo
 	 */
-	private int diasPrestamo = 20;
+	private int diasPrestamo = 8;
 	/**
-	 * Declarar los días de tolerancia de prestamo
+	 * Declarar los dï¿½as de tolerancia de prestamo
 	 */
-	private int diasTolerancia = 5;
+	private int diasTolerancia = 3;
 	
-	// Métodos
+	// Mï¿½todos
 	/**
 	 * Gets & Sets
 	 * @return  Lista de Prestamos actuales
@@ -108,7 +108,7 @@ public class administradorAplicacion implements IConstantes
 		return miAdministrador;
 	}
 	/**
-	 * Imprimir la lista de categorías actuales
+	 * Imprimir la lista de categorï¿½as actuales
 	 */
 	public void imprimirListaCategorias()
 	{
@@ -167,14 +167,14 @@ public class administradorAplicacion implements IConstantes
 	}
 	
 	/**
-	 * Agregar personas al registro; futuros deudores en razón de los artículos
+	 * Agregar personas al registro; futuros deudores en razï¿½n de los artï¿½culos
 	 * @param pNombre    : nombre del deudor
 	 * @param pApellido1 : primer apellido 
 	 * @param pApellido2 : segundo apellidos
-	 * @param pCedula    : número de cédula
-	 * @param pTelefono  : número de teléfono; móvil o fijo
-	 * @param pCorreoE   : dirección de correo electrónico
-	 * @param pCategoria : categoría de la persona
+	 * @param pCedula    : nï¿½mero de cï¿½dula
+	 * @param pTelefono  : nï¿½mero de telï¿½fono; mï¿½vil o fijo
+	 * @param pCorreoE   : direcciï¿½n de correo electrï¿½nico
+	 * @param pCategoria : categorï¿½a de la persona
 	 */
 	public void agregarPersona(String pNombre, String pApellido1, String pApellido2,
 			String pCedula, String pTelefono, String pCorreoE, int pCategoria)
@@ -186,8 +186,8 @@ public class administradorAplicacion implements IConstantes
 	
 	/**
 	 * Agrega un prestamos a la lista de prestamos
-	 * @param pCategoria : categoría de la persona
-	 * @param pPrestamo  : artículo prestado
+	 * @param pCategoria : categorï¿½a de la persona
+	 * @param pPrestamo  : artï¿½culo prestado
 	 */
 	public void agregarPrestamo(int pCategoria,Prestamo pPrestamo)
 	{
@@ -197,7 +197,7 @@ public class administradorAplicacion implements IConstantes
 	
 	/**
 	 * Cargar libros desde archivo .txt
-	 * @param pPath : dirección en el sistema del archivo
+	 * @param pPath : direcciï¿½n en el sistema del archivo
 	 */
 	public void cargarLibros(String pPath)
 	{
@@ -209,7 +209,7 @@ public class administradorAplicacion implements IConstantes
 	
 	/**
 	 * Cargar revistas desde archivo .txt
-	 * @param pPath : dirección en el sistema del archivo
+	 * @param pPath : direcciï¿½n en el sistema del archivo
 	 */
 	public void cargarRevistas(String pPath)
 	{
@@ -220,8 +220,8 @@ public class administradorAplicacion implements IConstantes
 	}
 	
 	/**
-	 * Cargar películas desde archivo .txt
-	 * @param pPath : dirección en el sistema del archivo
+	 * Cargar pelï¿½culas desde archivo .txt
+	 * @param pPath : direcciï¿½n en el sistema del archivo
 	 */
 	public void cargarPeliculas(String pPath)
 	{
@@ -232,7 +232,7 @@ public class administradorAplicacion implements IConstantes
 	}
 	
 	/**
-	 * Agregar una categoría a la lista de categorías de los artículos
+	 * Agregar una categorï¿½a a la lista de categorï¿½as de los artï¿½culos
 	 * @param pCategoria
 	 */
 	public void agregarCategoria(String pCategoria)
@@ -245,11 +245,11 @@ public class administradorAplicacion implements IConstantes
 	
 	/**
 	 *  Agregar un libro al registro
-	 * @param pTitulo       : título del libro
+	 * @param pTitulo       : tï¿½tulo del libro
 	 * @param pAutor        : autor
 	 * @param pEditorial    : editorial
-	 * @param pEdicion      : edición del libro (año)
-	 * @param pCalificacion : calificación dada por el usuario
+	 * @param pEdicion      : ediciï¿½n del libro (aï¿½o)
+	 * @param pCalificacion : calificaciï¿½n dada por el usuario
 	 * @param pImagen       : imagen para identificar el libro
 	 */
 	public void agregarLibro(String pTitulo ,String pAutor, String pEditorial, 
@@ -261,11 +261,11 @@ public class administradorAplicacion implements IConstantes
 	
 	/**
 	 * Agregar una revista al registro
-	 * @param pTitulo       : título de la revista
+	 * @param pTitulo       : tï¿½tulo de la revista
 	 * @param pAutor        : autor
 	 * @param pEditorial    : editorial
-	 * @param pEdicion      : número de edición
-	 * @param pCalificacion : calificación dada por el usuario
+	 * @param pEdicion      : nï¿½mero de ediciï¿½n
+	 * @param pCalificacion : calificaciï¿½n dada por el usuario
 	 * @param pImagen       : imagen para identificar la revista
 	 */
 	public void agregarRevista(String pTitulo ,String pAutor, String pEditorial, 
@@ -276,12 +276,12 @@ public class administradorAplicacion implements IConstantes
 	}
 	
 	/**
-	 * Agregar una película al registro
+	 * Agregar una pelï¿½cula al registro
 	 * @param pNombre      : nombre 
-	 * @param pCalificacion: calificación dada por el usuario
-	 * @param pImagen      : imagen para identificar la película
-	 * @param pDirector    : director de la película
-	 * @param pCategoria   : género de la película
+	 * @param pCalificacion: calificaciï¿½n dada por el usuario
+	 * @param pImagen      : imagen para identificar la pelï¿½cula
+	 * @param pDirector    : director de la pelï¿½cula
+	 * @param pCategoria   : gï¿½nero de la pelï¿½cula
 	 */
 	public void agregarPelicula(String pNombre, int pCalificacion, String pImagen,
 			String pDirector, String pCategoria)
@@ -291,12 +291,12 @@ public class administradorAplicacion implements IConstantes
 	}
 	
 	/**
-	 * Agregar un artículo cualquiera
+	 * Agregar un artï¿½culo cualquiera
 	 * @param pNombre         : nombre
-	 * @param pCalificacion   : calificación dada por el usuario
-	 * @param pIimagen        : imagen para identificar la película
-	 * @param pDescripcion    : descripción del estado y características del objeto
-	 * @param pIndiceCategoria: índice de la nueva categoría
+	 * @param pCalificacion   : calificaciï¿½n dada por el usuario
+	 * @param pIimagen        : imagen para identificar la pelï¿½cula
+	 * @param pDescripcion    : descripciï¿½n del estado y caracterï¿½sticas del objeto
+	 * @param pIndiceCategoria: ï¿½ndice de la nueva categorï¿½a
 	 */
 	public void agregarOtro(String pNombre, int pCalificacion, String pIimagen,
 							String pDescripcion, int pIndiceCategoria)
@@ -307,15 +307,15 @@ public class administradorAplicacion implements IConstantes
 	
 	/**
 	 * Validar si el usuario existe y si son correctos los datos
-	 * @param pNickName   : seudónimo del usuario
-	 * @param pContraseña : contraseña de usuario
-	 * @return True  : Si es correcta la validación
-	 * 		   False : Cuando no coincide la contraseña y nickname o no existe el usuario
+	 * @param pNickName   : seudï¿½nimo del usuario
+	 * @param pContraseï¿½a : contraseï¿½a de usuario
+	 * @return True  : Si es correcta la validaciï¿½n
+	 * 		   False : Cuando no coincide la contraseï¿½a y nickname o no existe el usuario
 	 */
-	public boolean validarUsuario(String pNickName ,String pContraseña)
+	public boolean validarUsuario(String pNickName ,String pContrasena)
 	{
 		boolean esUsuario = false;
-		if(usuario.getNikname().compareTo(pNickName) == 0 && usuario.getContraseña().compareTo(pContraseña) == 0)
+		if(usuario.getNikname().compareTo(pNickName) == 0 && usuario.getContrasena().compareTo(pContrasena) == 0)
 		{
 			esUsuario = true;
 		}
@@ -357,16 +357,16 @@ public class administradorAplicacion implements IConstantes
 	}
 	
 	/**
-	 * Get de la lista de categorías
-	 * @return una lista de categorías
+	 * Get de la lista de categorï¿½as
+	 * @return una lista de categorï¿½as
 	 */
 	public ArrayList<ArrayList<Articulo>> getMiListaCategorias() {
 		return miListaCategorias;
 	}
 	
 	/**
-	 * Set lista de categorías
-	 * @param miListaCategorias : recibe una lista de categorías
+	 * Set lista de categorï¿½as
+	 * @param miListaCategorias : recibe una lista de categorï¿½as
 	 */
 	public void setMiListaCategorias(ArrayList<ArrayList<Articulo>> miListaCategorias) {
 		this.miListaCategorias = miListaCategorias;
@@ -389,16 +389,16 @@ public class administradorAplicacion implements IConstantes
 	}
 	
 	/**
-	 * Get  tipos de categoría 
-	 * @return una lista con  tipos de categoría
+	 * Get  tipos de categorï¿½a 
+	 * @return una lista con  tipos de categorï¿½a
 	 */
 	public ArrayList<String> getTiposCategorias() {
 		return tiposCategorias;
 	}
 	
 	/**
-	 * Set tipos de categorías
-	 * @param tiposCategorias : ingresa una lista con tipos de categoría
+	 * Set tipos de categorï¿½as
+	 * @param tiposCategorias : ingresa una lista con tipos de categorï¿½a
 	 */
 	public void setTiposCategorias(ArrayList<String> tiposCategorias) {
 		this.tiposCategorias = tiposCategorias;

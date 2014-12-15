@@ -45,7 +45,7 @@ import java.awt.Font;
 /**
  * Clase ventanaAgregarArticulo
  * 
- * Contiene información de la ventana agregar articulo 
+ * Contiene informaciï¿½n de la ventana agregar articulo 
  * 
  * @author Marco
  *
@@ -70,11 +70,11 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 	 */
 	private JTextField fieldAutor;
 	/**
-	 * edición del articulo
+	 * ediciï¿½n del articulo
 	 */
 	private JTextField filedEdicion;
 	/**
-	 * descripción del articulo
+	 * descripciï¿½n del articulo
 	 */
 	JEditorPane fieldDescripcion;
 	/**
@@ -94,19 +94,19 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 	 */
 	private JLabel lblImagen;
 	/**
-	 * editorial del artículo
+	 * editorial del artï¿½culo
 	 */
 	private JTextField fieldEditorial;
 	/**
-	 * categoría del artículo
+	 * categorï¿½a del artï¿½culo
 	 */
 	private JComboBox comboBoxCategoria;
 	/**
-	 * calificación del artículo
+	 * calificaciï¿½n del artï¿½culo
 	 */
 	private JComboBox comboBoxCalificacion;
 	
-	//método publico
+	//mï¿½todo publico
 	/**
 	 * Abre la ventana agregar articulo
 	 * @return miVentanaAgregarArticulo
@@ -138,7 +138,7 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 		
 		comboBoxSelecCategoria = new JComboBox();
 		comboBoxSelecCategoria.setModel(new DefaultComboBoxModel(new String[] {""}));
-		comboBoxSelecCategoria.setBounds(218, 11, 205, 20);
+		comboBoxSelecCategoria.setBounds(218, 11, 205, 29);
 		comboBoxSelecCategoria.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -148,9 +148,9 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBackground(new Color(255, 153, 0));
-		btnCancelar.setForeground(new Color(204, 0, 102));
-		btnCancelar.setFont(new Font("Gisha", Font.PLAIN, 11));
-		btnCancelar.setBounds(341, 419, 83, 23);
+		btnCancelar.setForeground(Color.WHITE);
+		btnCancelar.setFont(new Font("Dialog", Font.BOLD, 11));
+		btnCancelar.setBounds(332, 419, 92, 23);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
@@ -170,7 +170,7 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 		lblNombre.setBounds(10, 71, 46, 14);
 		
 		fieldNombre = new JTextField();
-		fieldNombre.setBounds(60, 68, 143, 20);
+		fieldNombre.setBounds(60, 68, 143, 29);
 		fieldNombre.setColumns(10);
 		
 		lblAutor = new JLabel("Autor");
@@ -178,7 +178,7 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 		lblAutor.setBounds(221, 71, 46, 14);
 		
 		fieldAutor = new JTextField();
-		fieldAutor.setBounds(277, 68, 152, 20);
+		fieldAutor.setBounds(277, 68, 152, 29);
 		fieldAutor.setColumns(10);
 		
 		JLabel lblEdicion = new JLabel("Edici\u00F3n");
@@ -186,25 +186,25 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 		lblEdicion.setBounds(10, 186, 46, 14);
 		
 		filedEdicion = new JTextField();
-		filedEdicion.setBounds(60, 183, 143, 20);
+		filedEdicion.setBounds(60, 183, 143, 28);
 		filedEdicion.setColumns(10);
 		
-		JLabel lblCalificacion = new JLabel("Calificaci\u00F3n");
+		JLabel lblCalificacion = new JLabel("Estrellas");
 		lblCalificacion.setFont(new Font("Gisha", Font.PLAIN, 11));
 		lblCalificacion.setBounds(221, 130, 70, 14);
 		
 		comboBoxCalificacion = new JComboBox();
-		comboBoxCalificacion.setBounds(301, 127, 121, 20);
-		comboBoxCalificacion.setModel(new DefaultComboBoxModel(new String[] {"1 Estrella", "2 Estrellas", "3 Estrellas", "4 Estrellas", "5 Estrellas", "6 Estrellas", "7 Estrellas", "8 Estrellas", "9 Estrellas", "10 Estrellas"}));
+		comboBoxCalificacion.setBounds(301, 127, 58, 29);
+		comboBoxCalificacion.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		
 		lblImagen = new JLabel("");
 		lblImagen.setBounds(10, 223, 104, 165);
 		
 		JButton btnBuscarImagen = new JButton("Buscar Imagen");
 		btnBuscarImagen.setBackground(new Color(255, 153, 0));
-		btnBuscarImagen.setForeground(new Color(204, 0, 102));
-		btnBuscarImagen.setFont(new Font("Gisha", Font.PLAIN, 11));
-		btnBuscarImagen.setBounds(10, 419, 119, 23);
+		btnBuscarImagen.setForeground(Color.WHITE);
+		btnBuscarImagen.setFont(new Font("Dialog", Font.BOLD, 11));
+		btnBuscarImagen.setBounds(10, 419, 143, 23);
 		btnBuscarImagen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
@@ -259,8 +259,8 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.setBackground(new Color(255, 153, 0));
-		btnAceptar.setForeground(new Color(204, 0, 102));
-		btnAceptar.setFont(new Font("Gisha", Font.PLAIN, 11));
+		btnAceptar.setForeground(Color.WHITE);
+		btnAceptar.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -325,9 +325,11 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 				fieldEditorial.setText("");
 				fieldDescripcion.setText("");
 				administradorAplicacion.getInstance().imprimirListaCategorias();
+				JOptionPane.showMessageDialog(null, "ArtÃ­culo Agregado con Ã©xito");
+				
 			}
 		});
-		btnAceptar.setBounds(196, 419, 76, 23);
+		btnAceptar.setBounds(187, 419, 92, 23);
 		getContentPane().setLayout(null);
 		getContentPane().add(lblSeleccioneLaCategoria);
 		getContentPane().add(comboBoxSelecCategoria);
@@ -348,7 +350,7 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 		
 		JLabel lblCategoria = new JLabel("Categor\u00EDa");
 		lblCategoria.setFont(new Font("Gisha", Font.PLAIN, 11));
-		lblCategoria.setBounds(218, 186, 54, 14);
+		lblCategoria.setBounds(218, 186, 73, 14);
 		getContentPane().add(lblCategoria);
 		
 		JLabel lblEditorial = new JLabel("Editorial");
@@ -357,13 +359,13 @@ public class ventanaAgregarArticulo extends JInternalFrame implements IConstante
 		getContentPane().add(lblEditorial);
 		
 		fieldEditorial = new JTextField();
-		fieldEditorial.setBounds(66, 127, 134, 20);
+		fieldEditorial.setBounds(66, 127, 134, 29);
 		getContentPane().add(fieldEditorial);
 		fieldEditorial.setColumns(10);
 		
 		comboBoxCategoria = new JComboBox();
 		comboBoxCategoria.setModel(new DefaultComboBoxModel(new String[] {"Acci\u00F3n ", "Suspenso", "Terror", "Comedia", "Ciencia Ficci\u00F3n", "Animada"}));
-		comboBoxCategoria.setBounds(301, 183, 121, 20);
+		comboBoxCategoria.setBounds(301, 183, 121, 29);
 		getContentPane().add(comboBoxCategoria);
 		
 		ventaBuscador = new JFileChooser();
